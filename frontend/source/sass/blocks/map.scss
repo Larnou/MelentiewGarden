@@ -1,0 +1,89 @@
+// Стилизация элемента: map
+// Описание элемента:   Стилизация элементов карты
+
+.map {
+  display: flex;
+  flex-flow: column;
+}
+
+.map__title {
+  @extend %h1;
+
+  margin-bottom: 16px;
+}
+
+.map__task {
+  @extend %p1;
+
+  span {
+    @extend %p1-bold;
+
+    margin-right: 4px;
+  }
+}
+
+.map__description {
+  @extend %p1;
+
+  margin-top: 8px;
+}
+
+.map__content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 65vh;
+  margin-top: 24px;
+}
+
+.map__field {
+  width: 100%;
+  height: 100%;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Дополнительно классы, влияющие на внешний вид внутри карты
+// main -> ymaps
+
+.ymaps-2-1-79-map,
+.ymaps-2-1-79-inner-panes {
+  border-radius: 24px;
+}
+
+.ymaps-2-1-79-map-copyrights-promo {
+  display: none;
+}
+
+main .ymaps-2-1-79-copyright {
+  display: none;
+}
+
+main .ymaps-2-1-79-zoom {
+  display: none;
+}
+
+// Сброс стилей для карты, полученной в Яндекс.Карты Конструктор
+
+main .ymaps-2-1-79-balloon__content {
+  max-width: 312px;
+  padding: 24px;
+}
+
+main .ymaps-2-1-79-balloon__close + .ymaps-2-1-79-balloon__content {
+  margin-right: 50px;
+}
+
+main .ymaps-2-1-79-balloon__close {
+  margin-right: 20px;
+  margin-top: 12px;
+}
+
+main [class*="ground-pane"] {
+  filter: grayscale(1);
+}

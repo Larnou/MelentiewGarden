@@ -1,0 +1,55 @@
+// Шаблон типографики
+
+//%name {
+//  font-family: name;
+//  font-size: value;
+//  font-style: value;
+//  font-weight: value;
+//  line-height: value;
+//  letter-spacing: value;
+//}
+
+%h1-promo {
+  font-family: $font-montserrat;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0;
+}
+
+%h1 {
+  font-family: $font-montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+%p1-bold {
+  font-family: $font-montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+%p1 {
+  font-family: $font-montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+%p2 {
+  font-family: $font-montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+}

@@ -1,0 +1,6 @@
+//- Миксин для вставки SVG, используется название файла как name
+    Указание размеров, является обязательным в противном случае размеры будут взяты 100% 100%
+
+mixin svg(name, width, height, className)
+  svg( width=("" + width) height=("" + height) aria-hidden="true" class=(className ? className : null))
+    use(xlink:href=("#" + name) )

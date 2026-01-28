@@ -1,0 +1,24 @@
+// Normalize
+//@import "normalize";
+
+// Libs styles
+// @import "node_modules/example/example";
+
+// General styles
+@import "general/fonts";
+@import "general/variables";
+@import "general/mixins";
+@import "general/custom-reset";
+@import "general/visually-hidden";
+@import "general/typography";
+
+// Components styles
+// @import "components/example";
+
+// Blocks styles
+// @import "blocks/example";
+@import "blocks/maps";
+@import "blocks/map";
+@import "blocks/filter";
+@import "blocks/balloon";
+@import "blocks/header";

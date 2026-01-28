@@ -1,0 +1,7 @@
+//- Используемые переменные, относящиеся к Header
+    header.class    - дополнительный класс (js-class)
+
+mixin header()
+  header(class='header' + (header.class === null ? '' : ' ' + header.class))
+    .header__container
+      h1.header__title Работа с картами и не только

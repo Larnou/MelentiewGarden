@@ -1,0 +1,220 @@
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "name": "Карта нашего офиса",
+        "creator": "Yandex Map Constructor",
+        "description": "Хотел узнать где кто живёт? Тогда тебе сюда"
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.26826330351393,
+                    52.288770783011806
+                ]
+            },
+            "properties": {
+                "description": "Мы — агентство Адикт. Сильны в сложной разработке, любим дизайн и брендинг, делаем хорошую интернет-рекламу.",
+                "iconCaption": "office",
+                "marker-color": "#7DBCCA"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.24957608671424,
+                    52.29164474615803
+                ]
+            },
+            "properties": {
+                "description": "В этих домиках, фронтендеры набирают ману, чтобы постигать мощь JS",
+                "iconCaption": "frontend",
+                "marker-color": "#846075"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.27533329026902,
+                    52.28217836650572
+                ]
+            },
+            "properties": {
+                "description": "В этих домиках, фронтендеры набирают ману, чтобы постигать мощь JS",
+                "iconCaption": "frontend",
+                "marker-color": "#846075"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.3059789968086,
+                    52.26756320513661
+                ]
+            },
+            "properties": {
+                "description": "В этих домиках, фронтендеры набирают ману, чтобы постигать мощь JS",
+                "iconCaption": "frontend",
+                "marker-color": "#846075"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.31295958436668,
+                    52.30065880366778
+                ]
+            },
+            "properties": {
+                "description": "Эти товарищи способны вообще на всё, нет серьёзно на всё. Но для этого им нужно набраться энергии и выпить тёплый чай",
+                "iconCaption": "backend",
+                "marker-color": "#FE5F55"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.31069621011386,
+                    52.28321766786576
+                ]
+            },
+            "properties": {
+                "description": "Эти товарищи способны вообще на всё, нет серьёзно на всё. Но для этого им нужно набраться энергии и выпить тёплый чай",
+                "iconCaption": "backend",
+                "marker-color": "#FE5F55"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.24649392959822,
+                    52.256031131353204
+                ]
+            },
+            "properties": {
+                "description": "Эти товарищи способны вообще на всё, нет серьёзно на всё. Но для этого им нужно набраться энергии и выпить тёплый чай",
+                "iconCaption": "backend",
+                "marker-color": "#FE5F55"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.2743312283342,
+                    52.24181783145301
+                ]
+            },
+            "properties": {
+                "description": "Эти товарищи способны вообще на всё, нет серьёзно на всё. Но для этого им нужно набраться энергии и выпить тёплый чай",
+                "iconCaption": "backend",
+                "marker-color": "#FE5F55"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.28432238595039,
+                    52.29136071742607
+                ]
+            },
+            "properties": {
+                "description": "Лучше всех знает про синтезирование, но для эффективной работы нужно искать вдохновение. В этих домиках они его находят, чтобы всем показать на что они способны",
+                "iconCaption": "design",
+                "marker-color": "#FCA311"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.25908250850405,
+                    52.27059250304151
+                ]
+            },
+            "properties": {
+                "description": "Лучше всех знает про синтезирование, но для эффективной работы нужно искать вдохновение. В этих домиках они его находят, чтобы всем показать на что они способны",
+                "iconCaption": "design",
+                "marker-color": "#FCA311"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.26043327741705,
+                    52.25805295606605
+                ]
+            },
+            "properties": {
+                "description": "Лучше всех знает про синтезирование, но для эффективной работы нужно искать вдохновение. В этих домиках они его находят, чтобы всем показать на что они способны",
+                "iconCaption": "design",
+                "marker-color": "#FCA311"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.26047894022595,
+                    52.26947616962614
+                ]
+            },
+            "properties": {
+                "description": "Знаете про швейцарский нож? Который с кучей разных инструментов. В этих домиках менеджеры открывают новые инструменты для себя",
+                "iconCaption": "manager",
+                "marker-color": "#545775"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.30812476330269,
+                    52.276865822026934
+                ]
+            },
+            "properties": {
+                "description": "Знаете про швейцарский нож? Который с кучей разных инструментов. В этих домиках менеджеры открывают новые инструменты для себя",
+                "iconCaption": "manager",
+                "marker-color": "#545775"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.30093814609481,
+                    52.26241939611313
+                ]
+            },
+            "properties": {
+                "description": "Знаете про швейцарский нож? Который с кучей разных инструментов. В этих домиках менеджеры открывают новые инструменты для себя",
+                "iconCaption": "manager",
+                "marker-color": "#545775"
+            }
+        }
+    ]
+}

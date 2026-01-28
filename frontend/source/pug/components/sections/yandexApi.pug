@@ -1,0 +1,27 @@
+mixin yandexApi
+  .map__content
+    .yandex-api__filter.filter.js--filter
+      .filter__header.js--toggle-filter
+        .filter__title Filter
+        button(type='button').filter__svg: +svg('arrow', 24, 24)
+      .filter__content
+        button(type='button' data-type='home').filter__item.filter__item--home.js--filter-btn
+          .filter__item-icon: +svg('map-home', 24, 24)
+          .filter__item-value Мой дом
+        button(type='button' data-type='park').filter__item.filter__item--park.js--filter-btn
+          .filter__item-icon: +svg('map-park', 24, 24)
+          .filter__item-value Парки
+        button(type='button' data-type='shop').filter__item.filter__item--shop.js--filter-btn
+          .filter__item-icon: +svg('map-shop', 24, 24)
+          .filter__item-value ТК
+        button(type='button' data-type='train').filter__item.filter__item--train.js--filter-btn
+          .filter__item-icon: +svg('map-train', 24, 24)
+          .filter__item-value ЖД Вокзал
+        button(type='button' data-type='airport').filter__item.filter__item--airport.js--filter-btn
+          .filter__item-icon: +svg('map-airport', 24, 24)
+          .filter__item-value Аэропорт
+        button(type='button' data-type='landmark').filter__item.filter__item--landmark.js--filter-btn
+          .filter__item-icon: +svg('map-landmark', 24, 24)
+          .filter__item-value Аэропорт
+
+    .map__field#map

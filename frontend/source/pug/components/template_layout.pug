@@ -1,0 +1,60 @@
+//- Основные инклюды (mixins etc.)
+block includes
+  include includes
+
+//- Переменные, используемые на странице
+block variables
+  -
+    //- Переменные по умолчанию
+    let pageTitle = 'Тут был заголовок'
+    let pageDescription = 'Тут было интересное описание, но его забыли вернуть'
+
+    let header = {
+      class: null,
+    }
+
+    let body = {
+      class: null,
+    }
+
+    let main = {
+      class: null,
+    }
+
+    let footer = {
+      class: null,
+    }
+
+    let currentPage = {
+      yApi: false,
+      yIframe: false,
+    }
+
+doctype html
+html(lang='ru')
+
+  //- Блок head, в котором указаны мета-теги, название и описание страницы
+  block head
+    +head(pageTitle, pageDescription)
+
+  body(class='body' + (body.class === null ? '' : ' ' + body.class))
+
+    //- SVG-sprite, в нём содержаться все svg-рисунки на сайте, нужен для работы миксина svg.pug
+    div(style="display:none")
+      include ../../../build/img/sprite.svg
+
+    //- Блок header, вводная часть, чаще всего содержит меню навигации
+    block header
+      +header()
+
+    //- Блок main, основная часть(контент) страницы
+    main(class='main' + (main.class === null ? '' : ' ' + main.class))
+      block mainContent
+
+    //- Блок footer, заключительная часть, чаще всего содержит контакты авторов сайта
+    block footer
+      +footer()
+
+    //- Блок JS, подключает используемый файл скриптов
+    block scriptsJS
+      script(src="js/main.js")

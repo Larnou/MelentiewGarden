@@ -1,0 +1,17 @@
+//- Используемые переменные, относящиеся к Head
+    title       - заголовок страницы, указывается на вкладке  /   title   \
+    description - описание страницы, используется для SEO
+
+mixin head(title, description)
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    meta(name="format-detection" content="telephone=no")
+
+    title= title
+    meta(name="description" content= description)
+    link(rel="stylesheet" href="css/style.css")
+    script(src='https://api-maps.yandex.ru/2.1/?apikey=dc636ff4-e87b-45d3-a85d-856695ae9649&lang=ru_RU', type='text/javascript')
+
+    //- Для подключения AOS раскомментировать следующую строчку
+        link(href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet")

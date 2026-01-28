@@ -1,0 +1,31 @@
+// Шаблон вставки собственного шрифта
+
+//@font-face {
+//  font-family: "";
+//  font-weight: *weight*;
+//  font-style: *style*;
+//  font-display: swap;
+//  src:
+//    url("../fonts/*font*.woff2") format("woff2"),
+//    url("../fonts/*font*.woff") format("woff");
+//}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url("../fonts/Montserrat-Bold.woff") format("woff"),
+    url("../fonts/Montserrat-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("../fonts/Montserrat-Medium.woff") format("woff"),
+    url("../fonts/Montserrat-Medium.woff2") format("woff2");
+  font-display: swap;
+}
