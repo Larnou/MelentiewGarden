@@ -3,3 +3,30 @@
 
 mixin footer()
   footer(class='footer' + (footer.class === null ? '' : ' ' + footer.class))
+    .footer__container
+      //- Ссылка и адрес
+      .footer__brand
+        a.footer__brand-link(href="/")
+          +svg('apple', 40, 40)
+          span.footer__brand-title Саженцы
+        p.footer__address г. Иркутск, ул. Примерная, 12
+
+      //- Контакты
+      .footer__contacts
+        .footer__section-title НАШИ КОНТАКТЫ
+
+        a.footer__row(href="tel:+79000000000")
+          +svg('telephone', 64, 64)
+          span.footer__row-text +7 (900) 000-00-00
+
+        a.footer__row(href="mailto:info@example.ru")
+          +svg('email', 64, 64)
+          span.footer__row-text info@example.ru
+
+      //- Сообщество
+      .footer__community
+        .footer__section-title НАШЕ СООБЩЕСТВО
+
+        a.footer__row(href="https://t.me/your_channel" target="_blank" rel="noopener")
+          +svg('telegram', 64, 64)
+          span.footer__row-text Наш Телеграм-канал

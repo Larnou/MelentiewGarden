@@ -1,0 +1,185 @@
+.footer {
+  width: 100%;
+  background: #333333; // Текст/основной
+  color: #ffffff;
+}
+
+.footer__container {
+  // макет: 1920 ширина, padding 64 32, gap 209
+  width: 1920px;
+  max-width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 64px 32px;
+  gap: 209px;
+
+  box-sizing: border-box;
+}
+
+/* Колонка 1: ссылка и адрес */
+.footer__brand {
+  width: 503px;
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__brand-link {
+  width: 503px;
+  max-width: 100%;
+  height: 64px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 24px;
+  box-sizing: border-box;
+
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer__brand-title {
+  width: 403px;
+  max-width: 100%;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.footer__address {
+  width: 381px;
+  max-width: 100%;
+  margin: 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Колонка 2 и 3 общие элементы */
+.footer__contacts,
+.footer__community {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer__contacts {
+  width: 435px;
+  max-width: 100%;
+}
+
+.footer__community {
+  width: 584px;
+  max-width: 100%;
+}
+
+.footer__section-title {
+  // Frame: padding 8 16, height 60, но это по сути просто заголовок с отступами
+  padding: 8px 16px;
+  margin: 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+}
+
+/* Ряд (иконка + текст) */
+.footer__row {
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 8px 16px;
+  box-sizing: border-box;
+
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer__row svg {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+}
+
+.footer__row-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+/* Адаптив: чтобы не разваливалось на меньшей ширине */
+@media (max-width: 1200px) {
+  .footer__container {
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__contacts,
+  .footer__community {
+    align-items: center;
+  }
+
+  .footer__row {
+    justify-content: center;
+  }
+
+  .footer__row-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer__brand-title,
+  .footer__section-title,
+  .footer__row-text {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .footer__address {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+}
