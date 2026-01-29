@@ -2,6 +2,16 @@
     header.class    - дополнительный класс (js-class)
 
 mixin header()
-  header(class='header' + (header.class === null ? '' : ' ' + header.class))
+  header.header(class=header && header.class ? header.class : '')
     .header__container
-      h1.header__title Работа с картами и не только
+      a.header__logo(href="/")
+        +svg('apple', 40, 40)
+        h1.header__title САЖЕНЦЫ-ИРКУТСК
+
+      nav.header__nav(aria-label="Главное меню")
+        ul.header__menu
+          li.header__item: a.header__link(href="/news") Новости
+          li.header__item: a.header__link(href="/catalog") Каталог
+          li.header__item: a.header__link(href="/articles") Статьи
+          li.header__item: a.header__link(href="/about") О нас
+

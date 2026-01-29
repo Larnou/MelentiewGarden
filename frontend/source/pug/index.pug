@@ -2,30 +2,14 @@ extends components/template_layout
 
 append variables
   -
-    pageTitle = 'Карта окрестностей'
-    pageDescription = 'Доступность достопримечательностей вокруг моего дома'
+    pageTitle = 'Сад Мелентьевых'
+    pageDescription =
+            'Мы выращиваем только то, что проверили сами: урожайные сорта с вкуснейшими плодами, ' +
+            'адаптированные к сибирским морозам'
 
 prepend mainContent
-  section.maps
-    .maps__container.swiper-container.js--maps-slider
-      .maps__control
-        .maps__control-group.swiper-button-prev
-          .maps__control-text.js--control-text-prev Предыдущий
-          button(type='button').maps__control-btn
-            +svg('arrow-backward', 32, 32)
 
-        .maps__control-group.swiper-button-next
-          button(type='button').maps__control-btn
-            +svg('arrow', 32, 32)
-          .maps__control-text.js--control-text-next Следующий
+  +hero()
 
-      .maps__wrapper.swiper-wrapper
-        for item in DATA_UPDATED
-          .maps__item.map.swiper-slide
-            .map__title= item.title
-            .map__task
-              span Задача:
-              | #{item.task}
 
-            .map__description= item.description
-            +#{item.mapSection}
+

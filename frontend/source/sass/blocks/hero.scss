@@ -1,0 +1,175 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; // весь экран минус липкий хедер
+  box-sizing: border-box;
+
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // чтобы нижний блок жил у низа, а центр был центром
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22));
+}
+
+.hero__container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+
+  // центрирование по вертикали и горизонтали
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero__title {
+  @extend %h1-promo;
+
+  margin: 0;
+  color: $color-white;
+  font-size: 96px;
+  line-height: 1.2;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.hero__subtitle {
+  font-family: $font-montserrat;
+  font-size: 24px;
+  font-style: normal;
+  line-height: 36px;
+  letter-spacing: 0;
+
+  margin: 0;
+  margin-top: 24px;
+  color: $color-white;
+  align-items: center;
+
+
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.hero__content {
+  align-items: center;
+  justify-content: center;
+}
+
+
+// =====================
+// Категории (пилюля)
+// =====================
+.hero__categories {
+  margin-top: 48px;
+  width: fit-content;
+}
+
+.hero__categories-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  align-content: center;
+
+  background: $color-white;
+  border-radius: 24px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  box-sizing: border-box;
+
+  overflow-x: auto;
+  @extend %h1-promo;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.hero__category {
+  align-items: center;
+}
+
+
+.hero__category-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+
+  color: #2b2b2b;
+  text-decoration: none;
+  white-space: nowrap;
+
+  //transition: transform 0.15s ease, background-color 0.15s ease;
+
+  //&:hover {
+  //  background-color: rgba(0, 0, 0, 0.06);
+  //  transform: translateY(-1px);
+  //}
+}
+
+// =====================
+// Нижний блок "Ближайшая ярмарка"
+// =====================
+.hero__bottom {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+
+  // чтобы низ был реально низом даже если контента мало
+  margin-top: auto;
+}
+
+.hero__bottom-card {
+  width: min(50%, 100%);
+  height: 84px;
+
+  background: $color-white;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__bottom-title {
+  @extend %h1-promo;
+
+  font-size:  64px;
+  line-height: 1.2;
+  color: $color-dark-green;
+}
