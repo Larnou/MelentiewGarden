@@ -1,6 +1,10 @@
 // Стилизация элемента: header
 // Описание элемента:   Общий заголовок
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -9,7 +13,8 @@
   z-index: 1000;
 
   background-color: $color-white;
-  border-bottom: 4px solid $color-border;
+  opacity: 0.95;
+  box-shadow: $shadow;
 }
 
 .header__container {
@@ -20,9 +25,12 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 24px;
+  padding: 12px 24px;
   height: 80px;
   box-sizing: border-box;
+
+  // нужно, чтобы mobile-nav (absolute) цеплялся к контейнеру
+  position: relative;
 }
 
 .header__logo {
@@ -33,17 +41,49 @@
   color: inherit;
   flex-shrink: 0;
   margin-right: 24px;
+
+  svg {
+    fill: $color-dark-green;
+
+    @include mobile {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &:hover {
+    svg {
+      @include transition(fill);
+      fill: $color-dark-green-hover;
+    }
+  }
 }
 
 .header__title {
-  @extend %h1-logo;
+  @extend %header;
   margin: 0;
   white-space: nowrap;
 
+  @include mobile {
+    font-size: 14px;
+  }
 }
 
 .header__nav {
   flex-shrink: 0;
+
+  @include tablet {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+
+    background: $color-white;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
 }
 
 .header__menu {
@@ -54,18 +94,121 @@
   list-style: none;
   margin: 0;
   padding: 0;
-}
 
-.header__link {
-  text-decoration: none;
-  color: inherit;
+  @include tablet {
+    flex-direction: column;
+    align-items: stretch;
 
-  // можно добавить hover по твоему дизайн-гайду
-  &:hover {
-    text-decoration: underline;
+    padding: 16px 24px;
+    gap: 0;
   }
 }
 
 .header__item {
-  @extend %h1-promo;
+  @extend %header;
+  text-decoration: none;
+
+  @include singleLineLink($color-black, $color-black, $color-black);
+
+  @include tablet {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+.header__link {
+  color: $color-black;
+
+  @include tablet {
+    display: block;
+    padding: 12px 8px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+  }
+}
+
+.header__burger {
+  display: none;
+
+  @include tablet {
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    span {
+      position: relative;
+      width: 26px;
+      height: 2px;
+      background: #333;
+      display: block;
+      transition: background 0.2s ease;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 26px;
+        height: 2px;
+        background: #333;
+        transition: transform 0.2s ease, top 0.2s ease;
+      }
+
+      &::before { top: -8px; }
+      &::after  { top:  8px; }
+    }
+  }
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+
+    span {
+      width: 22px;
+
+      &::before,
+      &::after {
+        width: 22px;
+      }
+    }
+  }
+}
+
+/* Состояние "открыто" */
+.header.is-open {
+  @include tablet {
+    .header__nav {
+      max-height: 340px;
+    }
+
+    .header__burger span {
+      background: transparent;
+    }
+
+    .header__burger span::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .header__burger span::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
 }

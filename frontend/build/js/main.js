@@ -644,9 +644,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/map */ "./frontend/source/js/modules/map.js");
 /* harmony import */ var _modules_filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/filter */ "./frontend/source/js/modules/filter.js");
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ "./frontend/source/js/modules/slider.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/burger */ "./frontend/source/js/modules/burger.js");
  // Пример подключения модуля
 // import module from './modules/module';
 // module();
+
 
 
 
@@ -655,6 +657,77 @@ __webpack_require__.r(__webpack_exports__);
 Object(_modules_map__WEBPACK_IMPORTED_MODULE_1__["default"])();
 Object(_modules_filter__WEBPACK_IMPORTED_MODULE_2__["default"])();
 Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])();
+Object(_modules_burger__WEBPACK_IMPORTED_MODULE_4__["default"])();
+
+/***/ }),
+
+/***/ "./frontend/source/js/modules/burger.js":
+/*!**********************************************!*\
+  !*** ./frontend/source/js/modules/burger.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var TABLET_BREAKPOINT = 1078;
+  var header = document.querySelector('.header');
+  var btn = document.querySelector('.header__burger');
+  var nav = document.querySelector('.header__nav');
+  if (!header || !btn || !nav) return;
+  var links = nav.querySelectorAll('.header__link');
+
+  var focus = function focus(el) {
+    if (!el) return;
+
+    try {
+      el.focus({
+        preventScroll: true
+      });
+    } catch (err) {
+      el.focus();
+    }
+  };
+
+  var isOpen = function isOpen() {
+    return header.classList.contains('is-open');
+  };
+
+  var toggle = function toggle(open) {
+    header.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('no-scroll', open);
+
+    if (open) {
+      var first = nav.querySelector('a');
+
+      if (first) {
+        focus(first);
+      }
+    } else {
+      focus(btn);
+    }
+  };
+
+  btn.addEventListener('click', function () {
+    return toggle(!isOpen());
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') toggle(false);
+  });
+  document.addEventListener('click', function (e) {
+    if (isOpen() && !header.contains(e.target)) toggle(false);
+  });
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      return toggle(false);
+    });
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > TABLET_BREAKPOINT) toggle(false);
+  });
+});
 
 /***/ }),
 
