@@ -1,15 +1,13 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh; // весь экран минус липкий хедер
+  min-height: 100vh;
   box-sizing: border-box;
 
-  background-image: var(--hero-bg);
+  background-image: url('../../img/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  // чтобы нижний блок жил у низа, а центр был центром
   display: flex;
   flex-direction: column;
 }
@@ -27,24 +25,31 @@
   z-index: 1;
 
   width: 100%;
-  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 24px;
   box-sizing: border-box;
 
-  // центрирование по вертикали и горизонтали
+  padding: 0 32px;
+  max-width: 1320px;
+
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.hero__center {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  @include laptop {
+    max-width: 1140px;
+    padding: 0 24px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 0 16px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 0 12px;
+  }
 }
 
 .hero__title {
@@ -54,90 +59,65 @@
   color: $color-white;
   font-size: 96px;
   line-height: 1.2;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
   text-align: center;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+
+
+  @include transition(font-size);
+
+  @include tablet {
+    font-size: 56px;
+    line-height: 1.15;
+  }
+
+  @include mobile {
+    font-size: 40px;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    white-space: normal;
+  }
 }
 
 .hero__subtitle {
-  font-family: $font-montserrat;
-  font-size: 24px;
-  font-style: normal;
-  line-height: 36px;
-  letter-spacing: 0;
+  @extend %header;
 
+  font-weight: normal;
   margin: 0;
   margin-top: 24px;
   color: $color-white;
   align-items: center;
 
+  @include transition(font-size);
 
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
   text-align: center;
+
+  @include tablet {
+    font-size: 18px;
+    line-height: 1.35;
+    margin-top: 16px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 1.35;
+    margin-top: 12px;
+  }
 }
 
 .hero__content {
+  width: 100%;
   align-items: center;
   justify-content: center;
-}
-
-
-// =====================
-// Категории (пилюля)
-// =====================
-.hero__categories {
-  margin-top: 48px;
-  width: fit-content;
-}
-
-.hero__categories-list {
-  list-style: none;
-  margin: 0;
-  padding: 12px 24px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 64px;
-  align-content: center;
-
-  background: $color-white;
-  border-radius: 24px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
-  box-sizing: border-box;
-
-  overflow-x: auto;
-  @extend %h1-promo;
-  -webkit-overflow-scrolling: touch;
-}
-
-
-.hero__category {
-  align-items: center;
-}
-
-
-.hero__category-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-
-  color: #2b2b2b;
-  text-decoration: none;
-  white-space: nowrap;
-
-  //transition: transform 0.15s ease, background-color 0.15s ease;
-
-  //&:hover {
-  //  background-color: rgba(0, 0, 0, 0.06);
-  //  transform: translateY(-1px);
-  //}
 }
 
 // =====================
 // Нижний блок "Ближайшая ярмарка"
 // =====================
+
 .hero__bottom {
   position: relative;
   z-index: 1;
@@ -153,23 +133,152 @@
 }
 
 .hero__bottom-card {
-  width: min(50%, 100%);
+  //max-width: 760px;
+  width: 70%;
   height: 84px;
 
   background: $color-white;
+  opacity: 0.95;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include tablet {
+    height: 76px;
+  }
+
+  @include mobile {
+    height: 68px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+  }
 }
 
 .hero__bottom-title {
   @extend %h1-promo;
-
-  font-size:  64px;
-  line-height: 1.2;
   color: $color-dark-green;
+
+  @include transition(font-size);
+
+  @include tablet {
+    font-size: 24px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+
+// =====================
+// Категории (пилюля + swiper на tablet/mobile)
+// =====================
+
+
+.hero__slider {
+  width: fit-content;;
+  max-width: 100%;
+  overflow: hidden;
+  position:  relative;
+
+  background-color: $color-white;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  margin-top: 32px;
+  margin: 32px auto 0;
+
+  /* градиенты */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;                // ширина “намёка”
+    pointer-events: none;       // КРИТИЧНО
+    z-index: 2;
+    border-radius: 16px;
+
+    @include tablet {
+      width: 16px;
+    }
+
+    @include mobile {
+      width: 12px;
+    }
+  }
+
+  /* левый */
+  &::before {
+    left: 0;
+
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0)
+    );
+  }
+
+  /* правый */
+  &::after {
+    right: 0;
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0)
+    );
+  }
+
+  @include desktop {
+    overflow: visible;
+  }
+}
+
+.hero__slider-container.swiper-wrapper {
+  display: flex;      // КРИТИЧНО
+  flex-direction: row;
+  width: auto;        // НЕ 100%
+}
+
+.hero__slider-slide.swiper-slide {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+}
+
+.hero__slider-slide {
+
+  text-decoration: none;
+  color: $color-black;
+
+  @extend %header;
+  padding: 16px 24px;
+
+  &:last-child {
+    margin-right: 0!important;
+  }
+
+  @include transition(font-size, padding);
+
+  @include desktop {
+    @include singleLineLink($color-black, $color-black, $color-black);
+
+    &::before {
+      top: 80%;
+    }
+  }
+
+  @include tablet {
+    padding: 12px 16px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
 }
