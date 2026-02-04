@@ -1,185 +1,174 @@
+// =====================
+// FOOTER
+// =====================
+
 .footer {
   width: 100%;
-  background: #333333; // Текст/основной
-  color: #ffffff;
+  background: $color-border;
+  color: $color-white;
 }
 
+// =====================
+// LAYOUT (container + columns)
+// =====================
+
 .footer__container {
-  // макет: 1920 ширина, padding 64 32, gap 209
-  width: 1920px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1320px;
   margin: 0 auto;
+  padding: 64px 32px;
+  box-sizing: border-box;
 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 64px;
 
-  padding: 64px 32px;
-  gap: 209px;
+  @include transition(max-width, padding, gap);
 
-  box-sizing: border-box;
+  @include laptop {
+    max-width: 1140px;
+    padding: 56px 24px;
+    gap: 40px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 48px 16px;
+    gap: 64px;
+
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 40px 12px;
+  }
 }
 
-/* Колонка 1: ссылка и адрес */
-.footer__brand {
-  width: 503px;
+/* Колонки (все 3) */
+.footer__brand,
+.footer__contacts,
+.footer__community {
   max-width: 100%;
+}
 
+/* Brand */
+.footer__brand {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
 }
 
-.footer__brand-link {
-  width: 503px;
-  max-width: 100%;
-  height: 64px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-
-  padding: 0 24px;
-  box-sizing: border-box;
-
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.footer__brand-title {
-  width: 403px;
-  max-width: 100%;
-
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 44px;
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
-
-.footer__address {
-  width: 381px;
-  max-width: 100%;
-  margin: 0;
-
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
-
-/* Колонка 2 и 3 общие элементы */
+/* Contacts / Community */
 .footer__contacts,
 .footer__community {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+
+  @include tablet {
+    align-items: center;
+  }
+
+  @include mobile {
+    align-items: center;
+  }
 }
 
-.footer__contacts {
-  width: 435px;
-  max-width: 100%;
-}
+// =====================
+// TYPOGRAPHY
+// =====================
 
-.footer__community {
-  width: 584px;
-  max-width: 100%;
+.footer__title {
+  @extend %header;
+  margin: 0;
+
+  @include transition(font-size, color);
+
+  @include mobile {
+    font-size: 16px;
+  }
 }
 
 .footer__section-title {
-  // Frame: padding 8 16, height 60, но это по сути просто заголовок с отступами
-  padding: 8px 16px;
-  margin: 0;
+  @extend %header;
 
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 44px;
-
-  color: #ffffff;
-
-  display: flex;
-  align-items: center;
+  @include mobile {
+    font-size: 16px;
+  }
 }
 
-/* Ряд (иконка + текст) */
-.footer__row {
-  width: 100%;
-  height: 80px;
+.footer__address {
+  @extend %h1;
+  font-weight: normal;
+  text-align: left;
 
+  @include tablet {
+    text-align: center;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+// =====================
+// LINKS (logo rows)
+// =====================
+
+.footer__logo {
   display: flex;
   align-items: center;
   gap: 16px;
 
-  padding: 8px 16px;
-  box-sizing: border-box;
-
   text-decoration: none;
-  color: #ffffff;
+  color: inherit;
+
+  flex-shrink: 0;
+
+  svg {
+    @include transition(width, height);
+
+    @include mobile {
+      width: 32px;
+      height: 32px;
+    }
+  }
 }
 
-.footer__row svg {
-  width: 64px;
-  height: 64px;
-  flex: 0 0 64px;
-}
-
-.footer__row-text {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 44px;
-
+.footer__logo-icon {
+  line-height: 1;
   display: flex;
-  align-items: center;
-  text-align: left;
 }
 
-/* Адаптив: чтобы не разваливалось на меньшей ширине */
-@media (max-width: 1200px) {
-  .footer__container {
-    flex-direction: column;
-    gap: 48px;
-    align-items: center;
-    text-align: center;
+/* Variants */
+.footer__logo--address {
+  svg {
+    fill: $color-dark-green;
   }
 
-  .footer__contacts,
-  .footer__community {
-    align-items: center;
-  }
-
-  .footer__row {
-    justify-content: center;
-  }
-
-  .footer__row-text {
-    text-align: center;
+  &:hover {
+    svg {
+      @include transition(fill);
+      fill: $color-dark-green-hover;
+    }
   }
 }
 
-@media (max-width: 700px) {
-  .footer__brand-title,
-  .footer__section-title,
-  .footer__row-text {
-    font-size: 20px;
-    line-height: 1.2;
+.footer__logo--contacts,
+.footer__logo--group {
+  svg {
+    fill: none;
   }
 
-  .footer__address {
-    font-size: 16px;
-    line-height: 1.3;
+  &:hover {
+    .footer__title {
+      color: $color-gray-hover;
+    }
   }
 }

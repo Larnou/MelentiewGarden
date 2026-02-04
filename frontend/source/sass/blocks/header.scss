@@ -1,18 +1,37 @@
-// Стилизация элемента: header
-// Описание элемента:   Общий заголовок
+// =====================
+// HEADER (fixed top navigation)
+// =====================
+
+// Utility: блокировка прокрутки при открытом меню
+body.no-scroll {
+  overflow: hidden;
+}
+
+// =====================
+// HEADER SHELL
+// =====================
 
 .header {
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   z-index: 1000;
 
   background-color: $color-white;
-  border-bottom: 4px solid $color-border;
+  opacity: 0.95;
+  box-shadow: $shadow;
+  backdrop-filter: blur(6px);
 }
 
+// =====================
+// LAYOUT
+// =====================
+
 .header__container {
+  position: relative; // якорь для мобильного nav (absolute)
+
   width: 100%;
   margin: 0 auto;
 
@@ -20,52 +39,215 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 24px;
   height: 80px;
+  padding: 12px 24px;
   box-sizing: border-box;
+
+  @include transition(height);
+
+  @include mobile {
+    height: 64px;
+  }
 }
+
+// =====================
+// LOGO / TITLE
+// =====================
 
 .header__logo {
   display: flex;
   align-items: center;
   gap: 16px;
+
   text-decoration: none;
   color: inherit;
+
   flex-shrink: 0;
   margin-right: 24px;
+
+  svg {
+    fill: $color-dark-green;
+
+    @include transition(width, height, fill);
+
+    @include mobile {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &:hover svg {
+    fill: $color-dark-green-hover;
+  }
 }
 
 .header__title {
-  @extend %h1-logo;
+  @extend %header;
+
   margin: 0;
   white-space: nowrap;
 
+  @include transition(font-size);
+
+  @include mobile {
+    font-size: 16px;
+  }
 }
+
+// =====================
+// NAV / MENU
+// =====================
 
 .header__nav {
   flex-shrink: 0;
+
+  @include tablet {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+
+    background: $color-white;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
 }
 
 .header__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
   display: flex;
   align-items: center;
   gap: 24px;
 
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  @include tablet {
+    flex-direction: column;
+    align-items: stretch;
 
-.header__link {
-  text-decoration: none;
-  color: inherit;
-
-  // можно добавить hover по твоему дизайн-гайду
-  &:hover {
-    text-decoration: underline;
+    padding: 16px 24px;
+    gap: 0;
   }
 }
 
 .header__item {
-  @extend %h1-promo;
+  /* li как контейнер, без декораций (чтобы не путать) */
+  @include tablet {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+.header__link {
+  @extend %header;
+
+  color: $color-black;
+  text-decoration: none;
+
+  /* desktop hover/underline эффект */
+  @include singleLineLink($color-black, $color-black, $color-black);
+
+  @include tablet {
+    display: block;
+    padding: 12px 8px;
+    border-radius: 12px;
+  }
+}
+
+// =====================
+// BURGER (tablet/mobile)
+// =====================
+
+.header__burger {
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  @include transition(width, height);
+
+  @include tablet {
+    display: inline-flex;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    span {
+      position: relative;
+      display: block;
+
+      width: 26px;
+      height: 2px;
+      background: #333;
+
+      transition: background 0.2s ease;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+
+        width: 26px;
+        height: 2px;
+        background: #333;
+
+        transition: transform 0.2s ease, top 0.2s ease;
+      }
+
+      &::before { top: -8px; }
+      &::after  { top:  8px; }
+    }
+  }
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+
+    span {
+      width: 22px;
+
+      &::before,
+      &::after {
+        width: 22px;
+      }
+    }
+  }
+}
+
+// =====================
+// STATE: OPEN (tablet/mobile nav dropdown)
+// =====================
+
+.header.is-open {
+  @include tablet {
+    .header__nav {
+      max-height: 340px;
+    }
+
+    .header__burger span {
+      background: transparent;
+    }
+
+    .header__burger span::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .header__burger span::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
 }

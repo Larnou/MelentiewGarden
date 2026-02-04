@@ -5,17 +5,20 @@ mixin hero()
       .hero__content
         h2.hero__title Сад Мелентьевых
         p.hero__subtitle
-          | Мы выращиваем только то, что проверили сами: урожайные сорта
+          | Мы выращиваем только проверенные урожайные сорта
           br
-          | с вкуснейшими плодами, адаптированные к сибирским морозам
+          | адаптированные к сибирским морозам
 
-        nav.hero__categories(aria-label="Категории")
-          ul.hero__categories-list
-            li.hero__category: a.hero__category-link(href="/catalog?type=semechkovye") Семечковые
-            li.hero__category: a.hero__category-link(href="/catalog?type=kostochkovye") Косточковые
-            li.hero__category: a.hero__category-link(href="/catalog?type=yagodnye") Ягодные
-            li.hero__category: a.hero__category-link(href="/catalog?type=dekorativnye") Декоративные
-            li.hero__category: a.hero__category-link(href="/catalog?type=komnatnye") Комнатные
+        .hero__slider.swiper.js--hero-categories
+          //- Additional required wrapper
+          .hero__slider-container.swiper-wrapper
+            //- Slides
+            a(href='#').hero__slider-slide.swiper-slide Семечковые
+            a(href='#').hero__slider-slide.swiper-slide Косточковые
+            a(href='#').hero__slider-slide.swiper-slide Ягодные
+            a(href='#').hero__slider-slide.swiper-slide Декоративные
+            a(href='#').hero__slider-slide.swiper-slide Комнатные
+
 
     .hero__bottom
       .hero__bottom-card

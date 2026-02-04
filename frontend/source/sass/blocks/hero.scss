@@ -1,15 +1,18 @@
+// =====================
+// HERO
+// =====================
+
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh; // весь экран минус липкий хедер
+  min-height: 100vh;
   box-sizing: border-box;
 
-  background-image: var(--hero-bg);
+  background-image: url('../../img/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  // чтобы нижний блок жил у низа, а центр был центром
   display: flex;
   flex-direction: column;
 }
@@ -20,124 +23,242 @@
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22));
+
+  /* чтобы overlay никогда не блокировал свайп/клики */
+  pointer-events: none;
 }
+
+// =====================
+// LAYOUT
+// =====================
 
 .hero__container {
   position: relative;
   z-index: 1;
 
   width: 100%;
-  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 24px;
   box-sizing: border-box;
 
-  // центрирование по вертикали и горизонтали
+  max-width: 1320px;
+  padding: 0 32px;
+
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include laptop {
+    max-width: 1140px;
+    padding: 0 24px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 0 16px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 0 12px;
+  }
 }
 
-.hero__center {
-  text-align: center;
+.hero__content {
+  width: 100%;
+  /* у тебя тут раньше не было display, и "align-items" не работал */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
 }
+
+// =====================
+// TYPOGRAPHY
+// =====================
 
 .hero__title {
   @extend %h1-promo;
 
   margin: 0;
   color: $color-white;
+
   font-size: 96px;
   line-height: 1.2;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.02em;
   text-align: center;
+
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+
+  /* перенос только на мобиле */
+  white-space: nowrap;
+
+  @include transition(font-size);
+
+  @include tablet {
+    font-size: 56px;
+    line-height: 1.15;
+  }
+
+  @include mobile {
+    font-size: 40px;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+
+    white-space: normal;
+  }
 }
 
 .hero__subtitle {
-  font-family: $font-montserrat;
-  font-size: 24px;
-  font-style: normal;
-  line-height: 36px;
-  letter-spacing: 0;
+  @extend %header;
 
-  margin: 0;
-  margin-top: 24px;
+  font-weight: normal;
+  margin: 24px 0 0;
   color: $color-white;
-  align-items: center;
 
-
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
   text-align: center;
+
+  @include transition(font-size);
+
+  @include tablet {
+    font-size: 18px;
+    line-height: 1.35;
+    margin-top: 16px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 1.35;
+    margin-top: 12px;
+  }
 }
 
-.hero__content {
-  align-items: center;
-  justify-content: center;
-}
-
-
 // =====================
-// Категории (пилюля)
+// SLIDER (categories)
 // =====================
-.hero__categories {
-  margin-top: 48px;
+
+.hero__slider {
+  position: relative;
+
   width: fit-content;
-}
+  max-width: 100%;
 
-.hero__categories-list {
-  list-style: none;
-  margin: 0;
-  padding: 12px 24px;
+  margin: 32px auto 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 64px;
-  align-content: center;
+  overflow: hidden;
 
-  background: $color-white;
-  border-radius: 24px;
+  background-color: $color-white;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
 
-  box-sizing: border-box;
+  /* Swiper тач */
+  touch-action: pan-y;
 
-  overflow-x: auto;
-  @extend %h1-promo;
-  -webkit-overflow-scrolling: touch;
+  @include desktop {
+    /* на 1440+ свайпера нет, значит "свайп-подсказки" не нужны */
+    overflow: visible;
+  }
 }
 
-
-.hero__category {
-  align-items: center;
+/* Swiper mechanics */
+.hero__slider-container.swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: auto; /* НЕ 100% */
+  justify-content: flex-start;
 }
 
+.hero__slider-slide.swiper-slide {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+}
 
-.hero__category-link {
+/* Slide link style */
+.hero__slider-slide {
+  @extend %header;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
+  padding: 16px 24px;
 
-  color: #2b2b2b;
   text-decoration: none;
+  color: $color-black;
   white-space: nowrap;
 
-  //transition: transform 0.15s ease, background-color 0.15s ease;
+  @include transition(font-size, padding);
 
-  //&:hover {
-  //  background-color: rgba(0, 0, 0, 0.06);
-  //  transform: translateY(-1px);
-  //}
+  @include tablet {
+    padding: 12px 16px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  @include desktop {
+    @include singleLineLink($color-black, $color-black, $color-black);
+
+    &::before {
+      top: 80%;
+    }
+  }
 }
 
 // =====================
-// Нижний блок "Ближайшая ярмарка"
+// SLIDER HINT GRADIENTS (only where slider is swipeable)
 // =====================
+
+/* по умолчанию показываем подсказки (tablet/mobile) */
+.hero__slider::before,
+.hero__slider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 24px;
+  pointer-events: none;
+  z-index: 2;
+
+  /* чтобы края совпадали со скруглением */
+  border-radius: 16px;
+
+  @include tablet {
+    width: 16px;
+  }
+
+  @include mobile {
+    width: 12px;
+  }
+}
+
+.hero__slider::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+}
+
+.hero__slider::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+}
+
+/* на desktop подсказки убираем полностью */
+@include desktop {
+  .hero__slider::before,
+  .hero__slider::after {
+    display: none;
+  }
+}
+
+// =====================
+// BOTTOM CARD
+// =====================
+
 .hero__bottom {
   position: relative;
   z-index: 1;
@@ -148,28 +269,48 @@
   display: flex;
   justify-content: center;
 
-  // чтобы низ был реально низом даже если контента мало
   margin-top: auto;
 }
 
 .hero__bottom-card {
-  width: min(50%, 100%);
+  width: 70%;
   height: 84px;
 
   background: $color-white;
+  opacity: 0.95;
+
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include tablet {
+    height: 76px;
+  }
+
+  @include mobile {
+    height: 68px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+  }
 }
 
 .hero__bottom-title {
   @extend %h1-promo;
-
-  font-size:  64px;
-  line-height: 1.2;
   color: $color-dark-green;
+
+  @include transition(font-size);
+
+  @include tablet {
+    font-size: 24px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }

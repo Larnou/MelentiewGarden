@@ -5,13 +5,19 @@ mixin header()
   header.header(class=header && header.class ? header.class : '')
     .header__container
       a.header__logo(href="/")
-        +svg('apple', 40, 40)
+        .header__logo-icon
+          +svg('apple', 40, 40)
+
         h1.header__title САЖЕНЦЫ-ИРКУТСК
+
+
+      button.header__burger(type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false")
+        span
 
       nav.header__nav(aria-label="Главное меню")
         ul.header__menu
-          li.header__item: a.header__link(href="/news") Новости
-          li.header__item: a.header__link(href="/catalog") Каталог
-          li.header__item: a.header__link(href="/articles") Статьи
-          li.header__item: a.header__link(href="/about") О нас
+          li.header__item: a.header__link(href="#news") Новости
+          li.header__item: a.header__link(href="#catalog") Каталог
+          li.header__item: a.header__link(href="#articles") Статьи
+          li.header__item: a.header__link(href="#about") О нас
 

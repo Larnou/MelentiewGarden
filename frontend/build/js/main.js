@@ -86,550 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./frontend/source/js/classes/geojson.js":
-/*!***********************************************!*\
-  !*** ./frontend/source/js/classes/geojson.js ***!
-  \***********************************************/
-/*! exports provided: GeoJSONData */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeoJSONData", function() { return GeoJSONData; });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-/**
- * Класс <tt>GeoJSONData<tt> создаёт отформатированные данные необходимые
- * для создания Яндекс.Карт из сырых данных для объявления объекта, используемого в Яндекс.Карты Конструктор,
- * полученных со стороны бекэнда
- */
-// eslint-disable-next-line import/prefer-default-export
-var GeoJSONData = /*#__PURE__*/function () {
-  function GeoJSONData(rawData) {
-    _classCallCheck(this, GeoJSONData);
-
-    this.rawData = rawData;
-  }
-  /**
-   * Метод <tt>setGeometryData()<tt> задаёт геометрические параметры маркера: его тип и координаты
-   * @param element маркер, для которого задаются данные
-   * @returns {{}} словарь, содержащий в себе отформатированные данные
-   */
-  // eslint-disable-next-line class-methods-use-this
-
-
-  _createClass(GeoJSONData, [{
-    key: "setGeometryData",
-    value: function setGeometryData(element) {
-      var data = {};
-      data.type = 'Point';
-      data.coordinates = [element.coordinates[1], element.coordinates[0]];
-      return data;
-    }
-    /**
-     * Метод <tt>setBalloonContent()<tt> задёт цвет для кластерного отображения иконки маркера при отдалении экрана
-     * @param key ключ, по которому выбирается цвет
-     * @returns {*} значение цвета в формате HEX-code
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "setBalloonContent",
-    value: function setBalloonContent(key) {
-      var balloonContents = {
-        frontend: 'В этих домиках, фронтендеры набирают ману, чтобы постигать мощь JS',
-        office: 'Мы — агентство Адикт. Сильны в сложной разработке, любим дизайн и брендинг, делаем хорошую ' + 'интернет-рекламу.',
-        backend: 'Эти товарищи способны вообще на всё, нет серьёзно на всё. Но для этого им нужно набраться энергии и ' + 'выпить тёплый чай',
-        manager: 'Знаете про швейцарский нож? Который с кучей разных инструментов. В этих домиках менеджеры открывают ' + 'новые инструменты для себя',
-        design: 'Лучше всех знает про синтезирование, но для эффективной работы нужно искать вдохновение. ' + 'В этих домиках они его находят, чтобы всем показать на что они способны'
-      };
-      return balloonContents[key];
-    }
-    /**
-     * Метод <tt>setClusterColor()<tt> задаёт цвет отображения иконки маркера
-     * @param key ключ, по которому выбирается цвет
-     * @returns {*} значение цвета в формате HEX-code
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "setClusterColor",
-    value: function setClusterColor(key) {
-      var colors = {
-        office: '#7DBCCA',
-        frontend: '#846075',
-        backend: '#FE5F55',
-        manager: '#545775',
-        design: '#FCA311'
-      };
-      return colors[key];
-    }
-    /**
-     * Метод <tt>setPropertiesData()<tt> задаёт дополнительные параметры для маркера
-     * @param element маркер, для которого задаются данные
-     * @returns {{}} словарь, содержащий в себе отформатированные данные
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "setPropertiesData",
-    value: function setPropertiesData(element) {
-      var data = {};
-      data.description = this.setBalloonContent(element.type);
-      data.iconCaption = element.type;
-      data['marker-color'] = this.setClusterColor(element.type);
-      return data;
-    }
-    /**
-     * Метод <tt>setMetaData()<tt> задаёт meta-данные для geojson-файла
-     * @returns {{}} словарь, содержащий в себе отформатированные данные
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "setMetaData",
-    value: function setMetaData() {
-      var data = {};
-      data.name = 'Карта нашего офиса';
-      data.creator = 'Yandex Map Constructor';
-      data.description = 'Хотел узнать где кто живёт? Тогда тебе сюда';
-      return data;
-    }
-    /**
-     * Метод <tt>getFormattedJSON()<tt> возвращает отформатированный набор данных,
-     * объектов, содержащий в себе параметры необходимые для отображения маркера на карте
-     * @returns {*[]} возвращаемый словарь
-     */
-
-  }, {
-    key: "getFormattedJSON",
-    value: function getFormattedJSON() {
-      var formattedJSON = [];
-
-      for (var i = 0; i < this.rawData.length; i += 1) {
-        var currentMark = {};
-        var currentElement = this.rawData[i];
-        currentMark.type = 'Feature';
-        currentMark.geometry = this.setGeometryData(currentElement);
-        currentMark.properties = this.setPropertiesData(currentElement);
-        formattedJSON.push(currentMark);
-      }
-
-      return formattedJSON;
-    }
-    /**
-     * Метод <tt>getGeoJson()<tt> возвращает отформатированный набор данных,
-     * содержащий в себе параметры необходимые для вставки в файл и последующего
-     * использования в конструкторе Яндекс.Карты
-     * @returns {{}} возвращаемый словарь
-     */
-
-  }, {
-    key: "getGeoJson",
-    value: function getGeoJson() {
-      var geojson = {};
-      geojson.type = 'FeatureCollection';
-      geojson.metadata = this.setMetaData();
-      geojson.features = this.getFormattedJSON();
-      return geojson;
-    }
-  }]);
-
-  return GeoJSONData;
-}();
-
-/***/ }),
-
-/***/ "./frontend/source/js/classes/json.js":
-/*!********************************************!*\
-  !*** ./frontend/source/js/classes/json.js ***!
-  \********************************************/
-/*! exports provided: JSONData */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JSONData", function() { return JSONData; });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-/**
- * Класс <tt>JSONData<tt> создаёт отформатированные данные необходимые
- * для создания Яндекс.Карт из сырых данных, полученных со стороны бекэнда
- */
-// eslint-disable-next-line import/prefer-default-export
-var JSONData = /*#__PURE__*/function () {
-  function JSONData(rawData) {
-    _classCallCheck(this, JSONData);
-
-    this.rawData = rawData;
-  }
-  /**
-   * Метод <tt>setGeometryData()<tt> задаёт геометрические параметры маркера: его тип и координаты
-   * @param element маркер, для которого задаются данные
-   * @returns {{}} словарь, содержащий в себе отформатированные данные
-   */
-  // eslint-disable-next-line class-methods-use-this
-
-
-  _createClass(JSONData, [{
-    key: "setGeometryData",
-    value: function setGeometryData(element) {
-      var data = {};
-      data.type = 'Point';
-      data.coordinates = element.coordinates;
-      return data;
-    }
-    /**
-     * Метод <tt>setPropertiesData()<tt> задаёт дополнительные параметры для маркера
-     * @param element маркер, для которого задаются данные
-     * @returns {{}} словарь, содержащий в себе отформатированные данные
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "setPropertiesData",
-    value: function setPropertiesData(element) {
-      var data = {};
-      data.clusterCaption = element.type;
-      data.balloonContent = element.name;
-      data.iconCaption = element.type;
-      data.balloonPanelMaxMapArea = 0;
-      return data;
-    }
-    /**
-     * Метод <tt>setClusterColor()<tt> задёт цвет для кластерного отображения иконки маркера при отдалении экрана
-     * @param key ключ, по которому выбирается цвет
-     * @returns {*} значение цвета в формате HEX-code
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "setClusterColor",
-    value: function setClusterColor(key) {
-      var colors = {
-        home: '#4D60C2',
-        park: '#1E7231',
-        shop: '#E9A261',
-        train: '#8B5E34',
-        airport: '#71C5D8',
-        landmark: '#A0C82E'
-      };
-      return colors[key];
-    }
-    /**
-     * Метод <tt>setOptionData()<tt> задаёт параметры для визуализации маркера на карте
-     * @param element маркер, для которого задаются данные
-     * @returns {{}} словарь, содержащий в себе отформатированные данные
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "setOptionData",
-    value: function setOptionData(element) {
-      var data = {};
-      data.preset = 'islands#violetCircleDotIconWithCaption';
-      data.iconLayout = 'default#image';
-      data.iconImageHref = "./img/sprite/map-".concat(element.type, ".svg");
-      data.iconImageSize = [24, 24];
-      data.iconImageOffset = [-15, -20];
-      data.iconColor = this.setClusterColor(element.type);
-      return data;
-    }
-    /**
-     * Метод <tt>getFormattedJSON()<tt> возвращает отформатированный набор данных,
-     * содержащий в себе параметры необходимые для отображения маркера на карте
-     * @returns {*[]} возвращаемый словарь
-     */
-
-  }, {
-    key: "getFormattedJSON",
-    value: function getFormattedJSON() {
-      var formattedJSON = [];
-
-      for (var i = 0; i < this.rawData.length; i += 1) {
-        var currentMark = {};
-        var currentElement = this.rawData[i];
-        currentMark.geometry = this.setGeometryData(currentElement);
-        currentMark.properties = this.setPropertiesData(currentElement);
-        currentMark.options = this.setOptionData(currentElement);
-        currentMark.type = currentElement.type;
-        formattedJSON.push(currentMark);
-      }
-
-      return formattedJSON;
-    }
-  }]);
-
-  return JSONData;
-}();
-
-/***/ }),
-
-/***/ "./frontend/source/js/classes/ymaps.js":
-/*!*********************************************!*\
-  !*** ./frontend/source/js/classes/ymaps.js ***!
-  \*********************************************/
-/*! exports provided: YandexMap */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YandexMap", function() { return YandexMap; });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-/**
- * Класс <tt>YandexMap<tt> используется для генерации Яндекс.Карты и её взаимодействия с фильтром
- */
-// eslint-disable-next-line import/prefer-default-export
-var YandexMap = /*#__PURE__*/function () {
-  function YandexMap(id, data) {
-    _classCallCheck(this, YandexMap);
-
-    this.yandexMap = this.createMap(id);
-    this.data = data;
-    this.markers = this.createMarkers();
-    this.claster = this.createCluster();
-  }
-  /**
-   * Метод <tt>createMap()<tt> создаёт карту с базовыми параметрами
-   * @param id контейнера, в котором будет создана карта
-   * @returns {*} объект ymaps.Map с базовыми параметрами
-   */
-  // eslint-disable-next-line class-methods-use-this
-
-
-  _createClass(YandexMap, [{
-    key: "createMap",
-    value: function createMap(id) {
-      var options = {
-        center: [52.288770783011806, 104.26826330351393],
-        zoom: 14.5,
-        controls: ['zoomControl']
-      };
-      return new ymaps.Map(id, options);
-    }
-    /**
-     * Метод <tt>createCluster()<tt> создаёт кластер с заданными маркерами
-     * @returns {ymaps.Clusterer} объект ymaps.Clusterer
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "createCluster",
-    value: function createCluster() {
-      var clusterer = new ymaps.Clusterer({
-        clusterIconLayout: 'default#pieChart',
-        clusterIconPieChartRadius: 25,
-        clusterIconPieChartCoreRadius: 10,
-        clusterIconPieChartStrokeWidth: 3,
-        hasBalloon: false,
-        clusterDisableClickZoom: true
-      });
-      var myGeoObjects = this.markers;
-      clusterer.add(myGeoObjects);
-      return clusterer;
-    }
-    /**
-     * Метод <tt>setCustomBalloonTemplate()<tt> задаёт кастомный шаблон сообщения, появляющегося при клике на маркер
-     * @param key ключ, по которому выбирается конкретный шаблон
-     * @returns {*} шаблон для отображения balloon
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "setCustomBalloonTemplate",
-    value: function setCustomBalloonTemplate(key) {
-      var balloonContents = {
-        frontend: '<div class="balloon">' + '<h1 class="balloon__title">Фронтенд</h1>' + '<p class="balloon__text">В этих домиках, фронтендеры набирают ману, чтобы постигать мощь JS</p>' + '<p><a href="https://adict.ru" target="_blank" class="balloon__link">adict.ru</a></p>' + '</div>',
-        office: '<div class="balloon">' + '<h1 class="balloon__title">Адикт</h1>' + '<p class="balloon__text">Мы — агентство Адикт. Сильны в сложной разработке,\n' + 'любим дизайн и брендинг, делаем хорошую интернет-рекламу. ' + '</p>' + '<p><a href="https://adict.ru" target="_blank" class="balloon__link">adict.ru</a></p>' + '</div>',
-        backend: '<div class="balloon">' + '<h1 class="balloon__title">Бекэнд</h1>' + '<p class="balloon__text">Эти товарищи способны вообще на всё, нет серьёзно на всё. Но для этого им  \n' + 'нужно набраться энергии и выпить тёплый чай</p>' + '<p><a href="https://adict.ru" target="_blank" class="balloon__link">adict.ru</a></p>' + '</div>',
-        manager: '<div class="balloon">' + '<h1 class="balloon__title">Менеджер</h1>' + '<p class="balloon__text">Знаете про швейцарский нож? Который с кучей разных инструментов. В этих домиках \n' + 'менеджеры открывают новые инструменты для себя</p>' + '<p><a href="https://adict.ru" target="_blank" class="balloon__link">adict.ru</a></p>' + '</div>',
-        design: '<div class="balloon">' + '<h1 class="balloon__title">Дизайнер</h1>' + '<p class="balloon__text">Лучше всех знает про синтезирование, но для эффективной работы нужно искать \n' + 'вдохновение. В этих домиках они его находят, чтобы всем показать на что они способны</p>' + '<p><a href="https://adict.ru" target="_blank" class="balloon__link">adict.ru</a></p>' + '</div>'
-      };
-      var BalloonContentLayout = ymaps.templateLayoutFactory.createClass(balloonContents[key], {
-        build: function build() {
-          BalloonContentLayout.superclass.build.call(this);
-        },
-        clear: function clear() {
-          BalloonContentLayout.superclass.clear.call(this);
-        }
-      });
-      return BalloonContentLayout;
-    }
-    /**
-     * Метод <tt>createMarkers()<tt> создаёт сохранённый список всех маркеров, для последующего
-     * восстановления во время работы фильтра
-     * @returns {*[]} массив маркеров
-     */
-
-  }, {
-    key: "createMarkers",
-    value: function createMarkers() {
-      var myGeoObjects = [];
-
-      for (var i = 0; i < this.data.length; i += 1) {
-        var currentMark = this.data[i];
-        var type = currentMark.type; // Добавление кастомного Balloon на маркер при клике
-
-        console.log(currentMark);
-        var dataForBallon = {
-          name: currentMark.properties.balloonContent,
-          description: ''
-        }; // currentMark.options.balloonContentLayout = this.setCustomBalloonTemplate(type);
-
-        var coordinates = currentMark.geometry.coordinates;
-        var properties = currentMark.properties;
-        var options = currentMark.options;
-        myGeoObjects[i] = new ymaps.Placemark(coordinates, properties, options);
-      }
-
-      return myGeoObjects;
-    }
-    /**
-     * Метод <tt>addCollections()<tt> добавляет маркеры, соответствующие заданному ключу категорий
-     * @param keyList список ключей (выбранных пунктов)
-     */
-
-  }, {
-    key: "addCollections",
-    value: function addCollections(keyList) {
-      var _this = this;
-
-      this.markers.forEach(function (mark) {
-        // eslint-disable-next-line no-underscore-dangle
-        var markType = mark.properties._data.clusterCaption;
-
-        if (keyList.includes(markType)) {
-          _this.claster.add(mark);
-        }
-      });
-    }
-    /**
-     * Метод <tt>removeAllCollections()<tt> удаляет все маркеры с кластера
-     */
-
-  }, {
-    key: "removeAllCollections",
-    value: function removeAllCollections() {
-      this.claster.removeAll();
-      this.addCollections('office');
-    }
-    /**
-     * Метод <tt>initMarks()<tt> добавляет все метки на карту при первом открытии карты
-     */
-
-  }, {
-    key: "initMarks",
-    value: function initMarks() {
-      this.yandexMap.geoObjects.add(this.claster);
-    }
-    /**
-     * Метод <tt>updateKeyList()<tt> обновляет список ключей, при работе с фильтром
-     * @param buttons массив кнопок фильтра
-     * @returns {*[]} список выбранных категорий
-     */
-    // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "updateKeyList",
-    value: function updateKeyList(buttons) {
-      var keyList = [];
-      buttons.forEach(function (button) {
-        if (button.classList.contains('active')) {
-          keyList.push(button.dataset.type);
-        }
-      });
-
-      if (keyList.length === 0) {
-        buttons.forEach(function (button) {
-          keyList.push(button.dataset.type);
-        });
-      }
-
-      return keyList;
-    }
-    /**
-     * Событие <tt>onClickFilter()<tt>, вызываемые при нажатии на кнопку фильтра
-     * @param filterButtons список кнопок фильтра
-     * @param filterOption кнопка, по которой произошло нажатие
-     */
-
-  }, {
-    key: "onClickFilter",
-    value: function onClickFilter(filterButtons, filterOption) {
-      filterOption.classList.toggle('active');
-      this.removeAllCollections();
-      var keys = this.updateKeyList(filterButtons);
-      this.addCollections(keys);
-    }
-    /**
-     * Метод <tt>initFilter()<tt> инициализирует фильтр
-     */
-
-  }, {
-    key: "initFilter",
-    value: function initFilter(visibility) {
-      var _this2 = this;
-
-      this.initMarks();
-      var filter = document.querySelector('.js--filter');
-
-      if (visibility) {
-        var filterButtons = filter.querySelectorAll('.js--filter-btn');
-        filterButtons.forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            return _this2.onClickFilter(filterButtons, btn);
-          });
-        });
-      } else {
-        filter.classList.add('hidden');
-      }
-    }
-    /**
-     * Метод <tt>createFullMap()<tt> инициализирует большую карту в заданном контейнере
-     * с указанием расположения офиса, без размещения метки офиса
-     */
-
-  }, {
-    key: "createFullMap",
-    value: function createFullMap(options) {
-      var mapCenter = [52.27687669227004, 104.29767546002795];
-      this.yandexMap.setCenter(mapCenter);
-      this.yandexMap.setZoom(13);
-
-      if (options.show1kmRound) {
-        var circleCenter = [52.288770783011806, 104.26826330351393];
-        var circleOptions = {
-          fillColor: '#7DBCCA',
-          fillOpacity: 0.3,
-          strokeWidth: 0
-        };
-        var circle = new ymaps.Circle([circleCenter, 1000], {}, circleOptions);
-        this.yandexMap.geoObjects.add(circle);
-      }
-
-      this.initMarks();
-      this.initFilter(options.showFilter);
-    }
-  }]);
-
-  return YandexMap;
-}();
-
-/***/ }),
-
 /***/ "./frontend/source/js/index.js":
 /*!*************************************!*\
   !*** ./frontend/source/js/index.js ***!
@@ -641,26 +97,23 @@ var YandexMap = /*#__PURE__*/function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var focus_visible__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! focus-visible */ "./node_modules/focus-visible/dist/focus-visible.js");
 /* harmony import */ var focus_visible__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(focus_visible__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/map */ "./frontend/source/js/modules/map.js");
-/* harmony import */ var _modules_filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/filter */ "./frontend/source/js/modules/filter.js");
-/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ "./frontend/source/js/modules/slider.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ "./frontend/source/js/modules/slider.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/burger */ "./frontend/source/js/modules/burger.js");
  // Пример подключения модуля
 // import module from './modules/module';
 // module();
 
 
-
  // Используемые модули
 
-Object(_modules_map__WEBPACK_IMPORTED_MODULE_1__["default"])();
-Object(_modules_filter__WEBPACK_IMPORTED_MODULE_2__["default"])();
-Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])();
+Object(_modules_slider__WEBPACK_IMPORTED_MODULE_1__["default"])();
+Object(_modules_burger__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 /***/ }),
 
-/***/ "./frontend/source/js/modules/filter.js":
+/***/ "./frontend/source/js/modules/burger.js":
 /*!**********************************************!*\
-  !*** ./frontend/source/js/modules/filter.js ***!
+  !*** ./frontend/source/js/modules/burger.js ***!
   \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -668,124 +121,61 @@ Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  function toggleFilter(container) {
-    if (!container) {
-      return;
-    }
+  var TABLET_BREAKPOINT = 1078;
+  var header = document.querySelector('.header');
+  var btn = document.querySelector('.header__burger');
+  var nav = document.querySelector('.header__nav');
+  if (!header || !btn || !nav) return;
+  var links = nav.querySelectorAll('.header__link');
 
-    var toggleBtn = container.querySelector('.js--toggle-filter');
-    toggleBtn.addEventListener('click', function () {
-      container.classList.toggle('active');
-    });
-  }
+  var focus = function focus(el) {
+    if (!el) return;
 
-  var filter = document.querySelector('.js--filter');
-  toggleFilter(filter);
-});
-
-/***/ }),
-
-/***/ "./frontend/source/js/modules/map.js":
-/*!*******************************************!*\
-  !*** ./frontend/source/js/modules/map.js ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _classes_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../classes/json */ "./frontend/source/js/classes/json.js");
-/* harmony import */ var _classes_ymaps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../classes/ymaps */ "./frontend/source/js/classes/ymaps.js");
-/* harmony import */ var _classes_geojson__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../classes/geojson */ "./frontend/source/js/classes/geojson.js");
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var DATA = [{
-    name: 'Мой дом',
-    type: 'home',
-    coordinates: [52.29164343171608, 104.24956988877872]
-  }, {
-    name: 'Парк "Парижской Комунны"',
-    type: 'park',
-    coordinates: [52.287785210220584, 104.24925884563669]
-  }, {
-    name: 'Роща "Звездочка"',
-    type: 'park',
-    coordinates: [52.27352418169792, 104.26050694853043]
-  }, {
-    name: 'Иерусалимская гора',
-    type: 'park',
-    coordinates: [52.27606061060547, 104.29835595574741]
-  }, {
-    name: 'Парк "Остров Юность"',
-    type: 'park',
-    coordinates: [52.271302006817436, 104.27621451536504]
-  }, {
-    name: 'Парк "Полуостров Конный"',
-    type: 'park',
-    coordinates: [52.265713143966885, 104.28281534120275]
-  }, {
-    name: 'ТК "Комсомолл"',
-    type: 'shop',
-    coordinates: [52.28321766786576, 104.31069621011386]
-  }, {
-    name: 'ТК "130 Квартал"',
-    type: 'shop',
-    coordinates: [52.256031131353204, 104.24649392959822]
-  }, {
-    name: 'TK "Новый"',
-    type: 'shop',
-    coordinates: [52.24181783145301, 104.2743312283342]
-  }, {
-    name: 'ЖД Вокзал',
-    type: 'train',
-    coordinates: [52.29136071742607, 104.28432238595039]
-  }, {
-    name: 'Аэропорт',
-    type: 'airport',
-    coordinates: [52.27059250304151, 104.25908250850405]
-  }, {
-    name: 'Ленд 1',
-    type: 'landmark',
-    coordinates: [52.25805295606605, 104.26043327741705]
-  }, {
-    name: 'Ленд 2',
-    type: 'landmark',
-    coordinates: [52.26947616962614, 104.26047894022595]
-  }, {
-    name: 'Ленд 3',
-    type: 'landmark',
-    coordinates: [52.276865822026934, 104.30812476330269]
-  }, {
-    name: 'Ленд 4',
-    type: 'landmark',
-    coordinates: [52.26241939611313, 104.30093814609481]
-  }];
-
-  function initMainMap(initGeoJson) {
-    var mainMapContainer = document.querySelector('#map');
-    var dataJSON = new _classes_json__WEBPACK_IMPORTED_MODULE_0__["JSONData"](DATA).getFormattedJSON();
-
-    if (mainMapContainer) {
-      var yandexMap = new _classes_ymaps__WEBPACK_IMPORTED_MODULE_1__["YandexMap"]('map', dataJSON);
-      yandexMap.createFullMap({
-        show1kmRound: true,
-        showFilter: true
+    try {
+      el.focus({
+        preventScroll: true
       });
+    } catch (err) {
+      el.focus();
     }
+  };
 
-    if (initGeoJson) {
-      var geoJson = new _classes_geojson__WEBPACK_IMPORTED_MODULE_2__["GeoJSONData"](DATA).getGeoJson(); // eslint-disable-next-line no-console
+  var isOpen = function isOpen() {
+    return header.classList.contains('is-open');
+  };
 
-      console.log('Вводные данные для редактирования файла data.geojson, представлены ниже'); // eslint-disable-next-line no-console
+  var toggle = function toggle(open) {
+    header.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('no-scroll', open);
 
-      console.log(geoJson);
+    if (open) {
+      var first = nav.querySelector('a');
+
+      if (first) {
+        focus(first);
+      }
+    } else {
+      focus(btn);
     }
-  }
+  };
 
-  ymaps.ready(function () {
-    return initMainMap(true);
+  btn.addEventListener('click', function () {
+    return toggle(!isOpen());
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') toggle(false);
+  });
+  document.addEventListener('click', function (e) {
+    if (isOpen() && !header.contains(e.target)) toggle(false);
+  });
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      return toggle(false);
+    });
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > TABLET_BREAKPOINT) toggle(false);
   });
 });
 
@@ -806,47 +196,21 @@ __webpack_require__.r(__webpack_exports__);
   function initSlider(container) {
     if (!container) {
       return;
-    }
+    } // eslint-disable-next-line no-unused-vars
 
-    var prevText = container.querySelector('.js--control-text-prev');
-    var nextText = container.querySelector('.js--control-text-next'); // eslint-disable-next-line no-unused-vars
 
     var slider = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](container, {
-      slidesPerView: 1,
+      slidesPerView: 'auto',
       watchOverflow: true,
-      watchSlidesProgress: true,
-      allowTouchMove: false,
+      allowTouchMove: true,
       watchSlidesVisibility: true,
       speed: 700,
-      spaceBetween: 160,
-      navigation: {
-        prevEl: '.swiper-button-prev',
-        nextEl: '.swiper-button-next'
-      },
-      on: {
-        init: function init() {
-          var nextSlide = this.slides[1];
-          nextText.textContent = nextSlide.querySelector('.map__title').textContent;
-        },
-        slideChange: function slideChange() {
-          var nextIndex = this.realIndex + 1;
-          var prevIndex = this.realIndex - 1;
-
-          if (nextIndex < this.slides.length) {
-            var nextSlide = this.slides[nextIndex];
-            nextText.textContent = nextSlide.querySelector('.map__title').textContent;
-          }
-
-          if (prevIndex >= 0) {
-            var prevSlide = this.slides[prevIndex];
-            prevText.textContent = prevSlide.querySelector('.map__title').textContent;
-          }
-        }
-      }
+      spaceBetween: 12,
+      resistanceRatio: 0
     });
   }
 
-  var slider = document.querySelector('.js--maps-slider');
+  var slider = document.querySelector('.js--hero-categories');
   initSlider(slider);
 });
 
