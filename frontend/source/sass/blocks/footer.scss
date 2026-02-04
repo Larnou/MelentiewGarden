@@ -1,12 +1,20 @@
+// =====================
+// FOOTER
+// =====================
+
 .footer {
   width: 100%;
   background: $color-border;
   color: $color-white;
 }
 
+// =====================
+// LAYOUT (container + columns)
+// =====================
+
 .footer__container {
   width: 100%;
-  max-width: 1320px;     // как у hero, единая сетка сайта
+  max-width: 1320px;
   margin: 0 auto;
   padding: 64px 32px;
   box-sizing: border-box;
@@ -14,162 +22,153 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 64px;
 
-  gap: 64px;             // вместо 209px, и пусть адаптируется
+  @include transition(max-width, padding, gap);
 
   @include laptop {
+    max-width: 1140px;
     padding: 56px 24px;
-    gap: 48px;
+    gap: 40px;
   }
 
   @include tablet {
+    max-width: 960px;
     padding: 48px 16px;
-    gap: 32px;
-  }
+    gap: 64px;
 
-  @include mobile {
-    padding: 40px 12px;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 28px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 40px 12px;
   }
 }
 
-/* Колонки */
+/* Колонки (все 3) */
 .footer__brand,
 .footer__contacts,
 .footer__community {
   max-width: 100%;
 }
 
-/* Вместо фиксированных width: 503/435/584 делаем нормальный flex */
+/* Brand */
 .footer__brand {
-  flex: 0 1 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
 }
 
-.footer__contacts {
-  flex: 0 1 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-
-  @include mobile {
-    align-items: center;
-  }
-}
-
+/* Contacts / Community */
+.footer__contacts,
 .footer__community {
-  flex: 0 1 420px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+
+  @include tablet {
+    align-items: center;
+  }
 
   @include mobile {
     align-items: center;
   }
 }
 
-/* Бренд-ссылка */
-.footer__brand-link {
-  width: 100%;
-  max-width: 520px;
-  min-height: 64px;
+// =====================
+// TYPOGRAPHY
+// =====================
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+.footer__title {
+  @extend %header;
+  margin: 0;
 
-  padding: 0 24px;
-  box-sizing: border-box;
+  @include transition(font-size, color);
 
-  text-decoration: none;
-  color: $color-white;
+  @include mobile {
+    font-size: 16px;
+  }
 }
 
-/* Типографика: без скачков, чтобы не было “36px везде” */
-.footer__brand-title,
-.footer__section-title,
-.footer__row-text {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: clamp(20px, 2.2vw, 36px);
-  line-height: 1.2;
-}
+.footer__section-title {
+  @extend %header;
 
-.footer__brand-title {
-  max-width: 100%;
-  display: block;
-  text-align: center;
+  @include mobile {
+    font-size: 16px;
+  }
 }
 
 .footer__address {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: clamp(16px, 1.4vw, 24px);
-  line-height: 1.3;
-  text-align: center;
-}
+  @extend %h1;
+  font-weight: normal;
+  text-align: left;
 
-/* Заголовки секций */
-.footer__section-title {
-  padding: 8px 16px;
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  color: $color-white;
+  @include tablet {
+    text-align: center;
+  }
 
   @include mobile {
-    padding: 0;
+    font-size: 14px;
   }
 }
 
-/* Ряды (иконка + текст) */
-.footer__row {
-  width: 100%;
-  min-height: 64px;
+// =====================
+// LINKS (logo rows)
+// =====================
 
+.footer__logo {
   display: flex;
   align-items: center;
   gap: 16px;
 
-  padding: 8px 16px;
-  box-sizing: border-box;
-
   text-decoration: none;
-  color: $color-white;
+  color: inherit;
 
-  @include mobile {
-    justify-content: center;
-    padding: 8px 0;
+  flex-shrink: 0;
+
+  svg {
+    @include transition(width, height);
+
+    @include mobile {
+      width: 32px;
+      height: 32px;
+    }
   }
 }
 
-.footer__row svg {
-  width: 48px;
-  height: 48px;
-  flex: 0 0 48px;
+.footer__logo-icon {
+  line-height: 1;
+  display: flex;
+}
 
-  @include tablet {
-    width: 40px;
-    height: 40px;
-    flex-basis: 40px;
+/* Variants */
+.footer__logo--address {
+  svg {
+    fill: $color-dark-green;
+  }
+
+  &:hover {
+    svg {
+      @include transition(fill);
+      fill: $color-dark-green-hover;
+    }
   }
 }
 
-.footer__row-text {
-  display: block;
-  text-align: left;
+.footer__logo--contacts,
+.footer__logo--group {
+  svg {
+    fill: none;
+  }
 
-  @include mobile {
-    text-align: center;
+  &:hover {
+    .footer__title {
+      color: $color-gray-hover;
+    }
   }
 }

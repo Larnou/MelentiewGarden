@@ -6,27 +6,33 @@ mixin footer()
     .footer__container
       //- Ссылка и адрес
       .footer__brand
-        a.footer__brand-link(href="/")
-          +svg('apple', 40, 40)
-          span.footer__brand-title Саженцы
-        p.footer__address г. Иркутск, ул. Примерная, 12
+        a.footer__logo.footer__logo--address(href="#")
+          .footer__logo-icon
+            +svg('apple', 40, 40)
+          .footer__title САЖЕНЦЫ-ИРКУТСК
+
+
+        p.footer__address р.п. Марково, Ново-Иркутский
 
       //- Контакты
       .footer__contacts
         .footer__section-title НАШИ КОНТАКТЫ
 
-        a.footer__row(href="tel:+79000000000")
-          +svg('telephone', 64, 64)
-          span.footer__row-text +7 (900) 000-00-00
+        a.footer__logo.footer__logo--contacts(href="tel:+79000000000", title="Позвонить по номеру телефона")
+          .footer__logo-icon
+            +svg('telephone', 40, 40)
+          span.footer__title +7 (900) 000-00-00
 
-        a.footer__row(href="mailto:info@example.ru")
-          +svg('email', 64, 64)
-          span.footer__row-text info@example.ru
+        a.footer__logo.footer__logo--contacts(href="mailto:info@example.ru", title="Написать электронное письмо")
+          .footer__logo-icon
+            +svg('email', 40, 40)
+          span.footer__title info@example.ru
 
       //- Сообщество
       .footer__community
         .footer__section-title НАШЕ СООБЩЕСТВО
 
-        a.footer__row(href="https://t.me/your_channel" target="_blank" rel="noopener")
-          +svg('telegram', 64, 64)
-          span.footer__row-text Наш Телеграм-канал
+        a.footer__logo.footer__logo--group(href="https://t.me/+RlClLH93pmBjMDIy" target="_blank" rel="noopener")
+          .footer__logo-icon
+            +svg('telegram', 40, 40)
+          span.footer__title Наш Телеграм-канал

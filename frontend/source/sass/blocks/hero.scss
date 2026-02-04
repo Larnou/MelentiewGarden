@@ -1,3 +1,7 @@
+// =====================
+// HERO
+// =====================
+
 .hero {
   position: relative;
   width: 100%;
@@ -8,6 +12,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
 }
@@ -18,7 +23,14 @@
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22));
+
+  /* чтобы overlay никогда не блокировал свайп/клики */
+  pointer-events: none;
 }
+
+// =====================
+// LAYOUT
+// =====================
 
 .hero__container {
   position: relative;
@@ -28,8 +40,8 @@
   margin: 0 auto;
   box-sizing: border-box;
 
-  padding: 0 32px;
   max-width: 1320px;
+  padding: 0 32px;
 
   flex: 1;
   display: flex;
@@ -52,18 +64,34 @@
   }
 }
 
+.hero__content {
+  width: 100%;
+  /* у тебя тут раньше не было display, и "align-items" не работал */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// =====================
+// TYPOGRAPHY
+// =====================
+
 .hero__title {
   @extend %h1-promo;
 
   margin: 0;
   color: $color-white;
+
   font-size: 96px;
   line-height: 1.2;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
-  text-align: center;
   letter-spacing: 0.02em;
-  white-space: nowrap;
+  text-align: center;
 
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+
+  /* перенос только на мобиле */
+  white-space: nowrap;
 
   @include transition(font-size);
 
@@ -76,6 +104,7 @@
     font-size: 40px;
     line-height: 1.12;
     letter-spacing: 0.01em;
+
     white-space: normal;
   }
 }
@@ -84,16 +113,13 @@
   @extend %header;
 
   font-weight: normal;
-  margin: 0;
-  margin-top: 24px;
+  margin: 24px 0 0;
   color: $color-white;
-  align-items: center;
-
-  @include transition(font-size);
-
 
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
   text-align: center;
+
+  @include transition(font-size);
 
   @include tablet {
     font-size: 18px;
@@ -108,14 +134,129 @@
   }
 }
 
-.hero__content {
-  width: 100%;
+// =====================
+// SLIDER (categories)
+// =====================
+
+.hero__slider {
+  position: relative;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 32px auto 0;
+
+  overflow: hidden;
+
+  background-color: $color-white;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+
+  /* Swiper тач */
+  touch-action: pan-y;
+
+  @include desktop {
+    /* на 1440+ свайпера нет, значит "свайп-подсказки" не нужны */
+    overflow: visible;
+  }
+}
+
+/* Swiper mechanics */
+.hero__slider-container.swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: auto; /* НЕ 100% */
+  justify-content: flex-start;
+}
+
+.hero__slider-slide.swiper-slide {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+}
+
+/* Slide link style */
+.hero__slider-slide {
+  @extend %header;
+
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  padding: 16px 24px;
+
+  text-decoration: none;
+  color: $color-black;
+  white-space: nowrap;
+
+  @include transition(font-size, padding);
+
+  @include tablet {
+    padding: 12px 16px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  @include desktop {
+    @include singleLineLink($color-black, $color-black, $color-black);
+
+    &::before {
+      top: 80%;
+    }
+  }
 }
 
 // =====================
-// Нижний блок "Ближайшая ярмарка"
+// SLIDER HINT GRADIENTS (only where slider is swipeable)
+// =====================
+
+/* по умолчанию показываем подсказки (tablet/mobile) */
+.hero__slider::before,
+.hero__slider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 24px;
+  pointer-events: none;
+  z-index: 2;
+
+  /* чтобы края совпадали со скруглением */
+  border-radius: 16px;
+
+  @include tablet {
+    width: 16px;
+  }
+
+  @include mobile {
+    width: 12px;
+  }
+}
+
+.hero__slider::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+}
+
+.hero__slider::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+}
+
+/* на desktop подсказки убираем полностью */
+@include desktop {
+  .hero__slider::before,
+  .hero__slider::after {
+    display: none;
+  }
+}
+
+// =====================
+// BOTTOM CARD
 // =====================
 
 .hero__bottom {
@@ -128,19 +269,19 @@
   display: flex;
   justify-content: center;
 
-  // чтобы низ был реально низом даже если контента мало
   margin-top: auto;
 }
 
 .hero__bottom-card {
-  //max-width: 760px;
   width: 70%;
   height: 84px;
 
   background: $color-white;
   opacity: 0.95;
+
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 
   display: flex;
@@ -171,114 +312,5 @@
   @include mobile {
     font-size: 20px;
     line-height: 1.2;
-  }
-}
-
-
-// =====================
-// Категории (пилюля + swiper на tablet/mobile)
-// =====================
-
-
-.hero__slider {
-  width: fit-content;;
-  max-width: 100%;
-  overflow: hidden;
-  position:  relative;
-
-  background-color: $color-white;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 16px;
-  margin-top: 32px;
-  margin: 32px auto 0;
-
-  /* градиенты */
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 24px;                // ширина “намёка”
-    pointer-events: none;       // КРИТИЧНО
-    z-index: 2;
-    border-radius: 16px;
-
-    @include tablet {
-      width: 16px;
-    }
-
-    @include mobile {
-      width: 12px;
-    }
-  }
-
-  /* левый */
-  &::before {
-    left: 0;
-
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.95),
-        rgba(255, 255, 255, 0)
-    );
-  }
-
-  /* правый */
-  &::after {
-    right: 0;
-    background: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0.95),
-        rgba(255, 255, 255, 0)
-    );
-  }
-
-  @include desktop {
-    overflow: visible;
-  }
-}
-
-.hero__slider-container.swiper-wrapper {
-  display: flex;      // КРИТИЧНО
-  flex-direction: row;
-  width: auto;        // НЕ 100%
-}
-
-.hero__slider-slide.swiper-slide {
-  flex: 0 0 auto;
-  width: auto;
-  min-width: 0;
-}
-
-.hero__slider-slide {
-
-  text-decoration: none;
-  color: $color-black;
-
-  @extend %header;
-  padding: 16px 24px;
-
-  &:last-child {
-    margin-right: 0!important;
-  }
-
-  @include transition(font-size, padding);
-
-  @include desktop {
-    @include singleLineLink($color-black, $color-black, $color-black);
-
-    &::before {
-      top: 80%;
-    }
-  }
-
-  @include tablet {
-    padding: 12px 16px;
-  }
-
-  @include mobile {
-    font-size: 16px;
-    padding: 8px 12px;
   }
 }

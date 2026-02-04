@@ -1,14 +1,21 @@
-// Стилизация элемента: header
-// Описание элемента:   Общий заголовок
+// =====================
+// HEADER (fixed top navigation)
+// =====================
 
+// Utility: блокировка прокрутки при открытом меню
 body.no-scroll {
   overflow: hidden;
 }
+
+// =====================
+// HEADER SHELL
+// =====================
 
 .header {
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   z-index: 1000;
 
@@ -18,7 +25,13 @@ body.no-scroll {
   backdrop-filter: blur(6px);
 }
 
+// =====================
+// LAYOUT
+// =====================
+
 .header__container {
+  position: relative; // якорь для мобильного nav (absolute)
+
   width: 100%;
   margin: 0 auto;
 
@@ -26,33 +39,36 @@ body.no-scroll {
   align-items: center;
   justify-content: space-between;
 
-  padding: 12px 24px;
   height: 80px;
+  padding: 12px 24px;
   box-sizing: border-box;
 
   @include transition(height);
-
-  // нужно, чтобы mobile-nav (absolute) цеплялся к контейнеру
-  position: relative;
 
   @include mobile {
     height: 64px;
   }
 }
 
+// =====================
+// LOGO / TITLE
+// =====================
+
 .header__logo {
   display: flex;
   align-items: center;
   gap: 16px;
+
   text-decoration: none;
   color: inherit;
+
   flex-shrink: 0;
   margin-right: 24px;
 
   svg {
     fill: $color-dark-green;
 
-    @include transition(width, height);
+    @include transition(width, height, fill);
 
     @include mobile {
       width: 32px;
@@ -60,16 +76,14 @@ body.no-scroll {
     }
   }
 
-  &:hover {
-    svg {
-      @include transition(fill);
-      fill: $color-dark-green-hover;
-    }
+  &:hover svg {
+    fill: $color-dark-green-hover;
   }
 }
 
 .header__title {
   @extend %header;
+
   margin: 0;
   white-space: nowrap;
 
@@ -79,6 +93,10 @@ body.no-scroll {
     font-size: 16px;
   }
 }
+
+// =====================
+// NAV / MENU
+// =====================
 
 .header__nav {
   flex-shrink: 0;
@@ -98,13 +116,13 @@ body.no-scroll {
 }
 
 .header__menu {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-
   list-style: none;
   margin: 0;
   padding: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
 
   @include tablet {
     flex-direction: column;
@@ -116,14 +134,7 @@ body.no-scroll {
 }
 
 .header__item {
-  @extend %header;
-  text-decoration: none;
-
-  @include singleLineLink($color-black, $color-black, $color-black);
-
-
-
-
+  /* li как контейнер, без декораций (чтобы не путать) */
   @include tablet {
     padding: 10px 0;
     text-align: center;
@@ -131,34 +142,39 @@ body.no-scroll {
 }
 
 .header__link {
+  @extend %header;
+
   color: $color-black;
+  text-decoration: none;
+
+  /* desktop hover/underline эффект */
+  @include singleLineLink($color-black, $color-black, $color-black);
 
   @include tablet {
     display: block;
     padding: 12px 8px;
     border-radius: 12px;
-    text-decoration: none;
-    color: inherit;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.06);
-    }
   }
 }
 
+// =====================
+// BURGER (tablet/mobile)
+// =====================
+
 .header__burger {
   display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 
   @include transition(width, height);
 
   @include tablet {
     display: inline-flex;
+
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
 
     align-items: center;
     justify-content: center;
@@ -169,10 +185,12 @@ body.no-scroll {
 
     span {
       position: relative;
+      display: block;
+
       width: 26px;
       height: 2px;
       background: #333;
-      display: block;
+
       transition: background 0.2s ease;
 
       &::before,
@@ -180,9 +198,11 @@ body.no-scroll {
         content: "";
         position: absolute;
         left: 0;
+
         width: 26px;
         height: 2px;
         background: #333;
+
         transition: transform 0.2s ease, top 0.2s ease;
       }
 
@@ -206,7 +226,10 @@ body.no-scroll {
   }
 }
 
-/* Состояние "открыто" */
+// =====================
+// STATE: OPEN (tablet/mobile nav dropdown)
+// =====================
+
 .header.is-open {
   @include tablet {
     .header__nav {
