@@ -1,3 +1,8 @@
+<!-- Блок "Ближайшая ярмарка"-->
+<!-- Блок "Саженцы" с карточками и стрелками-->
+<!-- Блок "Статьи" с карточками и стрелками-->
+<!-- Блок "Наши преимущества"-->
+<!-- Блок "История нашего сада"-->
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -97,8 +102,88 @@
                     </div>
                 </div>
             </div>
-            <div class="hero__bottom">
-                <div class="hero__bottom-card"><span class="hero__bottom-title">Ближайшая ярмарка</span></div>
+            <!--.hero__bottom-->
+            <!--  .hero__bottom-card-->
+            <!--    span.hero__bottom-title Ближайшая ярмарка-->
+        </section>
+        <!--+fair()-->
+        <section class="seedlings" id="catalog">
+            <div class="seedlings__container">
+                <div class="seedlings__header">
+                    <h2 class="seedlings__title">Саженцы</h2>
+                </div>
+                <div class="seedlings__slider swiper js--seedlings-slider">
+                    <div class="seedlings__list swiper-wrapper">
+                        <!-- Карточка 1--><a class="seedlings-card swiper-slide" href="#"><img class="seedlings-card__image" src="/img/cover.jpg" alt="Яблоня сорт 1">
+                            <h3 class="seedlings-card__title">ЯБЛОНЯ</h3>
+                            <p class="seedlings-card__subtitle">Сорт 1 · 3‑летний саженец</p>
+                            <p class="seedlings-card__price">от 900 ₽</p>
+                        </a><!-- Карточка 2--><a class="seedlings-card swiper-slide" href="#"><img class="seedlings-card__image" src="/img/cover.jpg" alt="Яблоня сорт 2">
+                            <h3 class="seedlings-card__title">ЯБЛОНЯ</h3>
+                            <p class="seedlings-card__subtitle">Сорт 2 · 2‑летний саженец</p>
+                            <p class="seedlings-card__price">от 800 ₽</p>
+                        </a><!-- Карточка 3--><a class="seedlings-card swiper-slide" href="#"><img class="seedlings-card__image" src="/img/cover.jpg" alt="Яблоня сорт 3">
+                            <h3 class="seedlings-card__title">ЯБЛОНЯ</h3>
+                            <p class="seedlings-card__subtitle">Сорт 3 · 1‑летний саженец</p>
+                            <p class="seedlings-card__price">от 700 ₽</p>
+                        </a><!-- Карточка 4--><a class="seedlings-card swiper-slide" href="#"><img class="seedlings-card__image" src="/img/cover.jpg" alt="Яблоня сорт 4">
+                            <h3 class="seedlings-card__title">ЯБЛОНЯ</h3>
+                            <p class="seedlings-card__subtitle">Сорт 4 · 2‑летний саженец</p>
+                            <p class="seedlings-card__price">от 950 ₽</p>
+                        </a><!-- Карточка 5--><a class="seedlings-card swiper-slide" href="#"><img class="seedlings-card__image" src="/img/cover.jpg" alt="Яблоня сорт 5">
+                            <h3 class="seedlings-card__title">ЯБЛОНЯ</h3>
+                            <p class="seedlings-card__subtitle">Сорт 5 · 3‑летний саженец</p>
+                            <p class="seedlings-card__price">от 1050 ₽</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="seedlings__controls"><button class="seedlings__arrow seedlings__arrow--prev" type="button" aria-label="Предыдущие саженцы"><span>◀</span></button><a class="seedlings__more-button" href="#">Посмотреть больше саженцев</a><button class="seedlings__arrow seedlings__arrow--next" type="button" aria-label="Следующие саженцы"><span>▶</span></button></div>
+            </div>
+        </section>
+        <section class="articles" id="articles">
+            <div class="articles__container">
+                <div class="articles__header">
+                    <h2 class="articles__title">Статьи</h2>
+                </div>
+                <div class="articles__slider swiper js--articles-slider">
+                    <div class="articles__list swiper-wrapper"><a class="article-card swiper-slide" href="#"><img class="article-card__image" src="/img/cover.jpg" alt="Как сажать яблоню?">
+                            <h3 class="article-card__title">Как сажать яблоню?</h3>
+                            <p class="article-card__meta">Советы по подготовке почвы и уходу</p>
+                        </a><a class="article-card swiper-slide" href="#"><img class="article-card__image" src="/img/cover.jpg" alt="Как ухаживать за яблоней?">
+                            <h3 class="article-card__title">Как ухаживать за яблоней?</h3>
+                            <p class="article-card__meta">Основные этапы ухода в течение сезона</p>
+                        </a><a class="article-card swiper-slide" href="#"><img class="article-card__image" src="/img/cover.jpg" alt="Как обрезать яблоню?">
+                            <h3 class="article-card__title">Как обрезать яблоню?</h3>
+                            <p class="article-card__meta">Основные принципы формирующей обрезки</p>
+                        </a><a class="article-card swiper-slide" href="#"><img class="article-card__image" src="/img/cover.jpg" alt="Как подготовить сад к зиме?">
+                            <h3 class="article-card__title">Как подготовить сад к зиме?</h3>
+                            <p class="article-card__meta">Что сделать осенью, чтобы деревья хорошо перезимовали</p>
+                        </a><a class="article-card swiper-slide" href="#"><img class="article-card__image" src="/img/cover.jpg" alt="Как выбрать сорт яблони?">
+                            <h3 class="article-card__title">Как выбрать сорт яблони?</h3>
+                            <p class="article-card__meta">Ориентиры при выборе сортов для Сибири</p>
+                        </a></div>
+                </div>
+                <div class="articles__controls"><button class="articles__arrow articles__arrow--prev" type="button" aria-label="Предыдущие статьи"><span>◀</span></button><a class="articles__more-button" href="#">Посмотреть больше статей</a><button class="articles__arrow articles__arrow--next" type="button" aria-label="Следующие статьи"><span>▶</span></button></div>
+            </div>
+        </section>
+        <section class="advantages">
+            <div class="advantages__container">
+                <h2 class="advantages__title">Наши преимущества</h2>
+                <div class="advantages__tags"><button class="advantages__tag" type="button">Надёжность</button><button class="advantages__tag" type="button">Все саженцы — проверены</button><button class="advantages__tag" type="button">Гарантия</button></div>
+            </div>
+        </section>
+        <section class="history" id="about">
+            <div class="history__container">
+                <h2 class="history__title">История нашего сада</h2>
+                <div class="history__content">
+                    <div class="history__image-wrapper"><img class="history__image" src="/img/field.jpg" alt="Вид на сад"></div>
+                    <div class="history__text">
+                        <p class="history__paragraph">Тут будет текст о том, как Людмила
+                            Михайловна организовала сад, об опыте
+                            и экспериментах в поисках самых вкусных
+                            и надёжных сортов.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

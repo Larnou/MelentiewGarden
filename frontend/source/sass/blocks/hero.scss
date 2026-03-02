@@ -183,21 +183,21 @@
   align-items: center;
   justify-content: center;
 
-  padding: 16px 24px;
+  margin: 16px 24px;
 
   text-decoration: none;
   color: $color-black;
   white-space: nowrap;
 
-  @include transition(font-size, padding);
+  @include transition(font-size, margin);
 
   @include tablet {
-    padding: 12px 16px;
+    margin: 12px 16px;
   }
 
   @include mobile {
     font-size: 16px;
-    padding: 8px 12px;
+    margin: 8px 12px;
   }
 
   @include desktop {

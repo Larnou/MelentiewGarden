@@ -1,0 +1,156 @@
+// =====================
+// FAIR (Ближайшая ярмарка)
+// =====================
+
+.fair {
+  width: 100%;
+  background: $color-white;
+}
+
+.fair__container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 32px 64px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include laptop {
+    max-width: 1140px;
+    padding: 32px 24px 48px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 24px 16px 40px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 24px 12px 32px;
+  }
+}
+
+.fair__label {
+  @extend %h1-promo;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 32px;
+
+  border-radius: 16px 16px 0 0;
+  background: $color-white;
+  color: $color-dark-green;
+
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  transform: translateY(-32px);
+
+  @include tablet {
+    padding: 12px 24px;
+    transform: translateY(-24px);
+  }
+
+  @include mobile {
+    padding: 10px 20px;
+    transform: translateY(-16px);
+  }
+}
+
+.fair__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+  gap: 32px;
+
+  padding: 32px;
+  border-radius: 24px;
+
+  background: #f5f5f5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  @include laptop {
+    gap: 24px;
+    padding: 28px;
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  @include mobile {
+    gap: 16px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+}
+
+.fair__image-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.fair__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fair__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.fair__title {
+  @extend %h1-promo;
+  margin: 0;
+  color: $color-white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: $color-dark-green;
+}
+
+.fair__date {
+  @extend %p1-bold;
+  margin: 0;
+}
+
+.fair__description {
+  @extend %p1;
+  margin: 0;
+}
+
+.fair__button {
+  @include button-reset;
+  @extend %header;
+
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 12px 24px;
+
+  border-radius: 999px;
+  background: $color-dark-green;
+  color: $color-white;
+
+  @include transition(background-color, color, box-shadow);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    background: $color-dark-green-hover;
+  }
+
+  @include mobile {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
