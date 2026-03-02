@@ -1,0 +1,17 @@
+// Блок "Ближайшая ярмарка"
+mixin fair()
+  section.fair(id="news")
+    .fair__container
+      .fair__card
+        .fair__image-wrapper
+          // TODO: заменить src на реальное фото ярмарки
+          img.fair__image(src="/img/field.jpg" alt="Фотография ярмарки")
+
+        .fair__content
+          h3.fair__title Ярмарка СибЭкспо
+          p.fair__date 21–23 августа · 10:00–18:00
+          p.fair__description
+            | Здесь будет текст с описанием ближайшей ярмарки:
+            |  место проведения, особенности и важные детали для гостей.
+          button.fair__button(type="button") Подробнее о ярмарке
+

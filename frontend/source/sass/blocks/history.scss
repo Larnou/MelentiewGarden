@@ -1,0 +1,77 @@
+// =====================
+// HISTORY (История нашего сада)
+// =====================
+
+.history {
+  width: 100%;
+  background: #f5f5f5;
+}
+
+.history__container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 64px 32px 80px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include laptop {
+    max-width: 1140px;
+    padding: 56px 24px 72px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 48px 16px 64px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 40px 12px 56px;
+  }
+}
+
+.history__title {
+  @extend %h1-promo;
+  margin: 0;
+  text-align: center;
+}
+
+.history__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+  gap: 32px;
+
+  align-items: center;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.history__image-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.history__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.history__text {
+  @extend %p1;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.history__paragraph {
+  margin: 0;
+}
+

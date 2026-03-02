@@ -191,15 +191,41 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   function initSlider(container) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
     if (!container) {
-      return;
+      return null;
+    }
+
+    var prevSelector = options.prevSelector,
+        nextSelector = options.nextSelector,
+        swiperOptions = _objectWithoutProperties(options, ["prevSelector", "nextSelector"]);
+
+    var navigation;
+
+    if (prevSelector || nextSelector) {
+      var root = container.closest('section') || container.parentElement;
+      navigation = {
+        prevEl: prevSelector && root ? root.querySelector(prevSelector) : null,
+        nextEl: nextSelector && root ? root.querySelector(nextSelector) : null
+      };
     } // eslint-disable-next-line no-unused-vars
 
 
-    var slider = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](container, {
+    var sliderInstance = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](container, _objectSpread(_objectSpread({
       slidesPerView: 'auto',
       watchOverflow: true,
       allowTouchMove: true,
@@ -207,11 +233,50 @@ __webpack_require__.r(__webpack_exports__);
       speed: 700,
       spaceBetween: 12,
       resistanceRatio: 0
-    });
-  }
+    }, swiperOptions), navigation ? {
+      navigation: navigation
+    } : {}));
+    return sliderInstance;
+  } // Хиро-категории
 
-  var slider = document.querySelector('.js--hero-categories');
-  initSlider(slider);
+
+  var heroSlider = document.querySelector('.js--hero-categories');
+  initSlider(heroSlider); // Саженцы
+
+  var seedlingsSlider = document.querySelector('.js--seedlings-slider');
+  initSlider(seedlingsSlider, {
+    slidesPerView: 3,
+    spaceBetween: 24,
+    prevSelector: '.seedlings__arrow--prev',
+    nextSelector: '.seedlings__arrow--next',
+    breakpoints: {
+      0: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: 2
+      },
+      1080: {
+        slidesPerView: 3
+      }
+    }
+  }); // Статьи
+
+  var articlesSlider = document.querySelector('.js--articles-slider');
+  initSlider(articlesSlider, {
+    slidesPerView: 2,
+    spaceBetween: 24,
+    prevSelector: '.articles__arrow--prev',
+    nextSelector: '.articles__arrow--next',
+    breakpoints: {
+      0: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: 2
+      }
+    }
+  });
 });
 
 /***/ }),
