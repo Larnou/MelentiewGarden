@@ -1,0 +1,39 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · сорт 1'
+    pageDescription = 'Тестовая страница саженца яблони · сорт 1 из сада Мелентьевых.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · сорт 1
+
+      +articleBlockMediaLeft('img/apple.webp', 'Яблоня · сорт 1')
+        p
+          | Невысокое дерево с аккуратной округлой кроной и стабильным
+          |  ежегодным плодоношением.
+
+      +articleBlockHeadingText('Краткие характеристики')
+      +articleBlockListUnordered()
+        li Возраст саженца: 3 года.
+        li Тип: семечковые.
+        li Срок созревания: начало сентября.
+        li Масса плодов: до 30–35 г.
+
+      +articleBlockText()
+        p
+          | Этот сорт хорошо чувствует себя в условиях нашего климата и
+          |  подходит тем, кто хочет получить надёжное дерево с приятными
+          |  по вкусу яблоками.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src="img/apple.webp" alt="Яблоня · сорт 1")
+          p.article-block__slide-caption Яблоня · сорт 1 в саду Мелентьевых
+

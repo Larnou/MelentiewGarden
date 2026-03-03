@@ -2,10 +2,36 @@
 mixin advantages()
   section.advantages
     .advantages__container
-      h2.advantages__title Наши преимущества
+      .advantages__header
+        h2.advantages__title Наши преимущества
+        p.advantages__subtitle
+          | Почему саженцы из нашего сада надёжнее рынка
 
-      .advantages__tags
-        button.advantages__tag(type="button") Надёжность
-        button.advantages__tag(type="button") Все саженцы — проверены
-        button.advantages__tag(type="button") Гарантия
+      .advantages__list
+        .advantages__item
+          .advantages__icon
+            span 1
+          .advantages__content
+            h3.advantages__item-title Выращиваем в своём саду
+            p.advantages__item-text
+              | Саженцы растут в тех же условиях, в которых будут жить у вас:
+              |  один и тот же климат, те же ветра и зимы.
+
+        .advantages__item
+          .advantages__icon
+            span 2
+          .advantages__content
+            h3.advantages__item-title Проверенные зимостойкие сорта
+            p.advantages__item-text
+              | Оставляем только сорта, которые пережили не одну зиму и
+              |  показали стабильные урожаи.
+
+        .advantages__item
+          .advantages__icon
+            span 3
+          .advantages__content
+            h3.advantages__item-title Помогаем подобрать саженцы под участок
+            p.advantages__item-text
+              | Подскажем, какие яблони, груши и другие культуры лучше подойдут
+              |  под ваши условия и опыт.
 

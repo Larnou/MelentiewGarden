@@ -237,7 +237,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
       allowTouchMove: true,
       watchSlidesVisibility: true,
       speed: 700,
-      spaceBetween: 12,
+      // spaceBetween: 12,
       resistanceRatio: 0
     }, swiperOptions), navigation ? {
       navigation: navigation
@@ -287,16 +287,21 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
   document.querySelectorAll('.js--article-gallery, .js--article-gallery-captions').forEach(function (container) {
     var block = container.closest('.article-block');
     if (!block) return;
-    initSlider(container, {
+    var slides = container.querySelectorAll('.swiper-slide');
+    var controls = block.querySelector('.article-block__slider-controls');
+    var hasMultipleSlides = slides.length > 1;
+
+    if (!hasMultipleSlides && controls) {
+      controls.style.display = 'none';
+    }
+
+    initSlider(container, _objectSpread({
       slidesPerView: 1,
-      spaceBetween: 16,
+      spaceBetween: 16
+    }, hasMultipleSlides ? {
       prevSelector: '.article-block__arrow--prev',
-      nextSelector: '.article-block__arrow--next',
-      navigation: {
-        prevEl: block.querySelector('.article-block__arrow--prev'),
-        nextEl: block.querySelector('.article-block__arrow--next')
-      }
-    });
+      nextSelector: '.article-block__arrow--next'
+    } : {}));
   });
 });
 
