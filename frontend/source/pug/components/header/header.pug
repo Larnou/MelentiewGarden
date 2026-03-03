@@ -2,9 +2,9 @@
     header.class    - дополнительный класс (js-class)
 
 mixin header()
-  header.header(class=header && header.class ? header.class : '')
+  header.header(class=header && header.class ? header.class: '')
     .header__container
-      a.header__logo(href="/#")
+      a.header__logo(href="index.html")
         .header__logo-icon
           +svg('apple', 40, 40)
 
@@ -17,11 +17,11 @@ mixin header()
       nav.header__nav(aria-label="Главное меню")
         ul.header__menu
           li.header__item
-            a.header__link(href=header && header.isMain ? "#news" : "index.html#news") Новости
+            a.header__link(href=header && header.isMain ? "#news": "index.html#news") Новости
           li.header__item
-            a.header__link(href=header && header.isMain ? "#catalog" : "catalog.html") Каталог
+            a.header__link(href=header && header.isMain ? "#catalog": "catalog.html") Каталог
           li.header__item
-            a.header__link(href=header && header.isMain ? "#articles" : "articles.html") Статьи
+            a.header__link(href=header && header.isMain ? "#articles": "articles.html") Статьи
           li.header__item
-            a.header__link(href=header && header.isMain ? "#about" : "index.html#about") О нас
+            a.header__link(href=header && header.isMain ? "#about": "index.html#about") О нас
 

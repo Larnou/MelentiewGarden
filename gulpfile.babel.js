@@ -44,7 +44,11 @@ gulp.task('css', () => gulp.src('frontend/source/sass/style.scss')
   // .pipe(gulp.dest('backend/static/css'))
   .pipe(server.stream()));
 
-gulp.task('pug', () => gulp.src('frontend/source/pug/*.pug')
+gulp.task('pug', () => gulp.src([
+  'frontend/source/pug/*.pug',
+  'frontend/source/pug/articles/*.pug',
+  'frontend/source/pug/catalog/*.pug',
+])
   .pipe(plumber())
   .pipe(pug())
   .pipe(gulpPretty())
