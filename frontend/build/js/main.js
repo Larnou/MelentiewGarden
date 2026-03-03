@@ -99,15 +99,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var focus_visible__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(focus_visible__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ "./frontend/source/js/modules/slider.js");
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/burger */ "./frontend/source/js/modules/burger.js");
+/* harmony import */ var _modules_smoothScroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/smoothScroll */ "./frontend/source/js/modules/smoothScroll.js");
  // Пример подключения модуля
 // import module from './modules/module';
 // module();
+
 
 
  // Используемые модули
 
 Object(_modules_slider__WEBPACK_IMPORTED_MODULE_1__["default"])();
 Object(_modules_burger__WEBPACK_IMPORTED_MODULE_2__["default"])();
+Object(_modules_smoothScroll__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
 /***/ }),
 
@@ -276,6 +279,60 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
         slidesPerView: 2
       }
     }
+  }); // Слайдеры в статьях: галерея и галерея с подписями
+
+  document.querySelectorAll('.js--article-gallery, .js--article-gallery-captions').forEach(function (container) {
+    var block = container.closest('.article-block');
+    if (!block) return;
+    initSlider(container, {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      prevSelector: '.article-block__arrow--prev',
+      nextSelector: '.article-block__arrow--next',
+      navigation: {
+        prevEl: block.querySelector('.article-block__arrow--prev'),
+        nextEl: block.querySelector('.article-block__arrow--next')
+      }
+    });
+  });
+});
+
+/***/ }),
+
+/***/ "./frontend/source/js/modules/smoothScroll.js":
+/*!****************************************************!*\
+  !*** ./frontend/source/js/modules/smoothScroll.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Плавная прокрутка по якорным ссылкам (в т.ч. с учётом фиксированного хедера).
+ * Обрабатывает клики по a[href^="#"] на той же странице.
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="#"]');
+    if (!link || !link.hash) return;
+    var href = link.getAttribute('href');
+    if (href === '#') return;
+    var targetId = href.slice(1);
+    var target = document.getElementById(targetId);
+    if (!target || target === document.body) return; // Только если ссылка ведёт на текущую страницу (не на другой документ)
+
+    var baseUrl = function baseUrl(url) {
+      return url.split('#')[0].replace(/\/$/, '') || '/';
+    };
+
+    var isSamePage = baseUrl(link.href) === baseUrl(window.location.href);
+    if (!isSamePage) return;
+    e.preventDefault();
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   });
 });
 

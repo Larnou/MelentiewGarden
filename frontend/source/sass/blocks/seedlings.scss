@@ -88,6 +88,21 @@
   align-items: stretch;
 }
 
+.seedlings__list--grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
 .seedlings-card.swiper-slide {
   flex: 0 0 calc((100% - 2 * 24px) / 3);
   max-width: calc((100% - 2 * 24px) / 3);
@@ -174,6 +189,11 @@
   &:hover {
     background: $color-dark-green;
     color: $color-white;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 1.4;
   }
 }
 

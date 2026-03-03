@@ -40,6 +40,13 @@
   text-align: center;
 }
 
+.articles__subtitle {
+  @extend %p1;
+  margin: 8px 0 0;
+  text-align: center;
+  color: $color-gray-hover;
+}
+
 .articles__slider {
   width: 100%;
   margin-top: 8px;
@@ -86,6 +93,21 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;
+}
+
+.articles__list--grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .article-card.swiper-slide {
@@ -163,6 +185,11 @@
   &:hover {
     background: $color-dark-green;
     color: $color-white;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 1.4;
   }
 }
 

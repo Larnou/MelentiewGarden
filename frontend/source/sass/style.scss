@@ -29,3 +29,13 @@
 @import "blocks/articles";
 @import "blocks/advantages";
 @import "blocks/history";
+@import "blocks/article";
+
+// Якорные цели: прокрутка не прячет контент под фиксированным хедером
+section[id] {
+  scroll-margin-top: 80px;
+
+  @include mobile {
+    scroll-margin-top: 64px;
+  }
+}

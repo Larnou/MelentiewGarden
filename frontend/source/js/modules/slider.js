@@ -79,4 +79,20 @@ export default () => {
       },
     },
   });
+
+  // Слайдеры в статьях: галерея и галерея с подписями
+  document.querySelectorAll('.js--article-gallery, .js--article-gallery-captions').forEach((container) => {
+    const block = container.closest('.article-block');
+    if (!block) return;
+    initSlider(container, {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      prevSelector: '.article-block__arrow--prev',
+      nextSelector: '.article-block__arrow--next',
+      navigation: {
+        prevEl: block.querySelector('.article-block__arrow--prev'),
+        nextEl: block.querySelector('.article-block__arrow--next'),
+      },
+    });
+  });
 };

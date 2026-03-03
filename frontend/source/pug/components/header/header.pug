@@ -4,7 +4,11 @@
 mixin header()
   header.header(class=header && header.class ? header.class : '')
     .header__container
-      a.header__logo(href="/")
+      a.header__logo(
+        href="/"
+        target=header && header.isMain ? false : "_blank"
+        rel=header && header.isMain ? false : "noopener noreferrer"
+      )
         .header__logo-icon
           +svg('apple', 40, 40)
 
@@ -16,8 +20,28 @@ mixin header()
 
       nav.header__nav(aria-label="Главное меню")
         ul.header__menu
-          li.header__item: a.header__link(href="#news") Новости
-          li.header__item: a.header__link(href="#catalog") Каталог
-          li.header__item: a.header__link(href="#articles") Статьи
-          li.header__item: a.header__link(href="#about") О нас
+          li.header__item
+            a.header__link(
+              href=header && header.isMain ? "#news" : "index.html#news"
+              target=header && header.isMain ? false : "_blank"
+              rel=header && header.isMain ? false : "noopener noreferrer"
+            ) Новости
+          li.header__item
+            a.header__link(
+              href=header && header.isMain ? "#catalog" : "index.html#catalog"
+              target=header && header.isMain ? false : "_blank"
+              rel=header && header.isMain ? false : "noopener noreferrer"
+            ) Каталог
+          li.header__item
+            a.header__link(
+              href=header && header.isMain ? "#articles" : "index.html#articles"
+              target=header && header.isMain ? false : "_blank"
+              rel=header && header.isMain ? false : "noopener noreferrer"
+            ) Статьи
+          li.header__item
+            a.header__link(
+              href=header && header.isMain ? "#about" : "index.html#about"
+              target=header && header.isMain ? false : "_blank"
+              rel=header && header.isMain ? false : "noopener noreferrer"
+            ) О нас
 
