@@ -1,0 +1,68 @@
+//- Блоки-шаблоны для контента статей (конструктор страницы)
+//- Использование: на странице статьи в .article__container после заголовка вызывать миксины и передавать контент в block.
+
+//- Текст (один или несколько абзацев)
+mixin articleBlockText()
+  .article-block.article-block--text
+    .article-block__content
+      block
+
+//- Текст с заголовком (заголовок + абзацы; block опционален)
+mixin articleBlockHeadingText(title)
+  .article-block.article-block--heading-text
+    h2.article-block__heading= title
+    if block
+      .article-block__content
+        block
+
+//- Нумерованный список
+mixin articleBlockListOrdered()
+  .article-block.article-block--list.article-block--list-ordered
+    ol.article-block__list
+      block
+
+//- Маркированный список
+mixin articleBlockListUnordered()
+  .article-block.article-block--list.article-block--list-unordered
+    ul.article-block__list
+      block
+
+//- Текст с картинкой слева (картинка слева, текст справа)
+mixin articleBlockMediaLeft(src, alt)
+  .article-block.article-block--media.article-block--media-left
+    .article-block__media-image
+      img(src=src alt=alt)
+    .article-block__media-text
+      block
+
+//- Текст с картинкой справа (текст слева, картинка справа)
+mixin articleBlockMediaRight(src, alt)
+  .article-block.article-block--media.article-block--media-right
+    .article-block__media-text
+      block
+    .article-block__media-image
+      img(src=src alt=alt)
+
+//- Слайдер картинок (только изображения). В block — элементы .article-block__slide с img внутри
+mixin articleBlockSlider()
+  .article-block.article-block--slider
+    .article-block__slider.swiper.js--article-gallery
+      .article-block__slider-wrapper.swiper-wrapper
+        block
+    .article-block__slider-controls
+      button.article-block__arrow.article-block__arrow--prev(type="button" aria-label="Назад")
+        span ◀
+      button.article-block__arrow.article-block__arrow--next(type="button" aria-label="Вперёд")
+        span ▶
+
+//- Слайдер картинок с подписью под каждым изображением. В block — элементы .article-block__slide: img + .article-block__slide-caption
+mixin articleBlockSliderCaptions()
+  .article-block.article-block--slider-captions
+    .article-block__slider.swiper.js--article-gallery-captions
+      .article-block__slider-wrapper.swiper-wrapper
+        block
+    .article-block__slider-controls
+      button.article-block__arrow.article-block__arrow--prev(type="button" aria-label="Назад")
+        span ◀
+      button.article-block__arrow.article-block__arrow--next(type="button" aria-label="Вперёд")
+        span ▶

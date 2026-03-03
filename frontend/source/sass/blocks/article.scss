@@ -1,0 +1,338 @@
+// =====================
+// ARTICLE PAGE (страница одной статьи)
+// =====================
+// Отступ main под фиксированный хедер на страницах статей
+.main--article {
+  padding-top: 80px;
+
+  @include tablet {
+    padding-top: 72px;
+  }
+
+  @include mobile {
+    padding-top: 64px;
+  }
+}
+
+.article {
+  width: 100%;
+  min-height: 60vh;
+  background: $color-white;
+}
+
+.article__container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+  box-sizing: border-box;
+
+  @include laptop {
+    max-width: 1140px;
+    padding: 40px 24px 72px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 32px 16px 64px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 24px 12px 56px;
+  }
+}
+
+.article__back {
+  @extend %p1;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 24px;
+  color: $color-dark-green;
+  text-decoration: none;
+  @include singleLineLink($color-dark-green, $color-dark-green-hover, $color-black);
+
+  @include mobile {
+    margin-bottom: 16px;
+  }
+}
+
+.article__title {
+  @extend %h1-promo;
+  margin: 0 0 8px;
+  color: $color-black;
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+}
+
+.article__meta {
+  @extend %p2;
+  margin: 0 0 32px;
+  color: $color-gray-hover;
+
+  @include mobile {
+    margin-bottom: 24px;
+  }
+}
+
+.article__body {
+  @extend %p1;
+  font-size: 16px;
+  line-height: 1.65;
+  color: $color-black;
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.article__subtitle {
+  @extend %header;
+  margin: 32px 0 12px;
+  font-size: 22px;
+  line-height: 1.35;
+  color: $color-black;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @include mobile {
+    margin: 24px 0 10px;
+    font-size: 18px;
+  }
+}
+
+.article__list {
+  margin: 0 0 1em;
+  padding-left: 24px;
+  list-style: decimal;
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  @include mobile {
+    padding-left: 20px;
+  }
+}
+
+// =====================
+// ARTICLE BLOCKS (конструктор контента статьи)
+// =====================
+
+.article-block {
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    margin-bottom: 24px;
+  }
+}
+
+.article-block__content {
+  @extend %p1;
+  font-size: 16px;
+  line-height: 1.65;
+  color: $color-black;
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// — Текст с заголовком
+.article-block__heading {
+  @extend %header;
+  margin: 0 0 12px;
+  font-size: 22px;
+  line-height: 1.35;
+  color: $color-black;
+
+  @include mobile {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
+
+// — Списки
+.article-block__list {
+  margin: 0;
+  padding-left: 24px;
+
+  li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $color-black;
+  }
+
+  @include mobile {
+    padding-left: 20px;
+  }
+}
+
+.article-block--list-ordered .article-block__list {
+  list-style: decimal;
+}
+
+.article-block--list-unordered .article-block__list {
+  list-style: disc;
+}
+
+// — Текст с картинкой слева/справа
+.article-block--media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); // картинка ~1/3, текст ~2/3
+  gap: 24px;
+  align-items: start;
+
+  @include tablet {
+    gap: 20px;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.article-block--media-right {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
+  .article-block__media-image {
+    @include mobile {
+      order: -1;
+    }
+  }
+}
+
+.article-block__media-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: $shadow;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    display: block;
+    object-fit: cover;
+
+    @include mobile {
+      max-height: 220px;
+    }
+  }
+}
+
+.article-block__media-text {
+  min-width: 0;
+
+  p {
+    margin: 0 0 0.75em;
+    font-size: 16px;
+    line-height: 1.65;
+    color: $color-black;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// — Слайдер картинок
+.article-block--slider,
+.article-block--slider-captions {
+  margin-bottom: 40px;
+
+  @include mobile {
+    margin-bottom: 32px;
+  }
+}
+
+.article-block__slider {
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-block__slider-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.article-block__slide {
+  flex: 0 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    display: block;
+    object-fit: cover;
+
+    @include mobile {
+      height: 220px;
+      max-height: none;
+    }
+  }
+}
+
+.article-block__slide-caption {
+  @extend %p2;
+  margin: 8px 0 0;
+  padding: 0 4px;
+  color: $color-gray-hover;
+  text-align: center;
+}
+
+.article-block__slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.article-block__arrow {
+  @include button-reset;
+  padding: 8px 16px;
+  font-size: 18px;
+  color: $color-dark-green;
+  border-radius: 8px;
+  @include transition(background-color, color);
+
+  &:hover {
+    color: $color-dark-green-hover;
+    background: rgba($color-dark-green, 0.08);
+  }
+
+  &:disabled,
+  &.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+  }
+}

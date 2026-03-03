@@ -1,0 +1,51 @@
+extends components/template_layout
+
+append variables
+  -
+    pageTitle = 'Каталог саженцев'
+    pageDescription = 'Полный список саженцев сада Мелентьевых'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.seedlings.seedlings--page
+    .seedlings__container
+      .seedlings__header
+        h1.seedlings__title Каталог саженцев
+
+      .seedlings__list.seedlings__list--grid
+        // Карточка 1
+        a.seedlings-card(href="#")
+          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 1")
+          h2.seedlings-card__title ЯБЛОНЯ · сорт 1
+          p.seedlings-card__subtitle 3‑летний саженец
+          p.seedlings-card__price от 900 ₽
+
+        // Карточка 2
+        a.seedlings-card(href="#")
+          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 2")
+          h2.seedlings-card__title ЯБЛОНЯ · сорт 2
+          p.seedlings-card__subtitle 2‑летний саженец
+          p.seedlings-card__price от 800 ₽
+
+        // Карточка 3
+        a.seedlings-card(href="#")
+          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 3")
+          h2.seedlings-card__title ЯБЛОНЯ · сорт 3
+          p.seedlings-card__subtitle 1‑летний саженец
+          p.seedlings-card__price от 700 ₽
+
+        // Карточка 4
+        a.seedlings-card(href="#")
+          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 4")
+          h2.seedlings-card__title ЯБЛОНЯ · сорт 4
+          p.seedlings-card__subtitle 2‑летний саженец
+          p.seedlings-card__price от 950 ₽
+
+        // Карточка 5
+        a.seedlings-card(href="#")
+          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 5")
+          h2.seedlings-card__title ЯБЛОНЯ · сорт 5
+          p.seedlings-card__subtitle 3‑летний саженец
+          p.seedlings-card__price от 1050 ₽
+
