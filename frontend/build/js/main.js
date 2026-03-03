@@ -100,9 +100,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ "./frontend/source/js/modules/slider.js");
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/burger */ "./frontend/source/js/modules/burger.js");
 /* harmony import */ var _modules_smoothScroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/smoothScroll */ "./frontend/source/js/modules/smoothScroll.js");
+/* harmony import */ var _modules_tagFilter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/tagFilter */ "./frontend/source/js/modules/tagFilter.js");
  // Пример подключения модуля
 // import module from './modules/module';
 // module();
+
 
 
 
@@ -111,6 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 Object(_modules_slider__WEBPACK_IMPORTED_MODULE_1__["default"])();
 Object(_modules_burger__WEBPACK_IMPORTED_MODULE_2__["default"])();
 Object(_modules_smoothScroll__WEBPACK_IMPORTED_MODULE_3__["default"])();
+Object(_modules_tagFilter__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
 /***/ }),
 
@@ -332,6 +335,107 @@ __webpack_require__.r(__webpack_exports__);
     target.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
+    });
+  });
+});
+
+/***/ }),
+
+/***/ "./frontend/source/js/modules/tagFilter.js":
+/*!*************************************************!*\
+  !*** ./frontend/source/js/modules/tagFilter.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var groups = document.querySelectorAll('.js-tag-filter');
+  if (!groups.length) return;
+  var params = new URLSearchParams(window.location.search);
+  var urlTag = params.get('tag');
+  groups.forEach(function (group) {
+    var targetSelector = group.dataset.target;
+    if (!targetSelector) return;
+    var chips = Array.from(group.querySelectorAll('.tag-filter__chip'));
+    if (!chips.length) return;
+    var items = Array.from(document.querySelectorAll(targetSelector));
+    if (!items.length) return;
+
+    var applyFilter = function applyFilter(activeTags) {
+      items.forEach(function (item) {
+        var tags = (item.dataset.tags || '').split(/\s+/).filter(Boolean);
+        var useAll = !activeTags.size || activeTags.has('all');
+        var visible = useAll || tags.some(function (tag) {
+          return activeTags.has(tag);
+        });
+        item.classList.toggle('is-hidden', !visible);
+      });
+    };
+
+    var updateChipsView = function updateChipsView(activeTags) {
+      chips.forEach(function (chip) {
+        var tag = chip.dataset.tag;
+        if (!tag) return;
+        var isActive = activeTags.has(tag);
+        chip.classList.toggle('is-active', isActive);
+        chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    }; // Инициализация набора активных тегов
+
+
+    var activeTags = new Set();
+    var allChip = group.querySelector('.tag-filter__chip[data-tag="all"]') || chips[0];
+
+    if (urlTag) {
+      var chipFromUrl = chips.find(function (chip) {
+        return chip.dataset.tag === urlTag;
+      });
+
+      if (chipFromUrl) {
+        activeTags.add(urlTag);
+      }
+    } // Если из URL ничего не выбрали, включаем "Все"
+
+
+    if (!activeTags.size && allChip && allChip.dataset.tag) {
+      activeTags.add(allChip.dataset.tag);
+    }
+
+    updateChipsView(activeTags);
+    applyFilter(activeTags);
+    group.addEventListener('click', function (event) {
+      var chip = event.target.closest('.tag-filter__chip');
+      if (!chip || !group.contains(chip)) return;
+      var tag = chip.dataset.tag;
+      if (!tag) return; // Обработка мультивыбора
+
+      if (tag === 'all') {
+        // Клик по "Все" — сбрасываем остальные
+        activeTags.clear();
+        activeTags.add('all');
+      } else {
+        // Переключаем конкретный тег
+        if (activeTags.has(tag)) {
+          activeTags.delete(tag);
+        } else {
+          activeTags.add(tag);
+        } // Если есть хоть один реальный тег, выключаем "all"
+
+
+        if (activeTags.size) {
+          activeTags.delete('all');
+        } // Если в итоге ничего не выбрано — возвращаемся к "all"
+
+
+        if (!activeTags.size && allChip && allChip.dataset.tag) {
+          activeTags.add(allChip.dataset.tag);
+        }
+      }
+
+      updateChipsView(activeTags);
+      applyFilter(activeTags);
     });
   });
 });

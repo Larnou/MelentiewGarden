@@ -7,8 +7,10 @@ import 'focus-visible';
 import slider from './modules/slider';
 import burger from './modules/burger';
 import smoothScroll from './modules/smoothScroll';
+import tagFilter from './modules/tagFilter';
 
 // Используемые модули
 slider();
 burger();
 smoothScroll();
+tagFilter();

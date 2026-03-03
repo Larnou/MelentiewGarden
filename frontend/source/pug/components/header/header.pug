@@ -4,11 +4,7 @@
 mixin header()
   header.header(class=header && header.class ? header.class : '')
     .header__container
-      a.header__logo(
-        href="/"
-        target=header && header.isMain ? false : "_blank"
-        rel=header && header.isMain ? false : "noopener noreferrer"
-      )
+      a.header__logo(href="/#")
         .header__logo-icon
           +svg('apple', 40, 40)
 
@@ -21,27 +17,11 @@ mixin header()
       nav.header__nav(aria-label="Главное меню")
         ul.header__menu
           li.header__item
-            a.header__link(
-              href=header && header.isMain ? "#news" : "index.html#news"
-              target=header && header.isMain ? false : "_blank"
-              rel=header && header.isMain ? false : "noopener noreferrer"
-            ) Новости
+            a.header__link(href=header && header.isMain ? "#news" : "index.html#news") Новости
           li.header__item
-            a.header__link(
-              href=header && header.isMain ? "#catalog" : "index.html#catalog"
-              target=header && header.isMain ? false : "_blank"
-              rel=header && header.isMain ? false : "noopener noreferrer"
-            ) Каталог
+            a.header__link(href=header && header.isMain ? "#catalog" : "catalog.html") Каталог
           li.header__item
-            a.header__link(
-              href=header && header.isMain ? "#articles" : "index.html#articles"
-              target=header && header.isMain ? false : "_blank"
-              rel=header && header.isMain ? false : "noopener noreferrer"
-            ) Статьи
+            a.header__link(href=header && header.isMain ? "#articles" : "articles.html") Статьи
           li.header__item
-            a.header__link(
-              href=header && header.isMain ? "#about" : "index.html#about"
-              target=header && header.isMain ? false : "_blank"
-              rel=header && header.isMain ? false : "noopener noreferrer"
-            ) О нас
+            a.header__link(href=header && header.isMain ? "#about" : "index.html#about") О нас
 

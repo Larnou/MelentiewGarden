@@ -149,3 +149,67 @@
 
   color: $color-black;
 }
+
+// =====================
+// TAG FILTER (чипы-теги для каталога и статей)
+// =====================
+
+.tag-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+
+  @include mobile {
+    margin-bottom: 20px;
+  }
+}
+
+.tag-filter__label {
+  @extend %p1;
+  color: $color-gray-hover;
+}
+
+.tag-filter__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-filter__chip {
+  @include button-reset;
+  @extend %p1;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  background: #f5f5f5;
+  color: $color-black;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+  @include transition(background-color, color, box-shadow, border-color);
+
+  &:hover {
+    background: $color-white;
+    border-color: rgba($color-dark-green, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+
+  &.is-active {
+    background: $color-dark-green;
+    color: $color-white;
+    border-color: transparent;
+    box-shadow: 0 4px 10px rgba($color-dark-green, 0.35);
+  }
+
+  @include mobile {
+    padding: 6px 12px;
+  }
+}
+
+// Скрытие карточек при фильтрации
+.seedlings-card.is-hidden,
+.article-card.is-hidden {
+  display: none;
+}

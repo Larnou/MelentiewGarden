@@ -13,37 +13,47 @@ prepend mainContent
       .seedlings__header
         h1.seedlings__title Каталог саженцев
 
+      .tag-filter.js-tag-filter(data-target=".seedlings-card")
+        span.tag-filter__label Фильтровать по типам
+        .tag-filter__chips
+          button.tag-filter__chip(type="button" data-tag="all" aria-pressed="true") Все
+          button.tag-filter__chip(type="button" data-tag="seedling-seed") Семечковые
+          button.tag-filter__chip(type="button" data-tag="seedling-stone") Косточковые
+          button.tag-filter__chip(type="button" data-tag="seedling-berry") Ягодные
+          button.tag-filter__chip(type="button" data-tag="seedling-decor") Декоративные
+          button.tag-filter__chip(type="button" data-tag="seedling-indoor") Комнатные
+
       .seedlings__list.seedlings__list--grid
         // Карточка 1
-        a.seedlings-card(href="#")
+        a.seedlings-card(href="#" data-tags="seedling-seed")
           img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 1")
           h2.seedlings-card__title ЯБЛОНЯ · сорт 1
           p.seedlings-card__subtitle 3‑летний саженец
           p.seedlings-card__price от 900 ₽
 
         // Карточка 2
-        a.seedlings-card(href="#")
+        a.seedlings-card(href="#" data-tags="seedling-seed")
           img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 2")
           h2.seedlings-card__title ЯБЛОНЯ · сорт 2
           p.seedlings-card__subtitle 2‑летний саженец
           p.seedlings-card__price от 800 ₽
 
         // Карточка 3
-        a.seedlings-card(href="#")
+        a.seedlings-card(href="#" data-tags="seedling-stone")
           img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 3")
           h2.seedlings-card__title ЯБЛОНЯ · сорт 3
           p.seedlings-card__subtitle 1‑летний саженец
           p.seedlings-card__price от 700 ₽
 
         // Карточка 4
-        a.seedlings-card(href="#")
+        a.seedlings-card(href="#" data-tags="seedling-berry")
           img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 4")
           h2.seedlings-card__title ЯБЛОНЯ · сорт 4
           p.seedlings-card__subtitle 2‑летний саженец
           p.seedlings-card__price от 950 ₽
 
         // Карточка 5
-        a.seedlings-card(href="#")
+        a.seedlings-card(href="#" data-tags="seedling-decor seedling-indoor")
           img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 5")
           h2.seedlings-card__title ЯБЛОНЯ · сорт 5
           p.seedlings-card__subtitle 3‑летний саженец
