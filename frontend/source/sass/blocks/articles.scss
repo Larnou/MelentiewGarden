@@ -20,17 +20,17 @@
 
   @include laptop {
     max-width: 1140px;
-    padding: 56px 24px;
+    padding: 48px 24px;
   }
 
   @include tablet {
     max-width: 960px;
-    padding: 48px 16px;
+    padding: 32px 16px;
   }
 
   @include mobile {
     max-width: 100%;
-    padding: 40px 12px;
+    padding: 24px 12px;
   }
 }
 
@@ -49,7 +49,6 @@
 
 .articles__slider {
   width: 100%;
-  margin-top: 8px;
   overflow: visible;
 }
 
@@ -166,7 +165,6 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-top: 24px;
 }
 
 .articles__more-button {
