@@ -16,26 +16,26 @@
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 64px 32px;
+  padding: 48px 32px;
   box-sizing: border-box;
 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 64px;
+  gap: 32px;
 
   @include transition(max-width, padding, gap);
 
   @include laptop {
     max-width: 1140px;
-    padding: 56px 24px;
-    gap: 40px;
+    padding: 40px 24px;
+    gap: 32px;
   }
 
   @include tablet {
     max-width: 960px;
-    padding: 48px 16px;
-    gap: 64px;
+    padding: 32px 16px;
+    gap: 24px;
 
     flex-direction: column;
     align-items: center;
@@ -44,11 +44,11 @@
 
   @include mobile {
     max-width: 100%;
-    padding: 40px 12px;
+    padding: 28px 12px;
   }
 }
 
-/* Колонки (все 3) */
+/* Колонки (верхняя зона) */
 .footer__brand,
 .footer__contacts,
 .footer__community {
@@ -77,6 +77,72 @@
 
   @include mobile {
     align-items: center;
+  }
+}
+
+// =====================
+// BOTTOM STRIP (LEGAL)
+// =====================
+
+.footer__bottom {
+  border-top: 1px solid rgba($color-white, 0.16);
+  margin: 0;
+}
+
+.footer__bottom-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 16px 32px 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include laptop {
+    max-width: 1140px;
+    padding: 16px 24px 20px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 16px 16px 20px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 16px 12px 20px;
+  }
+}
+
+.footer__legal-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer__divider {
+  width: 1px;
+  height: 16px;
+  background-color: rgba($color-white, 0.32);
+}
+
+.footer__link {
+  @extend %p2;
+  color: $color-white;
+  text-decoration: none;
+  opacity: 0.8;
+  @include singleLineLink($color-white, $color-white, $color-white);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @include mobile {
+    font-size: 12px;
   }
 }
 

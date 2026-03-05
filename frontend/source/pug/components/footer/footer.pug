@@ -11,7 +11,6 @@ mixin footer()
             +svg('apple', 40, 40)
           .footer__title САЖЕНЦЫ-ИРКУТСК
 
-
         p.footer__address р.п. Марково, Ново-Иркутский
 
       //- Контакты
@@ -36,3 +35,10 @@ mixin footer()
           .footer__logo-icon
             +svg('telegram', 40, 40)
           span.footer__title Наш Телеграм-канал
+
+    .footer__bottom
+      .footer__bottom-container
+        .footer__legal-links
+          a.footer__link(href="oferta.html") Пользовательское соглашение
+          span.footer__divider
+          a.footer__link(href="privacy.html") Политика конфиденциальности

@@ -1,0 +1,91 @@
+// =====================
+// LEGAL PAGE (оферта и политика)
+// =====================
+
+.page-legal {
+  width: 100%;
+  min-height: 60vh;
+  background: $color-white;
+}
+
+.page-legal__container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 64px 32px 64px;
+  box-sizing: border-box;
+
+  @include laptop {
+    max-width: 1140px;
+    padding: 48px 24px 48px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 32px 16px 32px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 24px 12px 24px;
+  }
+}
+
+.page-legal__title {
+  @extend %h1-promo;
+  margin: 0 0 16px;
+  color: $color-black;
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+}
+
+.page-legal__subtitle {
+  @extend %header;
+  margin: 32px 0 12px;
+  font-size: 22px;
+  line-height: 1.35;
+  color: $color-black;
+
+  &:first-of-type {
+    margin-top: 24px;
+  }
+
+  @include mobile {
+    margin: 24px 0 10px;
+    font-size: 18px;
+  }
+}
+
+.page-legal p {
+  @extend %p1;
+  font-size: 16px;
+  line-height: 1.65;
+  color: $color-black;
+  margin: 0 0 1em;
+}
+
+.page-legal p:last-child {
+  margin-bottom: 0;
+}
+
+.page-legal__list {
+  margin: 0 0 1em;
+  padding-left: 24px;
+  list-style: disc;
+
+  li {
+    @extend %p1;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $color-black;
+    margin-bottom: 8px;
+  }
+
+  @include mobile {
+    padding-left: 20px;
+  }
+}
+
