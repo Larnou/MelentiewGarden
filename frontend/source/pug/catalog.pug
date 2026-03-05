@@ -1,5 +1,13 @@
 extends components/template_layout
 
+// Миксин карточки саженца для каталога
+mixin seedlingsCard(href, dataTags, imageSrc, imageAlt, title, subtitle, price)
+  a.seedlings-card(href=href data-tags=dataTags)
+    img.seedlings-card__image(src=imageSrc alt=imageAlt)
+    h2.seedlings-card__title= title
+    p.seedlings-card__subtitle= subtitle
+    p.seedlings-card__price= price
+
 append variables
   -
     pageTitle = 'Каталог саженцев'
@@ -25,37 +33,57 @@ prepend mainContent
 
       .seedlings__list.seedlings__list--grid
         // Карточка 1
-        a.seedlings-card(href="seedling-apple-test.html" data-tags="seedling-seed")
-          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 1")
-          h2.seedlings-card__title ЯБЛОНЯ · сорт 1
-          p.seedlings-card__subtitle 3‑летний саженец
-          p.seedlings-card__price от 900 ₽
+        +seedlingsCard(
+          href='seedling-apple-test.html',
+          dataTags='seedling-seed',
+          imageSrc='img/apple.webp',
+          imageAlt='Яблоня сорт 1',
+          title='ЯБЛОНЯ · сорт 1',
+          subtitle='3‑летний саженец',
+          price='от 900 ₽'
+        )
 
         // Карточка 2
-        a.seedlings-card(href="#" data-tags="seedling-seed")
-          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 2")
-          h2.seedlings-card__title ЯБЛОНЯ · сорт 2
-          p.seedlings-card__subtitle 2‑летний саженец
-          p.seedlings-card__price от 800 ₽
+        +seedlingsCard(
+          href='#',
+          dataTags='seedling-seed',
+          imageSrc='img/apple.webp',
+          imageAlt='Яблоня сорт 2',
+          title='ЯБЛОНЯ · сорт 2',
+          subtitle='2‑летний саженец',
+          price='от 800 ₽'
+        )
 
         // Карточка 3
-        a.seedlings-card(href="#" data-tags="seedling-stone")
-          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 3")
-          h2.seedlings-card__title ЯБЛОНЯ · сорт 3
-          p.seedlings-card__subtitle 1‑летний саженец
-          p.seedlings-card__price от 700 ₽
+        +seedlingsCard(
+          href='#',
+          dataTags='seedling-stone',
+          imageSrc='img/apple.webp',
+          imageAlt='Яблоня сорт 3',
+          title='ЯБЛОНЯ · сорт 3',
+          subtitle='1‑летний саженец',
+          price='от 700 ₽'
+        )
 
         // Карточка 4
-        a.seedlings-card(href="#" data-tags="seedling-berry")
-          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 4")
-          h2.seedlings-card__title ЯБЛОНЯ · сорт 4
-          p.seedlings-card__subtitle 2‑летний саженец
-          p.seedlings-card__price от 950 ₽
+        +seedlingsCard(
+          href='#',
+          dataTags='seedling-berry',
+          imageSrc='img/apple.webp',
+          imageAlt='Яблоня сорт 4',
+          title='ЯБЛОНЯ · сорт 4',
+          subtitle='2‑летний саженец',
+          price='от 950 ₽'
+        )
 
         // Карточка 5
-        a.seedlings-card(href="#" data-tags="seedling-decor seedling-indoor")
-          img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 5")
-          h2.seedlings-card__title ЯБЛОНЯ · сорт 5
-          p.seedlings-card__subtitle 3‑летний саженец
-          p.seedlings-card__price от 1050 ₽
+        +seedlingsCard(
+          href='#',
+          dataTags='seedling-decor seedling-indoor',
+          imageSrc='img/apple.webp',
+          imageAlt='Яблоня сорт 5',
+          title='ЯБЛОНЯ · сорт 5',
+          subtitle='3‑летний саженец',
+          price='от 1050 ₽'
+        )
 
