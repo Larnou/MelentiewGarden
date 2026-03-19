@@ -63,6 +63,18 @@ export default () => {
     },
   });
 
+  // Ярмарка
+  const fairSlider = document.querySelector('.js--fair-slider');
+  initSlider(fairSlider, {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+  });
+
   // Статьи
   const articlesSlider = document.querySelector('.js--articles-slider');
   initSlider(articlesSlider, {

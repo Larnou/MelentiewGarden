@@ -1,6 +1,5 @@
 extends components/template_layout
 
-// Миксин карточки саженца для каталога
 mixin seedlingsCard(href, dataTags, imageSrc, imageAlt, title, subtitle, price)
   a.seedlings-card(href=href data-tags=dataTags)
     img.seedlings-card__image(src=imageSrc alt=imageAlt)

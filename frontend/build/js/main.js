@@ -266,6 +266,17 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
         slidesPerView: 3
       }
     }
+  }); // Ярмарка
+
+  var fairSlider = document.querySelector('.js--fair-slider');
+  initSlider(fairSlider, {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    }
   }); // Статьи
 
   var articlesSlider = document.querySelector('.js--articles-slider');

@@ -121,6 +121,21 @@
   flex-direction: column;
   justify-content: center;
   gap: 16px;
+  padding: 4px;
+}
+
+.fair__slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.fair__list {
+  display: flex;
+}
+
+.fair__content.swiper-slide {
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
 .fair__title {
