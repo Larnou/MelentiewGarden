@@ -31,58 +31,10 @@ prepend mainContent
           button.tag-filter__chip(type="button" data-tag="seedling-indoor") Комнатные
 
       .seedlings__list.seedlings__list--grid
-        // Карточка 1
-        +seedlingsCard(
-          href='seedling-apple-test.html',
-          dataTags='seedling-seed',
-          imageSrc='img/apple.webp',
-          imageAlt='Яблоня сорт 1',
-          title='ЯБЛОНЯ · сорт 1',
-          subtitle='3‑летний саженец',
-          price='от 900 ₽'
-        )
-
-        // Карточка 2
-        +seedlingsCard(
-          href='#',
-          dataTags='seedling-seed',
-          imageSrc='img/apple.webp',
-          imageAlt='Яблоня сорт 2',
-          title='ЯБЛОНЯ · сорт 2',
-          subtitle='2‑летний саженец',
-          price='от 800 ₽'
-        )
-
-        // Карточка 3
-        +seedlingsCard(
-          href='#',
-          dataTags='seedling-stone',
-          imageSrc='img/apple.webp',
-          imageAlt='Яблоня сорт 3',
-          title='ЯБЛОНЯ · сорт 3',
-          subtitle='1‑летний саженец',
-          price='от 700 ₽'
-        )
-
-        // Карточка 4
-        +seedlingsCard(
-          href='#',
-          dataTags='seedling-berry',
-          imageSrc='img/apple.webp',
-          imageAlt='Яблоня сорт 4',
-          title='ЯБЛОНЯ · сорт 4',
-          subtitle='2‑летний саженец',
-          price='от 950 ₽'
-        )
-
-        // Карточка 5
-        +seedlingsCard(
-          href='#',
-          dataTags='seedling-decor seedling-indoor',
-          imageSrc='img/apple.webp',
-          imageAlt='Яблоня сорт 5',
-          title='ЯБЛОНЯ · сорт 5',
-          subtitle='3‑летний саженец',
-          price='от 1050 ₽'
-        )
+        // Порядок аргументов миксина: href, dataTags, imageSrc, imageAlt, title, subtitle, price
+        +seedlingsCard('seedling-apple-test.html', 'seedling-seed', 'img/apple.webp', 'Яблоня сорт 1', 'ЯБЛОНЯ · сорт 1', '3‑летний саженец', 'от 900 ₽')
+        +seedlingsCard('#', 'seedling-seed', 'img/apple.webp', 'Яблоня сорт 2', 'ЯБЛОНЯ · сорт 2', '2‑летний саженец', 'от 800 ₽')
+        +seedlingsCard('#', 'seedling-stone', 'img/apple.webp', 'Яблоня сорт 3', 'ЯБЛОНЯ · сорт 3', '1‑летний саженец', 'от 700 ₽')
+        +seedlingsCard('#', 'seedling-berry', 'img/apple.webp', 'Яблоня сорт 4', 'ЯБЛОНЯ · сорт 4', '2‑летний саженец', 'от 950 ₽')
+        +seedlingsCard('#', 'seedling-decor seedling-indoor', 'img/apple.webp', 'Яблоня сорт 5', 'ЯБЛОНЯ · сорт 5', '3‑летний саженец', 'от 1050 ₽')
 

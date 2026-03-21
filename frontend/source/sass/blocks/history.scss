@@ -42,7 +42,7 @@
 
 .history__content {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 32px;
 
   align-items: center;
@@ -56,6 +56,12 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+
+  @include tablet {
+    max-width: min(380px, 100%);
+    justify-self: center;
+    width: 100%;
+  }
 }
 
 .history__image {
@@ -73,5 +79,6 @@
 
 .history__paragraph {
   margin: 0;
+  margin-bottom: 16px;
 }
 
