@@ -4,24 +4,19 @@
 mixin header()
   header.header(class=header && header.class ? header.class: '')
     .header__container
-      a.header__logo(href="index.html")
+      a.header__logo(href=SITE.homeHref)
         .header__logo-icon
           +svg('apple', 40, 40)
 
-        h1.header__title САЖЕНЦЫ-ИРКУТСК
+        h1.header__title= SITE.brandName
 
 
       button.header__burger(type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false")
         span
 
-      nav.header__nav(aria-label="Главное меню")
+      nav.header__nav(id="site-nav" aria-label="Главное меню")
         ul.header__menu
-          li.header__item
-            a.header__link(href=header && header.isMain ? "#news": "index.html#news") Новости
-          li.header__item
-            a.header__link(href=header && header.isMain ? "#catalog": "catalog.html") Каталог
-          li.header__item
-            a.header__link(href=header && header.isMain ? "#articles": "articles.html") Статьи
-          li.header__item
-            a.header__link(href=header && header.isMain ? "#about" : "about.html#about") О нас
+          each item in SITE.nav
+            li.header__item
+              a.header__link(href=header && header.isMain ? item.mainHref : item.otherHref)= item.label
 

@@ -15,6 +15,10 @@ export default () => {
     const items = Array.from(document.querySelectorAll(targetSelector));
     if (!items.length) return;
 
+    const hiddenClass = targetSelector.includes('seedlings-card')
+      ? 'seedlings-card--hidden'
+      : 'article-card--hidden';
+
     const applyFilter = (activeTags) => {
       items.forEach((item) => {
         const tags = (item.dataset.tags || '')
@@ -23,7 +27,7 @@ export default () => {
 
         const useAll = !activeTags.size || activeTags.has('all');
         const visible = useAll || tags.some((tag) => activeTags.has(tag));
-        item.classList.toggle('is-hidden', !visible);
+        item.classList.toggle(hiddenClass, !visible);
       });
     };
 
@@ -32,7 +36,7 @@ export default () => {
         const tag = chip.dataset.tag;
         if (!tag) return;
         const isActive = activeTags.has(tag);
-        chip.classList.toggle('is-active', isActive);
+        chip.classList.toggle('tag-filter__chip--active', isActive);
         chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
     };

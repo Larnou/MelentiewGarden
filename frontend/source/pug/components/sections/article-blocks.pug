@@ -46,7 +46,7 @@ mixin articleBlockMediaRight(src, alt)
 //- Слайдер картинок (только изображения). В block — элементы .article-block__slide с img внутри
 mixin articleBlockSlider()
   .article-block.article-block--slider
-    .article-block__slider.swiper.js--article-gallery
+    .article-block__slider.swiper.js-article-gallery
       .article-block__slider-wrapper.swiper-wrapper
         block
     .article-block__slider-controls
@@ -58,7 +58,7 @@ mixin articleBlockSlider()
 //- Слайдер картинок с подписью под каждым изображением. В block — элементы .article-block__slide: img + .article-block__slide-caption
 mixin articleBlockSliderCaptions()
   .article-block.article-block--slider-captions
-    .article-block__slider.swiper.js--article-gallery-captions
+    .article-block__slider.swiper.js-article-gallery-captions
       .article-block__slider-wrapper.swiper-wrapper
         block
     .article-block__slider-controls

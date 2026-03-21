@@ -11,40 +11,19 @@ prepend mainContent
   section.articles.articles--page
     .articles__container
       .articles__header
-        h1.articles__title Все статьи
-        p.articles__subtitle
-          | Собрали материалы о посадке, уходе и подготовке сада к нашим сибирским условиям.
+        h1.articles__title= ARTICLES_PAGE.title
+        p.articles__subtitle= ARTICLES_PAGE.subtitle
 
       .tag-filter.js-tag-filter(data-target=".article-card")
-        span.tag-filter__label Фильтровать по темам
+        span.tag-filter__label= ARTICLES_PAGE.filterLabel
         .tag-filter__chips
-          button.tag-filter__chip(type="button" data-tag="all" aria-pressed="true") Все
-          button.tag-filter__chip(type="button" data-tag="tag-apple") Яблони
-          button.tag-filter__chip(type="button" data-tag="tag-care") Уход за садом
+          each chip, i in ARTICLES_FILTER_CHIPS
+            button.tag-filter__chip(type="button" data-tag=chip.tag aria-pressed=i === 0 ? 'true' : 'false' class=(i === 0 ? 'tag-filter__chip--active' : ''))= chip.label
 
       .articles__list.articles__list--grid
-        a.article-card(href="article-apples.html" data-tags="tag-apple tag-care")
-          img.article-card__image(src="img/apple.webp" alt="Как сажать яблоню?")
-          h2.article-card__title Как сажать яблоню?
-          p.article-card__meta Советы по подготовке почвы и уходу
-
-        a.article-card(href="article-apples-2016.html" data-tags="tag-apple")
-          img.article-card__image(src="img/apples/устойчивые_сорта_яблонь_2016.png" alt="Устойчивые сорта яблонь (2016 г.)")
-          h2.article-card__title Устойчивые сорта яблонь (2016 г.)
-          p.article-card__meta Замечательные яблочки мы снимаем с сорта «Рескью» в начале сентября.
-
-        a.article-card(href="#" data-tags="tag-apple")
-          img.article-card__image(src="img/apple.webp" alt="Как обрезать яблоню?")
-          h2.article-card__title Как обрезать яблоню?
-          p.article-card__meta Основные принципы формирующей обрезки
-
-        a.article-card(href="#" data-tags="tag-care")
-          img.article-card__image(src="img/apple.webp" alt="Как подготовить сад к зиме?")
-          h2.article-card__title Как подготовить сад к зиме?
-          p.article-card__meta Что сделать осенью, чтобы деревья хорошо перезимовали
-
-        a.article-card(href="#" data-tags="tag-apple")
-          img.article-card__image(src="img/apple.webp" alt="Как выбрать сорт яблони?")
-          h2.article-card__title Как выбрать сорт яблони?
-          p.article-card__meta Ориентиры при выборе сортов для Сибири
+        each item in ARTICLES_ITEMS
+          a.article-card(href=item.href data-tags=item.dataTags)
+            img.article-card__image(src=item.imageSrc alt=item.imageAlt)
+            h2.article-card__title= item.title
+            p.article-card__meta= item.meta
 

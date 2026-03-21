@@ -230,7 +230,7 @@ body.no-scroll {
 // STATE: OPEN (tablet/mobile nav dropdown)
 // =====================
 
-.header.is-open {
+.header.header--nav-open {
   @include tablet {
     .header__nav {
       max-height: 340px;

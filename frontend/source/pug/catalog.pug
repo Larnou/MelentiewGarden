@@ -18,23 +18,15 @@ prepend mainContent
   section.seedlings.seedlings--page
     .seedlings__container
       .seedlings__header
-        h1.seedlings__title Каталог саженцев
+        h1.seedlings__title= CATALOG_PAGE.title
 
       .tag-filter.js-tag-filter(data-target=".seedlings-card")
-        span.tag-filter__label Фильтровать по типам
+        span.tag-filter__label= CATALOG_PAGE.filterLabel
         .tag-filter__chips
-          button.tag-filter__chip(type="button" data-tag="all" aria-pressed="true") Все
-          button.tag-filter__chip(type="button" data-tag="seedling-seed") Семечковые
-          button.tag-filter__chip(type="button" data-tag="seedling-stone") Косточковые
-          button.tag-filter__chip(type="button" data-tag="seedling-berry") Ягодные
-          button.tag-filter__chip(type="button" data-tag="seedling-decor") Декоративные
-          button.tag-filter__chip(type="button" data-tag="seedling-indoor") Комнатные
+          each chip, i in CATALOG_FILTER_CHIPS
+            button.tag-filter__chip(type="button" data-tag=chip.tag aria-pressed=i === 0 ? 'true' : 'false' class=(i === 0 ? 'tag-filter__chip--active' : ''))= chip.label
 
       .seedlings__list.seedlings__list--grid
-        // Порядок аргументов миксина: href, dataTags, imageSrc, imageAlt, title, subtitle, price
-        +seedlingsCard('seedling-apple-test.html', 'seedling-seed', 'img/apple.webp', 'Яблоня сорт 1', 'ЯБЛОНЯ · сорт 1', '3‑летний саженец', 'от 900 ₽')
-        +seedlingsCard('#', 'seedling-seed', 'img/apple.webp', 'Яблоня сорт 2', 'ЯБЛОНЯ · сорт 2', '2‑летний саженец', 'от 800 ₽')
-        +seedlingsCard('#', 'seedling-stone', 'img/apple.webp', 'Яблоня сорт 3', 'ЯБЛОНЯ · сорт 3', '1‑летний саженец', 'от 700 ₽')
-        +seedlingsCard('#', 'seedling-berry', 'img/apple.webp', 'Яблоня сорт 4', 'ЯБЛОНЯ · сорт 4', '2‑летний саженец', 'от 950 ₽')
-        +seedlingsCard('#', 'seedling-decor seedling-indoor', 'img/apple.webp', 'Яблоня сорт 5', 'ЯБЛОНЯ · сорт 5', '3‑летний саженец', 'от 1050 ₽')
+        each item in CATALOG_ITEMS
+          +seedlingsCard(item.href, item.dataTags, item.imageSrc, item.imageAlt, item.title, item.subtitle, item.price)
 

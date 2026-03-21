@@ -19,10 +19,10 @@ export default () => {
     }
   };
 
-  const isOpen = () => header.classList.contains('is-open');
+  const isOpen = () => header.classList.contains('header--nav-open');
 
   const toggle = (open) => {
-    header.classList.toggle('is-open', open);
+    header.classList.toggle('header--nav-open', open);
     btn.setAttribute('aria-expanded', open);
     document.body.classList.toggle('no-scroll', open);
 

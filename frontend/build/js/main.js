@@ -147,11 +147,11 @@ __webpack_require__.r(__webpack_exports__);
   };
 
   var isOpen = function isOpen() {
-    return header.classList.contains('is-open');
+    return header.classList.contains('header--nav-open');
   };
 
   var toggle = function toggle(open) {
-    header.classList.toggle('is-open', open);
+    header.classList.toggle('header--nav-open', open);
     btn.setAttribute('aria-expanded', open);
     document.body.classList.toggle('no-scroll', open);
 
@@ -246,10 +246,10 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
   } // Хиро-категории
 
 
-  var heroSlider = document.querySelector('.js--hero-categories');
+  var heroSlider = document.querySelector('.js-hero-categories');
   initSlider(heroSlider); // Саженцы
 
-  var seedlingsSlider = document.querySelector('.js--seedlings-slider');
+  var seedlingsSlider = document.querySelector('.js-seedlings-slider');
   initSlider(seedlingsSlider, {
     slidesPerView: 3,
     spaceBetween: 24,
@@ -268,7 +268,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
     }
   }); // Ярмарка
 
-  var fairSlider = document.querySelector('.js--fair-slider');
+  var fairSlider = document.querySelector('.js-fair-slider');
   initSlider(fairSlider, {
     slidesPerView: 1,
     spaceBetween: 24,
@@ -279,7 +279,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
     }
   }); // Статьи
 
-  var articlesSlider = document.querySelector('.js--articles-slider');
+  var articlesSlider = document.querySelector('.js-articles-slider');
   initSlider(articlesSlider, {
     slidesPerView: 2,
     spaceBetween: 24,
@@ -295,7 +295,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
     }
   }); // Слайдеры в статьях: галерея и галерея с подписями
 
-  document.querySelectorAll('.js--article-gallery, .js--article-gallery-captions').forEach(function (container) {
+  document.querySelectorAll('.js-article-gallery, .js-article-gallery-captions').forEach(function (container) {
     var block = container.closest('.article-block');
     if (!block) return;
     var slides = container.querySelectorAll('.swiper-slide');
@@ -378,6 +378,7 @@ __webpack_require__.r(__webpack_exports__);
     if (!chips.length) return;
     var items = Array.from(document.querySelectorAll(targetSelector));
     if (!items.length) return;
+    var hiddenClass = targetSelector.includes('seedlings-card') ? 'seedlings-card--hidden' : 'article-card--hidden';
 
     var applyFilter = function applyFilter(activeTags) {
       items.forEach(function (item) {
@@ -386,7 +387,7 @@ __webpack_require__.r(__webpack_exports__);
         var visible = useAll || tags.some(function (tag) {
           return activeTags.has(tag);
         });
-        item.classList.toggle('is-hidden', !visible);
+        item.classList.toggle(hiddenClass, !visible);
       });
     };
 
@@ -395,7 +396,7 @@ __webpack_require__.r(__webpack_exports__);
         var tag = chip.dataset.tag;
         if (!tag) return;
         var isActive = activeTags.has(tag);
-        chip.classList.toggle('is-active', isActive);
+        chip.classList.toggle('tag-filter__chip--active', isActive);
         chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
     }; // Инициализация набора активных тегов

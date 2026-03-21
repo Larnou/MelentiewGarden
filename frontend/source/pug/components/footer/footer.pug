@@ -1,44 +1,44 @@
 //- Используемые переменные, относящиеся к Footer
-    footer.class    - дополнительный класс (js--class) или другие
+    footer.class    - дополнительный класс на элементе footer (модификатор блока и т.п.)
 
 mixin footer()
   footer(class='footer' + (footer.class === null ? '' : ' ' + footer.class))
     .footer__container
       //- Ссылка и адрес
       .footer__brand
-        a.footer__logo.footer__logo--address(href="#")
+        a.footer__logo.footer__logo--address(href=SITE.homeHref)
           .footer__logo-icon
             +svg('apple', 40, 40)
-          .footer__title САЖЕНЦЫ-ИРКУТСК
+          .footer__title= SITE.brandName
 
-        p.footer__address р.п. Марково, Ново-Иркутский
+        p.footer__address= SITE.address
 
       //- Контакты
       .footer__contacts
         .footer__section-title НАШИ КОНТАКТЫ
 
-        a.footer__logo.footer__logo--contacts(href="tel:+79000000000", title="Позвонить по номеру телефона")
+        a.footer__logo.footer__logo--contacts(href=SITE.phone.href title=SITE.phone.title)
           .footer__logo-icon
             +svg('telephone', 40, 40)
-          span.footer__title +7 (900) 000-00-00
+          span.footer__title= SITE.phone.label
 
-        a.footer__logo.footer__logo--contacts(href="mailto:info@example.ru", title="Написать электронное письмо")
+        a.footer__logo.footer__logo--contacts(href=SITE.email.href title=SITE.email.title)
           .footer__logo-icon
             +svg('email', 40, 40)
-          span.footer__title info@example.ru
+          span.footer__title= SITE.email.label
 
       //- Сообщество
       .footer__community
         .footer__section-title НАШЕ СООБЩЕСТВО
 
-        a.footer__logo.footer__logo--group(href="https://t.me/+RlClLH93pmBjMDIy" target="_blank" rel="noopener")
+        a.footer__logo.footer__logo--group(href=SITE.telegram.href target="_blank" rel="noopener")
           .footer__logo-icon
             +svg('telegram', 40, 40)
-          span.footer__title Наш Телеграм-канал
+          span.footer__title= SITE.telegram.label
 
     .footer__bottom
       .footer__bottom-container
         .footer__legal-links
-          a.footer__link(href="oferta.html") Пользовательское соглашение
+          a.footer__link(href=SITE.legal.ofertaHref) Пользовательское соглашение
           span.footer__divider
-          a.footer__link(href="privacy.html") Политика конфиденциальности
+          a.footer__link(href=SITE.legal.privacyHref) Политика конфиденциальности

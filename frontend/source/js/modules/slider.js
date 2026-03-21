@@ -40,11 +40,11 @@ export default () => {
   }
 
   // Хиро-категории
-  const heroSlider = document.querySelector('.js--hero-categories');
+  const heroSlider = document.querySelector('.js-hero-categories');
   initSlider(heroSlider);
 
   // Саженцы
-  const seedlingsSlider = document.querySelector('.js--seedlings-slider');
+  const seedlingsSlider = document.querySelector('.js-seedlings-slider');
   initSlider(seedlingsSlider, {
     slidesPerView: 3,
     spaceBetween: 24,
@@ -64,7 +64,7 @@ export default () => {
   });
 
   // Ярмарка
-  const fairSlider = document.querySelector('.js--fair-slider');
+  const fairSlider = document.querySelector('.js-fair-slider');
   initSlider(fairSlider, {
     slidesPerView: 1,
     spaceBetween: 24,
@@ -76,7 +76,7 @@ export default () => {
   });
 
   // Статьи
-  const articlesSlider = document.querySelector('.js--articles-slider');
+  const articlesSlider = document.querySelector('.js-articles-slider');
   initSlider(articlesSlider, {
     slidesPerView: 2,
     spaceBetween: 24,
@@ -93,7 +93,7 @@ export default () => {
   });
 
   // Слайдеры в статьях: галерея и галерея с подписями
-  document.querySelectorAll('.js--article-gallery, .js--article-gallery-captions').forEach((container) => {
+  document.querySelectorAll('.js-article-gallery, .js-article-gallery-captions').forEach((container) => {
     const block = container.closest('.article-block');
     if (!block) return;
 

@@ -4,12 +4,12 @@ export default () => {
       return;
     }
 
-    const toggleBtn = container.querySelector('.js--toggle-filter');
+    const toggleBtn = container.querySelector('.js-toggle-filter');
     toggleBtn.addEventListener('click', () => {
-      container.classList.toggle('active');
+      container.classList.toggle('filter--open');
     });
   }
 
-  const filter = document.querySelector('.js--filter');
+  const filter = document.querySelector('.js-filter');
   toggleFilter(filter);
 };

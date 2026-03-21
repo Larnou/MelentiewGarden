@@ -191,7 +191,7 @@ export class YandexMap {
    * @param filterOption кнопка, по которой произошло нажатие
    */
   onClickFilter(filterButtons, filterOption) {
-    filterOption.classList.toggle('active');
+    filterOption.classList.toggle('filter__item--active');
     this.removeAllCollections();
     const keys = this.updateKeyList(filterButtons);
     this.addCollections(keys);
@@ -203,14 +203,14 @@ export class YandexMap {
   initFilter(visibility) {
     this.initMarks();
 
-    const filter = document.querySelector('.js--filter');
+    const filter = document.querySelector('.js-filter');
     if (visibility) {
-      const filterButtons = filter.querySelectorAll('.js--filter-btn');
+      const filterButtons = filter.querySelectorAll('.js-filter-btn');
       filterButtons.forEach((btn) => {
         btn.addEventListener('click', () => this.onClickFilter(filterButtons, btn));
       });
     } else {
-      filter.classList.add('hidden');
+      filter.classList.add('filter--hidden');
     }
   }
 

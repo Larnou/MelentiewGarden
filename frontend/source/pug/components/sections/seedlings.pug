@@ -5,42 +5,14 @@ mixin seedlings()
       .seedlings__header
         h2.seedlings__title Саженцы
 
-      .seedlings__slider.swiper.js--seedlings-slider
+      .seedlings__slider.swiper.js-seedlings-slider
         .seedlings__list.swiper-wrapper
-          // Карточка 1
-          a.seedlings-card.swiper-slide(href="#")
-            img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 1")
-            h3.seedlings-card__title ЯБЛОНЯ
-            p.seedlings-card__subtitle Сорт 1 · 3‑летний саженец
-            p.seedlings-card__price от 900 ₽
-
-          // Карточка 2
-          a.seedlings-card.swiper-slide(href="#")
-            img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 2")
-            h3.seedlings-card__title ЯБЛОНЯ
-            p.seedlings-card__subtitle Сорт 2 · 2‑летний саженец
-            p.seedlings-card__price от 800 ₽
-
-          // Карточка 3
-          a.seedlings-card.swiper-slide(href="#")
-            img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 3")
-            h3.seedlings-card__title ЯБЛОНЯ
-            p.seedlings-card__subtitle Сорт 3 · 1‑летний саженец
-            p.seedlings-card__price от 700 ₽
-
-          // Карточка 4
-          a.seedlings-card.swiper-slide(href="#")
-            img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 4")
-            h3.seedlings-card__title ЯБЛОНЯ
-            p.seedlings-card__subtitle Сорт 4 · 2‑летний саженец
-            p.seedlings-card__price от 950 ₽
-
-          // Карточка 5
-          a.seedlings-card.swiper-slide(href="#")
-            img.seedlings-card__image(src="img/apple.webp" alt="Яблоня сорт 5")
-            h3.seedlings-card__title ЯБЛОНЯ
-            p.seedlings-card__subtitle Сорт 5 · 3‑летний саженец
-            p.seedlings-card__price от 1050 ₽
+          each item in CATALOG_ITEMS
+            a.seedlings-card.swiper-slide(href=item.href)
+              img.seedlings-card__image(src=item.imageSrc alt=item.imageAlt)
+              h3.seedlings-card__title= item.homeTitle
+              p.seedlings-card__subtitle= item.homeSubtitle
+              p.seedlings-card__price= item.price
 
       .seedlings__controls
         button.seedlings__arrow.seedlings__arrow--prev(type="button" aria-label="Предыдущие саженцы")
