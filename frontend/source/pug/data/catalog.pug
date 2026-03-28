@@ -1,0 +1,74 @@
+//- Каталог саженцев: фильтры и карточки (главная + страница каталога).
+//- title / subtitle — страница каталога; homeTitle / homeSubtitle — блок-слайдер на главной.
+-
+  const CATALOG_PAGE = {
+    title: 'Каталог саженцев',
+    filterLabel: 'Фильтровать по типам',
+  }
+
+  const CATALOG_FILTER_CHIPS = [
+    { tag: 'all', label: 'Все' },
+    { tag: 'seedling-seed', label: 'Семечковые' },
+    { tag: 'seedling-stone', label: 'Косточковые' },
+    { tag: 'seedling-berry', label: 'Ягодные' },
+    { tag: 'seedling-decor', label: 'Декоративные' },
+    { tag: 'seedling-indoor', label: 'Комнатные' },
+  ]
+
+  const CATALOG_ITEMS = [
+    {
+      href: 'seedling-apple-test.html',
+      dataTags: 'seedling-seed',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Яблоня сорт 1',
+      title: 'ЯБЛОНЯ · сорт 1',
+      subtitle: '3‑летний саженец',
+      homeTitle: 'ЯБЛОНЯ',
+      homeSubtitle: 'Сорт 1 · 3‑летний саженец',
+      price: 'от 900 ₽',
+    },
+    {
+      href: '#',
+      dataTags: 'seedling-seed',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Яблоня сорт 2',
+      title: 'ЯБЛОНЯ · сорт 2',
+      subtitle: '2‑летний саженец',
+      homeTitle: 'ЯБЛОНЯ',
+      homeSubtitle: 'Сорт 2 · 2‑летний саженец',
+      price: 'от 800 ₽',
+    },
+    {
+      href: '#',
+      dataTags: 'seedling-stone',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Яблоня сорт 3',
+      title: 'ЯБЛОНЯ · сорт 3',
+      subtitle: '1‑летний саженец',
+      homeTitle: 'ЯБЛОНЯ',
+      homeSubtitle: 'Сорт 3 · 1‑летний саженец',
+      price: 'от 700 ₽',
+    },
+    {
+      href: '#',
+      dataTags: 'seedling-berry',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Яблоня сорт 4',
+      title: 'ЯБЛОНЯ · сорт 4',
+      subtitle: '2‑летний саженец',
+      homeTitle: 'ЯБЛОНЯ',
+      homeSubtitle: 'Сорт 4 · 2‑летний саженец',
+      price: 'от 950 ₽',
+    },
+    {
+      href: '#',
+      dataTags: 'seedling-decor seedling-indoor',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Яблоня сорт 5',
+      title: 'ЯБЛОНЯ · сорт 5',
+      subtitle: '3‑летний саженец',
+      homeTitle: 'ЯБЛОНЯ',
+      homeSubtitle: 'Сорт 5 · 3‑летний саженец',
+      price: 'от 1050 ₽',
+    },
+  ]

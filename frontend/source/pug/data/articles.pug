@@ -1,0 +1,56 @@
+//- Статьи: листинг, фильтры на странице «Все статьи», карточки в слайдере на главной.
+-
+  const ARTICLES_PAGE = {
+    title: 'Все статьи',
+    subtitle: 'Собрали материалы о посадке, уходе и подготовке сада к нашим сибирским условиям.',
+    filterLabel: 'Фильтровать по темам',
+  }
+
+  const ARTICLES_FILTER_CHIPS = [
+    { tag: 'all', label: 'Все' },
+    { tag: 'tag-apple', label: 'Яблони' },
+    { tag: 'tag-care', label: 'Уход за садом' },
+  ]
+
+  const ARTICLES_ITEMS = [
+    {
+      href: 'article-apples.html',
+      dataTags: 'tag-apple tag-care',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Как сажать яблоню?',
+      title: 'Как сажать яблоню?',
+      meta: 'Советы по подготовке почвы и уходу',
+    },
+    {
+      href: 'article-apples-2016.html',
+      dataTags: 'tag-apple',
+      imageSrc: 'img/apples/устойчивые_сорта_яблонь_2016.png',
+      imageAlt: 'Устойчивые сорта яблонь (2016 г.)',
+      title: 'Устойчивые сорта яблонь (2016 г.)',
+      meta: 'Замечательные яблочки мы снимаем с сорта «Рескью» в начале сентября.',
+    },
+    {
+      href: '#',
+      dataTags: 'tag-apple',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Как обрезать яблоню?',
+      title: 'Как обрезать яблоню?',
+      meta: 'Основные принципы формирующей обрезки',
+    },
+    {
+      href: '#',
+      dataTags: 'tag-care',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Как подготовить сад к зиме?',
+      title: 'Как подготовить сад к зиме?',
+      meta: 'Что сделать осенью, чтобы деревья хорошо перезимовали',
+    },
+    {
+      href: '#',
+      dataTags: 'tag-apple',
+      imageSrc: 'img/apple.webp',
+      imageAlt: 'Как выбрать сорт яблони?',
+      title: 'Как выбрать сорт яблони?',
+      meta: 'Ориентиры при выборе сортов для Сибири',
+    },
+  ]

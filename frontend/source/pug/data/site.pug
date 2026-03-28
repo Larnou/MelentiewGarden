@@ -1,0 +1,37 @@
+//- Глобальные данные сайта: бренд, контакты, навигация, юр. URL.
+//- Правки здесь отражаются в шапке, подвале и при необходимости в юр. страницах.
+//- Идемпотентно: повторный include не дублирует объявление (удобно для IDE и частичных шаблонов).
+-
+  if (!globalThis.__MG_SITE__) {
+    globalThis.__MG_SITE__ = {
+      brandName: 'САЖЕНЦЫ-ИРКУТСК',
+      homeHref: 'index.html',
+      publicUrl: 'https://саженцы-иркутск.рф',
+      address: 'р.п. Марково, Ново-Иркутский',
+      phone: {
+        href: 'tel:+79000000000',
+        label: '+7 (900) 000-00-00',
+        title: 'Позвонить по номеру телефона',
+      },
+      email: {
+        href: 'mailto:info@example.ru',
+        label: 'info@example.ru',
+        title: 'Написать электронное письмо',
+      },
+      telegram: {
+        href: 'https://t.me/+RlClLH93pmBjMDIy',
+        label: 'Наш Телеграм-канал',
+      },
+      legal: {
+        ofertaHref: 'oferta.html',
+        privacyHref: 'privacy.html',
+      },
+      nav: [
+        { label: 'Новости', mainHref: '#news', otherHref: 'index.html#news' },
+        { label: 'Каталог', mainHref: '#catalog', otherHref: 'catalog.html' },
+        { label: 'Статьи', mainHref: '#articles', otherHref: 'articles.html' },
+        { label: 'О нас', mainHref: '#about', otherHref: 'about.html#about' },
+      ],
+    };
+  }
+  var SITE = globalThis.__MG_SITE__;

@@ -1,6 +1,8 @@
 //- Используемые переменные, относящиеся к Footer
     footer.class    - дополнительный класс на элементе footer (модификатор блока и т.п.)
 
+include ../../data/site
+
 mixin footer()
   footer(class='footer' + (footer.class === null ? '' : ' ' + footer.class))
     .footer__container
