@@ -70,42 +70,20 @@ $activePage = 'home';
                 </div>
                 <div class="articles__slider swiper js-articles-slider">
                     <div class="articles__list swiper-wrapper">
-                        <a class="article-card swiper-slide" href="article-apples.html" data-tags="tag-apple tag-care">
-                            <img class="article-card__image" src="img/apple.webp" alt="Как сажать яблоню?">
-                            <h3 class="article-card__title">Как сажать яблоню?</h3>
-                            <p class="article-card__meta">Советы по подготовке почвы и уходу</p>
-                        </a>
 
-                        <a class="article-card swiper-slide" href="article-apples-2016.html" data-tags="tag-apple">
-                            <img class="article-card__image" src="img/apples/устойчивые_сорта_яблонь_2016.png" alt="Устойчивые сорта яблонь (2016 г.)">
-                            <h3 class="article-card__title">Устойчивые сорта яблонь (2016 г.)</h3>
-                            <p class="article-card__meta">Замечательные яблочки мы снимаем с сорта «Рескью» в начале сентября.</p>
-                        </a>
-
-                        <a class="article-card swiper-slide" href="#" data-tags="tag-apple">
-                            <img class="article-card__image" src="img/apple.webp" alt="Как обрезать яблоню?">
-                            <h3 class="article-card__title">Как обрезать яблоню?</h3>
+                        <a class="article-card swiper-slide" href="/pages/articles/kak-borotsya-s-muravyami.php" data-tags="tag-apple">
+                            <img class="article-card__image" src="/assets/img/background.webp" alt="Как бороться с муравьями?">
+                            <h3 class="article-card__title">Как бороться с муравьями?</h3>
                             <p class="article-card__meta">Основные принципы формирующей обрезки</p>
                         </a>
 
-                        <a class="article-card swiper-slide" href="#" data-tags="tag-care">
-                            <img class="article-card__image" src="img/apple.webp" alt="Как подготовить сад к зиме?">
-                            <h3 class="article-card__title">Как подготовить сад к зиме?</h3>
-                            <p class="article-card__meta">Что сделать осенью, чтобы деревья хорошо перезимовали</p>
-                        </a>
-
-                        <a class="article-card swiper-slide" href="#" data-tags="tag-apple">
-                            <img class="article-card__image" src="img/apple.webp" alt="Как выбрать сорт яблони?">
-                            <h3 class="article-card__title">Как выбрать сорт яблони?</h3>
-                            <p class="article-card__meta">Ориентиры при выборе сортов для Сибири</p>
-                        </a>
                     </div>
                 </div>
                 <div class="articles__controls">
                     <button class="articles__arrow articles__arrow--prev" type="button" aria-label="Предыдущие статьи">
                         <span>◀</span>
                     </button>
-                    <a class="articles__more-button" href="articles.html">Посмотреть больше</a>
+                    <a class="articles__more-button" href="/pages/articles.php">Посмотреть больше</a>
                     <button class="articles__arrow articles__arrow--next" type="button" aria-label="Следующие статьи">
                         <span>▶</span>
                     </button>

@@ -2512,7 +2512,7 @@ var scroll = shortcut('scroll');
 
     addInitialPointerMoveListeners();
 
-    // For focus and blur, we specifically care history state changes in the local
+    // For focus and blur, we specifically care about state changes in the local
     // scope. This is because focus / blur events that originate from within a
     // shadow root are not re-dispatched from the host element if it was already
     // the active element in its own scope:
@@ -2522,7 +2522,7 @@ var scroll = shortcut('scroll');
     // We detect that a node is a ShadowRoot by ensuring that it is a
     // DocumentFragment and also has a host property. This check covers native
     // implementation and polyfill implementation transparently. If we only cared
-    // history the native implementation, we could just check if the scope was
+    // about the native implementation, we could just check if the scope was
     // an instance of a ShadowRoot.
     if (scope.nodeType === Node.DOCUMENT_FRAGMENT_NODE && scope.host) {
       // Since a ShadowRoot is a special kind of DocumentFragment, it does not
