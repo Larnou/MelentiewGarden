@@ -1,0 +1,37 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Фламинго'
+    pageDescription = 'Осенний сорт яблони Фламинго: крупные жёлтые плоды с румянцем, зимостойкость, селекция Т.Ф. Корниенко (Барнаул).'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Фламинго
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Плоды крупные, массой 100–120 г, жёлтые с лёгким румянцем, хорошего вкуса. Мякоть плотная, сочная.
+        li Хранятся 2–3 месяца.
+        li Дерево невысокое, компактное.
+        li Сорт урожайный, зимостойкий.
+
+      +articleBlockText()
+        p
+          | Селекция Т.Ф. Корниенко (Барнаул).
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/flamingo/fl-1.jpg' alt="")
+          p.article-block__slide-caption Внешний вид яблок
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/flamingo/fl-2.jpg' alt="Вид на сад")
+          p.article-block__slide-caption Размер яблок
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/flamingo/fl-3.jpg' alt="Плоды")
+          p.article-block__slide-caption Вес яблок
