@@ -1,0 +1,51 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Правила посадки садовой земляники'
+    pageDescription = 'Как подготовить приподнятую грядку, высадить розетки земляники в два ряда и укрыть посадки на зиму.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article
+    .article__container
+      a.article__back(href="articles.html") ← Назад к статьям
+
+      h1.article__title Правила посадки садовой земляники
+
+      p.article__meta Грядка, схема посадки, мульча и сезонный уход
+
+      +articleBlockHeadingText('Грядка и высадка')
+        p
+          | Грядка шириной 80–90 см должна быть немного приподнята. Это нужно, чтобы весной
+          |  талая вода не повредила розетки. Растения в такую грядку лучше высадить в два ряда:
+          |  расстояние между рядами 30 см, между кустами тоже 30 см.
+        p
+          | В лунку положить немного перегноя, полить, высадить розетку, не заглубляя точки роста —
+          |  это важно. Сверху замульчировать тонким слоем перегноя.
+
+      +articleBlockHeadingText('Осень: полив и укрытие')
+        p
+          | Осенью примерно 10 октября обильно полить, если не было дождей и почва сухая.
+          |  Примерно 15 октября расстелить на грядки укрывной: мы используем пароизоляционный
+          |  строительный материал, его нужно положить блестящей стороной сверху.
+        p
+          | По краям сверху положить доски.
+
+      +articleBlockHeadingText('Весна')
+        p
+          | Весной, в конце апреля, укрывной можно убрать и обильно полить грядку.
+
+
+      //- Блок: слайдер картинок с подписью (пример)
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/articles/pravila-posadki-sadovoy-zemlyaniki/korobka.png' alt="Коробка")
+          p.article-block__slide-caption Цветение яблони
+        .article-block__slide.swiper-slide
+          img(src='img/pages/articles/pravila-posadki-sadovoy-zemlyaniki/sajenci.png' alt="Саженцы в земле")
+          p.article-block__slide-caption Вид на наш сад
+        .article-block__slide.swiper-slide
+          img(src='img/pages/articles/pravila-posadki-sadovoy-zemlyaniki/ukruvnoi.png' alt="Укрывной материал")
+          p.article-block__slide-caption Созревание плодов

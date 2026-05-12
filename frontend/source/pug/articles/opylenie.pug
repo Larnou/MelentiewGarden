@@ -1,0 +1,31 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Опыление'
+    pageDescription = 'Зачем сажать два сорта яблони или груши рядом: перекрёстное опыление, роль ветра и насекомых, урожайность.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article
+    .article__container
+      a.article__back(href="articles.html") ← Назад к статьям
+
+      h1.article__title Опыление
+
+      p.article__meta Два сорта рядом — лучше урожай у яблони, груши и других плодовых
+
+      +articleBlockText()
+        p
+          | Для хорошего урожая груши, яблони и других плодовых рекомендуется сажать два разных сорта
+          |  рядом друг с другом. Большинство сортов не самоплодные или только частично самоплодные,
+          |  поэтому перекрёстное опыление между разными сортами значительно увеличивает урожайность.
+        p
+          | Растения опыляются ветром и насекомыми. Если рядом нет другого сорта, то опыление может
+          |  быть недостаточным.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/articles/opylenie/opilenie.png' alt="Как происходит опыление")
+          p.article-block__slide-caption Как происходит опыление
