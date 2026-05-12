@@ -33,10 +33,20 @@ mixin footer()
       .footer__community
         .footer__section-title НАШЕ СООБЩЕСТВО
 
-        a.footer__logo.footer__logo--group(href=SITE.telegram.href target="_blank" rel="noopener")
+        a.footer__logo.footer__logo--group(href=SITE.telegram_channel.href target="_blank" rel="noopener")
           .footer__logo-icon
             +svg('telegram', 40, 40)
-          span.footer__title= SITE.telegram.label
+          span.footer__title= SITE.telegram_channel.label
+
+        a.footer__logo.footer__logo--group(href=SITE.max_channel.href target="_blank" rel="noopener")
+          .footer__logo-icon
+            +svg('max', 40, 40)
+          span.footer__title= SITE.max_channel.label
+
+        a.footer__logo.footer__logo--group(href=SITE.ok_channel.href target="_blank" rel="noopener")
+          .footer__logo-icon
+            +svg('ok', 40, 40)
+          span.footer__title= SITE.ok_channel.label
 
     .footer__bottom
       .footer__bottom-container
