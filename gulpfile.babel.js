@@ -41,7 +41,7 @@ gulp.task('css', () => gulp.src('frontend/source/sass/style.scss')
   ]))
   .pipe(csso())
   .pipe(gulp.dest('frontend/build/css'))
-  // .pipe(gulp.dest('backend/static/css'))
+  .pipe(gulp.dest('backend/assets/css'))
   .pipe(server.stream()));
 
 gulp.task('pug', () => gulp.src([
@@ -66,7 +66,8 @@ gulp.task('sprite', () => gulp.src('frontend/source/img/sprite/*.svg')
 
 gulp.task('js', () => gulp.src('frontend/source/js/index.js')
   .pipe(webpack(webpackConfig))
-  .pipe(gulp.dest('frontend/build/js')));
+  .pipe(gulp.dest('frontend/build/js'))
+  .pipe(gulp.dest('backend/assets/js')));
 
 gulp.task('favicon-generate', (done) => {
   realFavicon.generateFavicon({
