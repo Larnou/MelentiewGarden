@@ -78,7 +78,7 @@ $activePage = 'history';
 
                 <div class="article-block article-block--media article-block--media-left">
                     <div class="article-block__media-image">
-                        <img src="/assets/img/about/about.jpg" alt="Людмила Михайловна в саду">
+                        <img src="/assets/img/pages/history/about.jpg" alt="Людмила Михайловна в саду">
                     </div>
                     <div class="article-block__media-text">
                         <p>
