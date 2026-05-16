@@ -1,0 +1,38 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Алтайское наливное'
+    pageDescription = 'Летний сорт яблони Алтайское наливное: плоды до 80 г, созревание в середине августа, урожайность и зимостойкость. Алтайская селекция, Барнаул.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Алтайское наливное
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Летний сорт.
+        li Плоды крупные, до 80 г, светлые с лёгким румянцем. Мякоть сочная, нежная.
+        li Созревают в середине августа, при лежке становятся прозрачными и более сладкими.
+        li Дерево сильнорослое.
+        li Сорт очень урожайный, зимостойкий.
+
+      +articleBlockText()
+        p
+          | Алтайская селекция (НИИ садоводства Сибири им. М.А. Лисавенко, Барнаул).
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/altayskoye-nalivnoye/an-1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/altayskoye-nalivnoye/an-2.jpg' alt="Вид на сад")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/altayskoye-nalivnoye/an-3.jpg' alt="Плоды")
+          p.article-block__slide-caption

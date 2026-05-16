@@ -11,6 +11,8 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   margin: 0;
   font-family: $font;
@@ -21,6 +23,18 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   //overflow-x: hidden;
+}
+
+// Sticky footer: main заполняет пространство между шапкой и футером
+.main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  // На «коротких» страницах (каталог, статьи) единственный блок растягивается по высоте
+  > :only-child {
+    flex: 1 0 auto;
+  }
 }
 
 ul,

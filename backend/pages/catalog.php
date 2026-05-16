@@ -29,6 +29,10 @@ $activePage = 'catalog';
                         <h2 class="seedlings-card__title">ЯБЛОНЯ · Подарок садоводам</h2>
                         <p class="seedlings-card__subtitle">Осенний сорт</p>
                         <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/altayskoye-nalivnoye.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/altayskoye-nalivnoye/an-2.jpg" alt="Яблоня сорт Алтайское наливное">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Алтайское наливное</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
                     </a></div>
             </div>
         </section>
