@@ -35,7 +35,7 @@ $activePage = 'catalog';
                 <div class="article-block article-block--slider-captions">
                     <div class="article-block__slider swiper js-article-gallery-captions">
                         <div class="article-block__slider-wrapper swiper-wrapper">
-                            <div class="article-block__slide swiper-slide"><img src="/assets/img/pages/catalog/podarok-sadovodam/ps-1.jpg" alt>
+                            <div class="article-block__slide swiper-slide"><img src="/assets/img/pages/catalog/podarok-sadovodam/ps-1.jpg" alt="">
                                 <p class="article-block__slide-caption"></p>
                             </div>
                             <div class="article-block__slide swiper-slide"><img src="/assets/img/pages/catalog/podarok-sadovodam/ps-2.jpg" alt="Вид на сад">

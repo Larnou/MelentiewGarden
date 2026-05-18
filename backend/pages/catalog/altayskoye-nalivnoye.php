@@ -13,7 +13,7 @@ $activePage = 'catalog';
     <?php include __DIR__ . '/../../includes/header.php'; ?>
 
     <main class="main main--article">
-        <section class="article article--product">
+<section class="article article--product">
             <div class="article__container"><a class="article__back" href="/pages/catalog.php">← Назад к каталогу</a>
                 <h1 class="article__title">Яблоня · Алтайское наливное</h1>
                 <div class="article-block article-block--heading-text">

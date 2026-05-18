@@ -33,6 +33,42 @@ $activePage = 'catalog';
                         <h2 class="seedlings-card__title">ЯБЛОНЯ · Алтайское наливное</h2>
                         <p class="seedlings-card__subtitle">Летний сорт</p>
                         <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/barnaulskoe-rumyanoe.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/barnaulskoe-rumyanoe/br1.jpg" alt="Яблоня сорт Барнаульское румяное">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Барнаульское румяное</h2>
+                        <p class="seedlings-card__subtitle">Поздне-летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/sinapchik.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/sinapchik/s4.jpg" alt="Яблоня сорт Синапчик">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Синапчик</h2>
+                        <p class="seedlings-card__subtitle">Осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/altayskoye-rumyanoe.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/altayskoye-rumyanoe/ar2.jpg" alt="Яблоня сорт Алтайское румяное">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Алтайское румяное</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/amurskoe-krasnoe.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/amurskoe-krasnoe/ak1.jpg" alt="Яблоня сорт Амурское красное">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Амурское красное</h2>
+                        <p class="seedlings-card__subtitle">Ранне-осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/yunga.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/yunga/u2.jpg" alt="Яблоня сорт Юнга">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Юнга</h2>
+                        <p class="seedlings-card__subtitle">Поздне-летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/sharik.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/sharik/s3.jpg" alt="Яблоня сорт Шарик">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Шарик</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/nomernaya-80-60.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/nomernaya-80-60/n81.jpg" alt="Яблоня сорт Номерная 80-60">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Номерная 80-60</h2>
+                        <p class="seedlings-card__subtitle">Зимний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/krasnaya-gorka.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/krasnaya-gorka/kg1.jpg" alt="Яблоня сорт Красная горка">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Красная горка</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/mana.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/mana/m1.jpg" alt="Яблоня сорт Мана">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Мана</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
                     </a></div>
             </div>
         </section>

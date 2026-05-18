@@ -7,7 +7,7 @@ mixin seedlings()
 
       .seedlings__slider.swiper.js-seedlings-slider
         .seedlings__list.swiper-wrapper
-          each item in CATALOG_ITEMS
+          each item in MAIN_PAGE_CATALOG_ITEMS
             a.seedlings-card.swiper-slide(href=item.href)
               img.seedlings-card__image(src=item.imageSrc alt=item.imageAlt)
               h3.seedlings-card__title= item.homeTitle
@@ -22,4 +22,3 @@ mixin seedlings()
 
         button.seedlings__arrow.seedlings__arrow--next(type="button" aria-label="Следующие саженцы")
           span ▶
-
