@@ -1,0 +1,34 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Белый налив'
+    pageDescription = 'Ранне-осенний сорт яблони Белый налив: плоды 100–120 г без румянца, стланцевая форма, укрытие на зиму. Привой с дерева на Байкальском тракте.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Белый налив
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Ранне-осенний сорт.
+        li Плоды массой 100–120 г, светлые, почти белые, без румянца, очень ароматные, хорошего вкуса. Мякоть нежная, сочная.
+        li Созревают в начале сентября.
+        li Дерево невысокое, так как необходимо формировать его в стланцевой форме. Сорт урожайный, зимует под укрытием.
+
+      +articleBlockText()
+        p
+          | Привой взят с дерева Р.Г. Лежанкиной, которое плодоносит на Байкальском тракте более 30 лет.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/belyy-naliv/bn1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/belyy-naliv/bn2.jpg' alt="")
+          p.article-block__slide-caption

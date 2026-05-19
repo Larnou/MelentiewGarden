@@ -1,0 +1,31 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Малиновка'
+    pageDescription = 'Осенний сорт яблони Малиновка: плоды 120–150 г, стланцевая форма, скороплодность, укрытие на зиму.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Малиновка
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Осенний сорт.
+        li Плоды крупные, массой 120–150 г, жёлтые с румянцем, хорошего вкуса. Мякоть сочная.
+        li Созревают в начале сентября, хранятся до декабря.
+        li Дерево невысокое, так как необходимо формировать его в стланцевой форме.
+        li Сорт скороплодный, урожайный, зимует под укрытием.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/malinovka/ml1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/malinovka/ml2.jpg' alt="")
+          p.article-block__slide-caption

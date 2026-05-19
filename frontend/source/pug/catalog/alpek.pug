@@ -1,0 +1,41 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Алпек'
+    pageDescription = 'Ранне-осенний сорт яблони Алпек: плоды 40–50 г, тёмно-бордовые, низкорослое дерево, урожайность, зимостойкость. Селекция Т.Ф. Корниенко (Барнаул).'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Алпек
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Ранне-осенний сорт.
+        li Плоды массой 40–50 г, тёмно-бордовые, слегка вытянутые, хорошего кисло-сладкого вкуса. Мякоть сочная.
+        li Созревают в конце августа — начале сентября, хранятся до 2–3 месяцев.
+        li Дерево низкорослое, кустится.
+        li Сорт урожайный, плодоносит ежегодно, вступает в плодоношение на 3-й год. Зимостойкий.
+
+      +articleBlockText()
+        p
+          | Селекция Т.Ф. Корниенко (Барнаул).
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/alpek/al1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/alpek/al2.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/alpek/al3.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/alpek/al4.jpg' alt="")
+          p.article-block__slide-caption

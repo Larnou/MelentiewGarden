@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="footer__container">
-        <div class="footer__brand"><a class="footer__logo footer__logo--address" href="index.html">
+        <div class="footer__brand"><a class="footer__logo footer__logo--address" href="index.php">
                 <div class="footer__logo-icon"><svg width="40" height="40" aria-hidden="true">
                         <use xlink:href="#apple"/>
                     </svg></div>

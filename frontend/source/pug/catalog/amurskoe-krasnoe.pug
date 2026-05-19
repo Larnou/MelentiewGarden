@@ -1,0 +1,28 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Амурское красное'
+    pageDescription = 'Ранне-осенний сорт яблони Амурское красное: плоды 50–70 г, темно-бордовые при созревании, кисло-сладкий вкус, урожайность и зимостойкость.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Амурское красное
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Ранне-осенний сорт.
+        li Плоды массой 50–70 г, округлые, при созревании становятся темно-бордовыми. Вкус кисло-сладкий, хороший. Мякоть сочная.
+        li Созревают в начале сентября, хранятся до 1–2 месяцев.
+        li Дерево среднерослое.
+        li Сорт урожайный, рано вступает в плодоношение, зимостойкий.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/amurskoe-krasnoe/ak1.jpg' alt="")
+          p.article-block__slide-caption

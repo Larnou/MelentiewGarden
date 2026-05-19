@@ -1,0 +1,31 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Висящего'
+    pageDescription = 'Зимний сорт яблони Висящего: плоды 180–220 г, стланцевая форма, хранение, укрытие на зиму. Сорт иркутского садовода А.Н. Висящего.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Висящего
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Зимний сорт.
+        li Плоды очень крупные, массой 180–220 г, зелёные с лёгким румянцем, хорошего вкуса. Мякоть сочная, плотная.
+        li Созревают в сентябре, пригодны для хранения.
+        li Дерево невысокое, так как необходимо формировать его в стланцевой форме. Сорт урожайный, зимует под укрытием.
+
+      +articleBlockText()
+        p
+          | От иркутского садовода А.Н. Висящего (черенки изначально из города Ростов).
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/visyashchego/vi1.jpg' alt="")
+          p.article-block__slide-caption

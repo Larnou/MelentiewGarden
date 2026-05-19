@@ -1,0 +1,32 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Подруга'
+    pageDescription = 'Осенний сорт яблони Подруга: плоды до 40 г, хранение до января, высокая урожайность, зимостойкость. Выращивается в Иркутске с 80-х годов.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Подруга
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Осенний сорт.
+        li Плоды массой до 40 г, жёлтые с румянцем, хорошего кисло-сладкого вкуса. Мякоть очень плотная, сочная.
+        li Созревают в начале сентября, хранятся до января.
+        li Дерево среднерослое.
+        li Сорт зимостойкий, отличается очень высокой урожайностью.
+
+      +articleBlockText()
+        p
+          | Выращивается в Иркутске с 80-х годов.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/podruga/po1.jpg' alt="")
+          p.article-block__slide-caption

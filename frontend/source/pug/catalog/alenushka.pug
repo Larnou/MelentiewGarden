@@ -1,0 +1,31 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Алёнушка'
+    pageDescription = 'Летний сорт яблони Алёнушка: плоды 40–45 г, низкое компактное дерево, высокая урожайность, плодоношение с 3-го года, зимостойкость.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Алёнушка
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Летний сорт.
+        li Плоды массой 40–45 г, ярко-жёлтые с румянцем, хорошего вкуса. Мякоть сочная.
+        li Созревают в августе.
+        li Дерево невысокое, компактное, с поникающими ветками.
+        li Сорт отличается очень высокой урожайностью. Плодоносит не ежегодно. Вступает в плодоношение на 3-й год. Зимостойкий.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/alenushka/al1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/alenushka/al2.jpg' alt="")
+          p.article-block__slide-caption

@@ -1,0 +1,40 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Сонечка (155-7-6)'
+    pageDescription = 'Летний сорт яблони Сонечка, 155-7-6: плоды 40–45 г, сладкий вкус, урожайность и зимостойкость. Селекция Т.Ф. Корниенко (Барнаул).'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Сонечка
+
+      p.article__meta 155-7-6
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Летний сорт.
+        li Плоды массой 40–45 г, красивые, румяные, сладкого вкуса. Мякоть сочная, не крахмалится.
+        li Созревают в августе.
+        li Дерево среднерослое.
+        li Сорт зимостойкий, урожайный.
+
+      +articleBlockText()
+        p
+          | Селекция Т.Ф. Корниенко (Барнаул).
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/sonechka/s1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/sonechka/s2.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/sonechka/s3.jpg' alt="")
+          p.article-block__slide-caption

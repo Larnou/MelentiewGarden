@@ -1,0 +1,32 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Лада'
+    pageDescription = 'Осенний сорт яблони Лада: плоды 35–45 г, тёмно-бордовые, кисло-сладкий вкус, хранение до 2 месяцев, зимостойкость. Селекция Н.Н. Тихонова (Красноярск).'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Лада
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Осенний сорт.
+        li Плоды массой 35–45 г, тёмно-бордовые, слегка приплюснутые, кисло-сладкого вкуса. Мякоть сочная, плотная, с характерным хрустом.
+        li Созревают в конце августа — начале сентября, хранятся до 2 месяцев.
+        li Дерево среднерослое.
+        li Сорт зимостойкий, урожайный.
+
+      +articleBlockText()
+        p
+          | Селекция Н.Н. Тихонова (Красноярск).
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/lada/la1.jpg' alt="")
+          p.article-block__slide-caption

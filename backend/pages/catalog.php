@@ -69,6 +69,86 @@ $activePage = 'catalog';
                         <h2 class="seedlings-card__title">ЯБЛОНЯ · Мана</h2>
                         <p class="seedlings-card__subtitle">Летний сорт</p>
                         <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/alenushka.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/alenushka/al2.jpg" alt="Яблоня сорт Алёнушка">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Алёнушка</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/sonechka.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/sonechka/s1.jpg" alt="Яблоня сорт Сонечка (155-7-6)">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Сонечка</h2>
+                        <p class="seedlings-card__subtitle">155-7-6 · летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/alpek.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/alpek/al1.jpg" alt="Яблоня сорт Алпек">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Алпек</h2>
+                        <p class="seedlings-card__subtitle">Ранне-осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/zhebrovskoe.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/zhebrovskoe/zh1.jpg" alt="Яблоня сорт Жебровское">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Жебровское</h2>
+                        <p class="seedlings-card__subtitle">Ранне-осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/osennaya-radost-altaya.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/osennaya-radost-altaya/aro1.jpg" alt="Яблоня сорт Осенняя радость Алтая">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Осенняя радость Алтая</h2>
+                        <p class="seedlings-card__subtitle">Ранне-осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/krasnoyarskoe-sladkoe.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/krasnoyarskoe-sladkoe/ks1.jpg" alt="Яблоня сорт Красноярское сладкое">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Красноярское сладкое</h2>
+                        <p class="seedlings-card__subtitle">Осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/lada.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/lada/la1.jpg" alt="Яблоня сорт Лада">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Лада</h2>
+                        <p class="seedlings-card__subtitle">Осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/domestik-alba.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/domestik-alba/da1.jpg" alt="Яблоня сорт Доместик Альба">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Доместик Альба</h2>
+                        <p class="seedlings-card__subtitle">Осенний сорт · полукультурка</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/uralskoye-nalivnoye.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/uralskoye-nalivnoye/un1.jpg" alt="Яблоня сорт Уральское наливное">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Уральское наливное</h2>
+                        <p class="seedlings-card__subtitle">Осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/podruga.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/podruga/po1.jpg" alt="Яблоня сорт Подруга">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Подруга</h2>
+                        <p class="seedlings-card__subtitle">Осенний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/ermolaeva-23.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/ermolaeva-23/er1.jpg" alt="Яблоня сорт Ермолаева-23">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Ермолаева-23</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/podarok-bamu.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/podarok-bamu/pb1.jpg" alt="Яблоня сорт Подарок БАМу">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Подарок БАМу</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/manaraga.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/manaraga/mg2.jpg" alt="Яблоня сорт Манарага">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Манарага</h2>
+                        <p class="seedlings-card__subtitle">Зимний сорт · колоновидная</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/makovetskogo.php" data-tags="decor seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/makovetskogo/mk1.jpg" alt="Яблоня сорт Маковецкого">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Маковецкого</h2>
+                        <p class="seedlings-card__subtitle">Декоративный сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/ola.php" data-tags="decor seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/ola/ol1.jpg" alt="Яблоня сорт Ола">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Ола</h2>
+                        <p class="seedlings-card__subtitle">Декоративный сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/malinovka.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/malinovka/ml1.jpg" alt="Яблоня сорт Малиновка">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Малиновка</h2>
+                        <p class="seedlings-card__subtitle">Осенний сорт · стланец</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/belyy-naliv.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/belyy-naliv/bn1.jpg" alt="Яблоня сорт Белый налив">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Белый налив</h2>
+                        <p class="seedlings-card__subtitle">Ранне-осенний сорт · стланец</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/sverdlovchanin.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/sverdlovchanin/sv1.jpg" alt="Яблоня сорт Свердловчанин">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Свердловчанин</h2>
+                        <p class="seedlings-card__subtitle">Зимний сорт · стланец</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/visyashchego.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/visyashchego/vi1.jpg" alt="Яблоня сорт Висящего">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Висящего</h2>
+                        <p class="seedlings-card__subtitle">Зимний сорт · стланец</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
+                    </a><a class="seedlings-card" href="/pages/catalog/melba.php" data-tags="seed"><img class="seedlings-card__image" src="/assets/img/pages/catalog/melba/mb1.jpg" alt="Яблоня сорт Мельба (Мелба)">
+                        <h2 class="seedlings-card__title">ЯБЛОНЯ · Мельба</h2>
+                        <p class="seedlings-card__subtitle">Летний сорт</p>
+                        <p class="seedlings-card__price">от 800 ₽</p>
                     </a></div>
             </div>
         </section>

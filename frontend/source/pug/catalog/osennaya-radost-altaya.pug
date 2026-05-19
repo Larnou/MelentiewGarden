@@ -1,0 +1,40 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Осенняя радость Алтая'
+    pageDescription = 'Ранне-осенний сорт яблони Осенняя радость Алтая: плоды 40–60 г, ярко-багряные, низкорослое дерево, обильное плодоношение, зимостойкость.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Осенняя радость Алтая
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Ранне-осенний сорт.
+        li Плоды массой 40–60 г, ярко-багряные, хорошего вкуса. Мякоть сочная.
+        li Созревают в конце августа — начале сентября. При лежке вкус улучшается; к октябрю плоды становятся очень вкусными, сладкими и сочными.
+        li Дерево низкорослое.
+        li Сорт урожайный, плодоносит обильно. Зимостойкий.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/osennaya-radost-altaya/aro1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/osennaya-radost-altaya/aro2.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/osennaya-radost-altaya/aro3.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/osennaya-radost-altaya/aro4.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/osennaya-radost-altaya/aro5.jpg' alt="")
+          p.article-block__slide-caption

@@ -1,0 +1,40 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Уральское наливное'
+    pageDescription = 'Осенний сорт яблони Уральское наливное: плоды 35–45 г, хранение до декабря, раскидистая крона, высокая урожайность. Уральская селекция, Челябинск.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Уральское наливное
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Осенний сорт.
+        li Плоды массой 35–45 г, жёлто-зелёные, хорошего сбалансированного кисло-сладкого вкуса. Мякоть сочная.
+        li Созревают в начале сентября. Хранятся до декабря.
+        li Дерево среднерослое, с раскидистой кроной. Очень урожайный. Зимостойкий.
+
+      +articleBlockText()
+        p
+          | Уральская селекция (Южно-Уральский НИИ садоводства и плодоводства, Челябинск).
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/uralskoye-nalivnoye/un1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/uralskoye-nalivnoye/un2.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/uralskoye-nalivnoye/un3.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/uralskoye-nalivnoye/un4.jpg' alt="")
+          p.article-block__slide-caption

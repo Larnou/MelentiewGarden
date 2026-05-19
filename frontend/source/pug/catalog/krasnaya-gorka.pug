@@ -1,0 +1,38 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Красная горка'
+    pageDescription = 'Летний сорт яблони Красная горка: крупные бордовые плоды до 100 г, конец августа, стланцевая форма или тёплые места участка. Селекция Т.Ф. Корниенко (Барнаул).'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Красная горка
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Летний сорт.
+        li Плоды крупные, до 100 г, бордовые, очень красивые. Мякоть красноватая, сочная, очень хорошего вкуса.
+        li Созревают в конце августа.
+        li Дерево средне-зимостойкое.
+        li Рекомендуется выращивать в стланцевой форме или в наиболее тёплых местах участка.
+
+      +articleBlockText()
+        p
+          | Селекция Т.Ф. Корниенко (Барнаул).
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/krasnaya-gorka/kg1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/krasnaya-gorka/kg2.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/krasnaya-gorka/kg3.jpg' alt="")
+          p.article-block__slide-caption

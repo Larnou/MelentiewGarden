@@ -1,0 +1,28 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Мельба (Мелба)'
+    pageDescription = 'Летний сорт яблони Мельба: плоды 120–150 г, конец августа, стланец или тёплое место в Иркутской области, укрытие на зиму.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Мельба (Мелба)
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Летний сорт.
+        li Плоды массой 120–150 г, светло-зелёные с ярким красным полосатым румянцем, хорошего кисло-сладкого вкуса. Мякоть белая, сочная, с приятным ароматом.
+        li Созревают в конце августа — начале сентября.
+        li Дерево среднерослое, с раскидистой кроной. В условиях Иркутской области требует более тёплого места или выращивания в стланцевой форме.
+        li Сорт урожайный, скороплодный, зимует под укрытием.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/melba/mb1.jpg' alt="")
+          p.article-block__slide-caption

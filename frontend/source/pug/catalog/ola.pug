@@ -1,0 +1,30 @@
+extends ../components/template_layout
+
+append variables
+  -
+    pageTitle = 'Яблоня · Ола'
+    pageDescription = 'Сорт яблони Ола: обильное розовое цветение в конце мая, декоративность круглый год, зимостойкость. Иркутская область.'
+    main = { class: 'main--article' }
+
+prepend mainContent
+
+  section.article.article--product
+    .article__container
+      a.article__back(href="../catalog.html") ← Назад к каталогу
+
+      h1.article__title Яблоня · Ола
+
+      +articleBlockHeadingText('Характеристики')
+      +articleBlockListUnordered()
+        li Цветение обильное, в конце мая, цветки насыщенно-розовые (цвета фуксии).
+        li Плоды мелкие, летом тёмно-багряные, к августу светлеют, желтеют и приобретают румянец. В условиях Иркутской области не успевают полностью вызреть.
+        li Дерево высокое, с раскидистой кроной.
+        li Сорт зимостойкий, цветёт ежегодно даже после суровых зим. Декоративен в течение всего сезона.
+
+      +articleBlockSliderCaptions()
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/ola/ol1.jpg' alt="")
+          p.article-block__slide-caption
+        .article-block__slide.swiper-slide
+          img(src='img/pages/catalog/ola/ol2.jpg' alt="")
+          p.article-block__slide-caption
