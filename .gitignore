@@ -504,4 +504,5 @@ FodyWeavers.xsd
 
 .idea/
 .cursor/
+!backend/README.md
 backend/
