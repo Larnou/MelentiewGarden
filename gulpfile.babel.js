@@ -18,6 +18,7 @@ import include from 'posthtml-include';
 
 import svgstore from 'gulp-svgstore';
 
+import { spawnSync } from 'child_process';
 import fs from 'fs';
 import realFavicon from 'gulp-real-favicon';
 
@@ -175,6 +176,18 @@ gulp.task('refresh', (done) => {
   done();
 });
 
+gulp.task('sitemap', (done) => {
+  const result = spawnSync(process.execPath, ['tools/generate-sitemap.mjs'], {
+    cwd: __dirname,
+    stdio: 'inherit',
+  });
+  if (result.status !== 0) {
+    done(new Error('generate-sitemap.mjs failed'));
+    return;
+  }
+  done();
+});
+
 gulp.task('build', gulp.series(
   'clean',
   gulp.parallel(
@@ -189,6 +202,7 @@ gulp.task('build', gulp.series(
     'js',
   ),
   'inject-favicon-markups',
+  'sitemap',
 ));
 
 gulp.task('start', gulp.series(

@@ -8,6 +8,7 @@
     "eslint": "npx eslint .",
     "test": "npm run editorconfig && npm run stylelint && npx eslint .",
     "build": "cross-env NODE_ENV=production gulp build",
+    "sitemap": "node tools/generate-sitemap.mjs",
     "start": "gulp start",
     "favicons": "cross-env NODE_ENV=development gulp favicons",
     "imagemin": "cross-env NODE_ENV=development gulp imagemin",
