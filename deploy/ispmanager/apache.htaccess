@@ -1,0 +1,19 @@
+# Только если сайт слушает Apache напрямую, без nginx.
+# На обычном ISPmanager эти правила не ставить: статику отдаёт nginx,
+# и вместе со вставкой nginx.conf они мешают друг другу.
+# IP проверяет maintenance.php по REMOTE_ADDR.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{DOCUMENT_ROOT}/maintenance.on -f
+    RewriteCond %{REQUEST_URI} !^/maintenance\.php$
+    RewriteCond %{REQUEST_URI} !^/\.well-known/
+    RewriteRule ^ maintenance.php [END,E=MG_ORIGINAL:%{REQUEST_URI}]
+</IfModule>
+
+<Files "maintenance-allowlist.txt">
+    Require all denied
+</Files>
+<Files "maintenance.on">
+    Require all denied
+</Files>
