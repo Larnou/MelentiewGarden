@@ -1,5 +1,7 @@
 <!-- Блок "Ближайшая ярмарка"-->
+<!-- Карточка саженца: каталог (h2) и слайдер на главной (h3).-->
 <!-- Блок "Саженцы" с карточками и стрелками-->
+<!-- Карточка статьи: страница статей (h2) и слайдер на главной (h3).-->
 <!-- Блок "Статьи" с карточками и стрелками-->
 <!-- Блок "Наши преимущества"-->
 <!-- Блок "История нашего сада"-->
@@ -37,12 +39,21 @@
             <symbol id="arrow" viewBox="0 0 44 44">
                 <path d="M24.75 8.25L22.7837 10.1654L33.2062 20.625H5.5V23.375H33.2062L22.7837 33.7879L24.75 35.75L38.5 22L24.75 8.25Z"></path>
             </symbol>
+            <symbol id="calendar" viewBox="0 0 24 24">
+                <rect fill="none" x="3.5" y="5" width="17" height="15.5" rx="2" stroke="currentColor" stroke-width="1.6"></rect>
+                <path fill="none" d="M3.5 9.5h17M8 3.2v3.2M16 3.2v3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </symbol>
             <symbol id="cross" viewBox="0 0 16 16">
                 <path d="M13.753 13.753C13.9483 13.5578 13.9483 13.2412 13.753 13.0459L9.15688 8.44977L13.7531 3.85359C13.9483 3.65833 13.9483 3.34174 13.7531 3.14648C13.5578 2.95122 13.2412 2.95122 13.046 3.14648L8.44977 7.74267L3.85355 3.14645C3.65829 2.95118 3.34171 2.95118 3.14645 3.14645C2.95118 3.34171 2.95118 3.65829 3.14645 3.85355L7.74266 8.44977L3.14646 13.046C2.9512 13.2412 2.9512 13.5578 3.14646 13.7531C3.34172 13.9483 3.6583 13.9483 3.85357 13.7531L8.44977 9.15688L13.0459 13.753C13.2412 13.9483 13.5578 13.9483 13.753 13.753Z" fill="#1F2128"></path>
             </symbol>
             <symbol id="email" viewBox="0 0 64 64">
-                <path d="M10.666 18.6666L27.1993 31.0665C30.0439 33.1998 33.9548 33.1998 36.7993 31.0665L53.3327 18.6665" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M50.6667 13.3335H13.3333C10.3878 13.3335 8 15.7213 8 18.6668V45.3335C8 48.279 10.3878 50.6668 13.3333 50.6668H50.6667C53.6122 50.6668 56 48.279 56 45.3335V18.6668C56 15.7213 53.6122 13.3335 50.6667 13.3335Z" stroke="white" stroke-width="3" stroke-linecap="round"></path>
+                <path fill="none" d="M10.666 18.6666L27.1993 31.0665C30.0439 33.1998 33.9548 33.1998 36.7993 31.0665L53.3327 18.6665" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path fill="none" d="M50.6667 13.3335H13.3333C10.3878 13.3335 8 15.7213 8 18.6668V45.3335C8 48.279 10.3878 50.6668 13.3333 50.6668H50.6667C53.6122 50.6668 56 48.279 56 45.3335V18.6668C56 15.7213 53.6122 13.3335 50.6667 13.3335Z" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"></path>
+            </symbol>
+            <symbol id="fruit" viewBox="0 0 24 24">
+                <path fill="none" d="M12 7.2c-2.8.2-5.5 2.4-5.5 6.3 0 3.6 2.3 6 5.5 6s5.5-2.4 5.5-6c0-3.9-2.7-6.1-5.5-6.3Z" stroke="currentColor" stroke-width="1.6"></path>
+                <path fill="none" d="M12 7.2c.2-1.8 1.3-3.2 3-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                <path fill="none" d="M12 7.5c-.5-1.3-1.7-2.2-3-2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
             </symbol>
             <symbol id="max" viewBox="0 0 720 720">
                 <path fill="#fff" d="M350.4,9.6C141.8,20.5,4.1,184.1,12.8,390.4c3.8,90.3,40.1,168,48.7,253.7,2.2,22.2-4.2,49.6,21.4,59.3,31.5,11.9,79.8-8.1,106.2-26.4,9-6.1,17.6-13.2,24.2-22,27.3,18.1,53.2,35.6,85.7,43.4,143.1,34.3,299.9-44.2,369.6-170.3C799.6,291.2,622.5-4.6,350.4,9.6h0ZM269.4,504c-11.3,8.8-22.2,20.8-34.7,27.7-18.1,9.7-23.7-.4-30.5-16.4-21.4-50.9-24-137.6-11.5-190.9,16.8-72.5,72.9-136.3,150-143.1,78-6.9,150.4,32.7,183.1,104.2,72.4,159.1-112.9,316.2-256.4,218.6h0Z"></path>
@@ -70,11 +81,24 @@
 	c-2.7,5.4,1.3,12,7.6,12h107.3c3.1,0,6.2-1.8,7.6-4.9l76.6-171l76.6,171c1.3,3.1,4.5,4.9,7.6,4.9h107.3c6.2,0,10.2-6.7,7.1-12
 	L589.5,651.8c53-12.5,103.3-36.1,146.9-71.7C740,577.4,740.4,572.5,738.2,569z"></path>
             </symbol>
+            <symbol id="season" viewBox="0 0 24 24">
+                <circle fill="none" cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"></circle>
+                <path fill="none" d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </symbol>
+            <symbol id="shield" viewBox="0 0 24 24">
+                <path fill="none" d="M12 3.5 5.5 6.2v5.4c0 4.1 2.7 7.2 6.5 8.9 3.8-1.7 6.5-4.8 6.5-8.9V6.2L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                <path fill="none" d="M8.8 12.1 11 14.2l4.2-4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </symbol>
             <symbol id="telegram" viewBox="0 0 64 64">
                 <path d="M55.1063 9.91201L7.82627 28.144C4.5996 29.44 4.61827 31.24 7.23427 32.0427L19.3729 35.8293L47.4583 18.1093C48.7863 17.3013 49.9996 17.736 49.0023 18.6213L26.2476 39.1573H26.2423L26.2476 39.16L25.4103 51.672C26.6369 51.672 27.1783 51.1093 27.8663 50.4453L33.7623 44.712L46.0263 53.7707C48.2876 55.016 49.9116 54.376 50.4743 51.6773L58.5249 13.736C59.3489 10.432 57.2636 8.93601 55.1063 9.91201Z" fill="white"></path>
             </symbol>
             <symbol id="telephone" viewBox="0 0 64 64">
-                <path d="M38.2148 42.507L41.7615 38.9601C42.3073 38.4078 42.9572 37.9689 43.6735 37.6697C44.39 37.3705 45.1585 37.2166 45.9348 37.2166C46.7113 37.2166 47.4799 37.3705 48.1964 37.6697C48.9127 37.9689 49.5625 38.4078 50.1081 38.9601L54.2681 43.1204C54.8204 43.666 55.2591 44.3153 55.5583 45.0318C55.8575 45.7481 56.0116 46.5172 56.0116 47.2934C56.0116 48.07 55.8575 48.8388 55.5583 49.5553C55.2591 50.2716 54.8204 50.9209 54.2681 51.4665L52.3748 53.3865C51.0703 54.7038 49.3831 55.5758 47.5537 55.8774C45.7244 56.179 43.8465 55.8956 42.1881 55.0668C27.9169 47.7204 16.2929 36.1054 8.93489 21.8403C8.10537 20.1801 7.82371 18.2996 8.13038 16.4692C8.43705 14.6388 9.31625 12.9527 10.6416 11.6535L12.5348 9.73357C13.644 8.63111 15.1443 8.01221 16.7082 8.01221C18.272 8.01221 19.7724 8.63111 20.8815 9.73357L25.0682 13.9204C26.1706 15.0296 26.7895 16.5297 26.7895 18.0936C26.7895 19.6574 26.1706 21.1576 25.0682 22.2668L21.5215 25.8136C23.8666 28.9857 26.4425 31.9801 29.2281 34.7732C31.9977 37.5476 34.9753 40.1065 38.1348 42.427L38.2148 42.507Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path fill="none" d="M38.2148 42.507L41.7615 38.9601C42.3073 38.4078 42.9572 37.9689 43.6735 37.6697C44.39 37.3705 45.1585 37.2166 45.9348 37.2166C46.7113 37.2166 47.4799 37.3705 48.1964 37.6697C48.9127 37.9689 49.5625 38.4078 50.1081 38.9601L54.2681 43.1204C54.8204 43.666 55.2591 44.3153 55.5583 45.0318C55.8575 45.7481 56.0116 46.5172 56.0116 47.2934C56.0116 48.07 55.8575 48.8388 55.5583 49.5553C55.2591 50.2716 54.8204 50.9209 54.2681 51.4665L52.3748 53.3865C51.0703 54.7038 49.3831 55.5758 47.5537 55.8774C45.7244 56.179 43.8465 55.8956 42.1881 55.0668C27.9169 47.7204 16.2929 36.1054 8.93489 21.8403C8.10537 20.1801 7.82371 18.2996 8.13038 16.4692C8.43705 14.6388 9.31625 12.9527 10.6416 11.6535L12.5348 9.73357C13.644 8.63111 15.1443 8.01221 16.7082 8.01221C18.272 8.01221 19.7724 8.63111 20.8815 9.73357L25.0682 13.9204C26.1706 15.0296 26.7895 16.5297 26.7895 18.0936C26.7895 19.6574 26.1706 21.1576 25.0682 22.2668L21.5215 25.8136C23.8666 28.9857 26.4425 31.9801 29.2281 34.7732C31.9977 37.5476 34.9753 40.1065 38.1348 42.427L38.2148 42.507Z" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </symbol>
+            <symbol id="tree" viewBox="0 0 24 24">
+                <path fill="none" d="M12 20.6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                <path fill="none" d="M9.2 20.6h5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                <path fill="none" d="M12 15.2c-3.4 0-5.7-2.1-5.7-4.8 0-2.8 2.5-5 5.7-5s5.7 2.2 5.7 5c0 2.7-2.3 4.8-5.7 4.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
             </symbol>
         </svg></div>
     <header class="header">
@@ -100,13 +124,13 @@
                 <div class="article-block article-block--heading-text">
                     <h2 class="article-block__heading">Характеристики</h2>
                 </div>
-                <div class="article-block article-block--list article-block--list-unordered">
-                    <ul class="article-block__list">
-                        <li>Летний сорт.</li>
-                        <li>Плоды массой 50–80 г, очень красивые, жёлтые с ярким оранжево-красным румянцем, хорошего вкуса. Мякоть сочная.</li>
-                        <li>Созревают в конце августа, лучше снимать своевременно.</li>
-                        <li>Дерево среднерослое.</li>
-                        <li>Сорт очень урожайный, плодоносит ежегодно, зимостойкий.</li>
+                <div class="article-block article-block--specs">
+                    <ul class="product-specs">
+                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Сезон</span><span class="product-specs__text">Летний сорт.</span></span></li>
+                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7.2c-2.8.2-5.5 2.4-5.5 6.3 0 3.6 2.3 6 5.5 6s5.5-2.4 5.5-6c0-3.9-2.7-6.1-5.5-6.3Z" stroke="currentColor" stroke-width="1.6"></path><path d="M12 7.2c.2-1.8 1.3-3.2 3-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M12 7.5c-.5-1.3-1.7-2.2-3-2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Плоды</span><span class="product-specs__text">Массой 50–80 г, очень красивые, жёлтые с ярким оранжево-красным румянцем, хорошего вкуса. Мякоть сочная.</span></span></li>
+                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" stroke="currentColor" stroke-width="1.6"></rect><path d="M3.5 9.5h17M8 3.2v3.2M16 3.2v3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Созревание</span><span class="product-specs__text">Созревают в конце августа, лучше снимать своевременно.</span></span></li>
+                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M9.2 20.6h5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M12 15.2c-3.4 0-5.7-2.1-5.7-4.8 0-2.8 2.5-5 5.7-5s5.7 2.2 5.7 5c0 2.7-2.3 4.8-5.7 4.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Дерево</span><span class="product-specs__text">Среднерослое.</span></span></li>
+                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 5.5 6.2v5.4c0 4.1 2.7 7.2 6.5 8.9 3.8-1.7 6.5-4.8 6.5-8.9V6.2L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8.8 12.1 11 14.2l4.2-4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Устойчивость</span><span class="product-specs__text">Сорт очень урожайный, плодоносит ежегодно, зимостойкий.</span></span></li>
                     </ul>
                 </div>
                 <div class="article-block article-block--text">
@@ -135,43 +159,31 @@
     </main>
     <footer class="footer">
         <div class="footer__container">
-            <div class="footer__brand"><a class="footer__logo footer__logo--address" href="index.html">
-                    <div class="footer__logo-icon"><svg width="40" height="40" aria-hidden="true">
-                            <use xlink:href="#apple"></use>
-                        </svg></div>
-                    <div class="footer__title">САЖЕНЦЫ-ИРКУТСК</div>
-                </a>
-                <p class="footer__address">р.п. Марково, Ново-Иркутский</p>
+            <div class="footer__main">
+                <div class="footer__brand"><a class="footer__logo" href="index.html">
+                        <div class="footer__logo-icon"><svg width="44" height="44" aria-hidden="true">
+                                <use xlink:href="#apple"></use>
+                            </svg></div><span class="footer__brand-name">САЖЕНЦЫ-ИРКУТСК</span>
+                    </a>
+                    <p class="footer__tagline">Проверенные сорта для сибирского климата</p>
+                    <p class="footer__text">Выращиваем сами и помогаем подобрать дерево под ваш участок.</p>
+                </div>
+                <div class="footer__contacts">
+                    <h2 class="footer__section-title">Наши контакты</h2>
+                    <ul class="footer__contact-list">
+                        <li class="footer__contact"><span class="footer__contact-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z" stroke="currentColor" stroke-width="1.6"></path><circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.6"></circle></svg></span><span class="footer__contact-text">р.п. Марково, Ново-Иркутский</span></li>
+                        <li class="footer__contact"><a class="footer__contact-link" href="tel:+79526248656" title="Позвонить по номеру телефона"><span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.4 4.6h2l1 2.4-1.5 1a11.5 11.5 0 0 0 5.1 5.1l1-1.5 2.4 1v2c0 .7-.5 1.3-1.2 1.4A13.2 13.2 0 0 1 7 5.8c.1-.7.7-1.2 1.4-1.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"></path></svg></span><span class="footer__contact-text"><span class="footer__contact-value">+7 (952) 624-86-56</span></span></a></li>
+                        <li class="footer__contact"><a class="footer__contact-link" href="mailto:melentev.garden@mail.ru" title="Написать электронное письмо"><span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 7.5h15v10h-15v-10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M5 8.2 12 13l7-4.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="footer__contact-text"><span class="footer__contact-value">melentev.garden@mail.ru</span></span></a></li>
+                    </ul>
+                </div>
+                <div class="footer__community">
+                    <h2 class="footer__section-title">Мы в социальных сетях</h2>
+                    <p class="footer__community-lead">Следите за новинками и жизнью сада.</p>
+                    <div class="footer__socials"><a class="footer__social" href="https://t.me/+RlClLH93pmBjMDIy" target="_blank" rel="noopener"><span class="footer__social-icon footer__social-icon--telegram"><svg width="20" height="20" aria-hidden="true"><use xlink:href="#telegram"></use></svg></span><span class="footer__social-label">Телеграм канал</span><span class="footer__social-arrow" aria-hidden="true"></span></a><a class="footer__social" href="https://max.ru/join/x6RHickMtDrJYlER78eXcYD49eyNfUqPArpLuqRnr6s" target="_blank" rel="noopener"><span class="footer__social-icon footer__social-icon--max"><svg width="20" height="20" aria-hidden="true"><use xlink:href="#max"></use></svg></span><span class="footer__social-label">Канал в Max</span><span class="footer__social-arrow" aria-hidden="true"></span></a><a class="footer__social" href="https://ok.ru/group/70000050629064" target="_blank" rel="noopener"><span class="footer__social-icon footer__social-icon--ok"><svg width="28" height="28" aria-hidden="true"><use xlink:href="#ok"></use></svg></span><span class="footer__social-label">Канал в ОК</span><span class="footer__social-arrow" aria-hidden="true"></span></a></div>
+                </div>
             </div>
-            <div class="footer__contacts">
-                <div class="footer__section-title">НАШИ КОНТАКТЫ</div><a class="footer__logo footer__logo--contacts" href="tel:+79526248656" title="Позвонить по номеру телефона">
-                    <div class="footer__logo-icon"><svg width="40" height="40" aria-hidden="true">
-                            <use xlink:href="#telephone"></use>
-                        </svg></div><span class="footer__title">+7 (952) 624-86-56</span>
-                </a><a class="footer__logo footer__logo--contacts" href="mailto:melentev.garden@mail.ru" title="Написать электронное письмо">
-                    <div class="footer__logo-icon"><svg width="40" height="40" aria-hidden="true">
-                            <use xlink:href="#email"></use>
-                        </svg></div><span class="footer__title">melentev.garden@mail.ru</span>
-                </a>
-            </div>
-            <div class="footer__community">
-                <div class="footer__section-title">НАШЕ СООБЩЕСТВО</div><a class="footer__logo footer__logo--group" href="https://t.me/+RlClLH93pmBjMDIy" target="_blank" rel="noopener">
-                    <div class="footer__logo-icon"><svg width="40" height="40" aria-hidden="true">
-                            <use xlink:href="#telegram"></use>
-                        </svg></div><span class="footer__title">Телеграм канал</span>
-                </a><a class="footer__logo footer__logo--group" href="https://max.ru/join/x6RHickMtDrJYlER78eXcYD49eyNfUqPArpLuqRnr6s" target="_blank" rel="noopener">
-                    <div class="footer__logo-icon"><svg width="40" height="40" aria-hidden="true">
-                            <use xlink:href="#max"></use>
-                        </svg></div><span class="footer__title">Канал в Max</span>
-                </a><a class="footer__logo footer__logo--group" href="https://ok.ru/group/70000050629064" target="_blank" rel="noopener">
-                    <div class="footer__logo-icon"><svg width="40" height="40" aria-hidden="true">
-                            <use xlink:href="#ok"></use>
-                        </svg></div><span class="footer__title">Канал в ОК</span>
-                </a>
-            </div>
-        </div>
-        <div class="footer__bottom">
-            <div class="footer__bottom-container">
+            <div class="footer__bottom">
+                <p class="footer__copy">© 2026 Саженцы-Иркутск. Все права защищены.</p>
                 <div class="footer__legal-links"><a class="footer__link" href="oferta.html">Пользовательское соглашение</a><span class="footer__divider"></span><a class="footer__link" href="privacy.html">Политика конфиденциальности</a></div>
             </div>
         </div>

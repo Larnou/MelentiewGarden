@@ -1,8 +1,8 @@
 .filter {
   position: absolute;
-  z-index: 700;
   top: 24px;
   left: 24px;
+  z-index: 700;
   min-width: 168px;
   padding: 24px;
   background: $color-white;
@@ -29,8 +29,8 @@
 
 .filter__header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
 }
 
@@ -70,8 +70,8 @@
   position: relative;
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(2, fit-content(100%));
   grid-column-gap: 8px;
+  grid-template-columns: repeat(2, fit-content(100%));
   margin-top: 10px;
   padding: 8px 12px;
   border-radius: 24px;
@@ -91,7 +91,6 @@
     }
   }
 }
-
 
 .filter__item-icon {
   display: flex;
@@ -118,8 +117,8 @@
 .tag-filter {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   margin-bottom: 24px;
+  gap: 8px;
 
   @include mobile {
     margin-bottom: 20px;
@@ -128,6 +127,7 @@
 
 .tag-filter__label {
   @extend %p1;
+
   color: $color-gray-hover;
 }
 
@@ -139,35 +139,35 @@
 
 .tag-filter__chip {
   @include button-reset;
+
   @extend %p1;
 
   padding: 6px 14px;
-  border-radius: 999px;
-
-  background: #f5f5f5;
   color: $color-black;
+  background: #F5F5F5;
   border: 1px solid transparent;
-
+  border-radius: 999px;
   cursor: pointer;
+
   @include transition(background-color, color, box-shadow, border-color);
 
   &:hover:not(.tag-filter__chip--active) {
     background: $color-white;
-    border-color: rgba($color-dark-green, 0.2);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    border-color: rgba($color-dark-green, .2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
   }
 
   &--active {
-    background: $color-dark-green;
     color: $color-white;
+    background: $color-dark-green;
     border-color: transparent;
-    box-shadow: 0 4px 10px rgba($color-dark-green, 0.35);
+    box-shadow: 0 4px 10px rgba($color-dark-green, .35);
 
     &:hover {
-      background: $color-dark-green-hover;
       color: $color-white;
+      background: $color-dark-green-hover;
       border-color: transparent;
-      box-shadow: 0 4px 12px rgba($color-dark-green, 0.45);
+      box-shadow: 0 4px 12px rgba($color-dark-green, .45);
     }
   }
 

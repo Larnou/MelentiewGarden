@@ -17,12 +17,17 @@ prepend mainContent
       p.article__meta 155-7-6
 
       +articleBlockHeadingText('Характеристики')
-      +articleBlockListUnordered()
-        li Летний сорт.
-        li Плоды массой 40–45 г, красивые, румяные, сладкого вкуса. Мякоть сочная, не крахмалится.
-        li Созревают в августе.
-        li Дерево среднерослое.
-        li Сорт зимостойкий, урожайный.
+      +productSpecs()
+        +productSpec('season', 'Сезон')
+          | Летний сорт.
+        +productSpec('fruit', 'Плоды')
+          | Массой 40–45 г, красивые, румяные, сладкого вкуса. Мякоть сочная, не крахмалится.
+        +productSpec('calendar', 'Созревание')
+          | Созревают в августе.
+        +productSpec('tree', 'Дерево')
+          | Среднерослое.
+        +productSpec('shield', 'Устойчивость')
+          | Сорт зимостойкий, урожайный.
 
       +articleBlockText()
         p

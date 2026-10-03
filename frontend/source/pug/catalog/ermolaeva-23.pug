@@ -15,12 +15,17 @@ prepend mainContent
       h1.article__title Яблоня · Ермолаева-23
 
       +articleBlockHeadingText('Характеристики')
-      +articleBlockListUnordered()
-        li Летний сорт.
-        li Плоды массой 25–30 г, жёлтые с красным румянцем, хорошего вкуса. Мякоть сочная.
-        li Созревают в конце августа.
-        li Дерево среднерослое.
-        li Сорт зимостойкий, очень урожайный.
+      +productSpecs()
+        +productSpec('season', 'Сезон')
+          | Летний сорт.
+        +productSpec('fruit', 'Плоды')
+          | Массой 25–30 г, жёлтые с красным румянцем, хорошего вкуса. Мякоть сочная.
+        +productSpec('calendar', 'Созревание')
+          | Созревают в конце августа.
+        +productSpec('tree', 'Дерево')
+          | Среднерослое.
+        +productSpec('shield', 'Устойчивость')
+          | Сорт зимостойкий, очень урожайный.
 
       +articleBlockSliderCaptions()
         .article-block__slide.swiper-slide

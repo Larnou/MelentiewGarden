@@ -8,16 +8,14 @@
 }
 
 .fair__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
   padding: 64px 32px;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
   gap: 32px;
-
 
   @include laptop {
     max-width: 1140px;
@@ -37,17 +35,16 @@
 
 .fair__label {
   @extend %h1-promo;
+
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
+  margin: 0;
+  background: transparent;
   //padding: 16px 32px;
 
   border-radius: 0;
-  background: transparent;
-
-  margin: 0;
 
   @include tablet {
     //padding: 12px 24px;
@@ -80,38 +77,38 @@
   }
 
   @include mobile {
-    gap: 16px;
     //padding: 20px;
     border-radius: 20px;
+    gap: 16px;
   }
 }
 
 .fair__image-wrapper {
-  border-radius: 16px;
   overflow: hidden;
+  border-radius: 16px;
 }
 
 .fair__image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .fair__content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 16px;
+  height: 100%;
   padding: 4px;
   background: $color-background-green;
-  height: 100%;
   border-radius: 12px;
+  gap: 16px;
 }
 
 .fair__slider {
-  width: 100%;
   overflow: hidden;
+  width: 100%;
 }
 
 .fair__list {
@@ -126,11 +123,12 @@
 
 .fair__title {
   @extend %h1-promo;
+
   margin: 0;
-  color: $color-white;
   padding: 12px 20px;
-  border-radius: 12px;
+  color: $color-white;
   background: $color-dark-green;
+  border-radius: 12px;
 
   @include mobile {
     font-size: 24px;
@@ -140,38 +138,38 @@
 
 .fair__date {
   @extend %p1-bold;
+
   margin: 0;
 }
 
 .fair__description {
   @extend %p1;
+
   margin: 0;
 }
 
 .fair__button {
   @include button-reset;
+
   @extend %header;
 
   align-self: flex-start;
   margin-top: 8px;
   padding: 12px 24px;
-
-  border-radius: 999px;
-  background: $color-dark-green;
   color: $color-white;
+  background: $color-dark-green;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
 
   @include transition(background-color, color, box-shadow);
-
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 
   &:hover {
     background: $color-dark-green-hover;
   }
 
   @include mobile {
+    justify-content: center;
     width: 100%;
     text-align: center;
-    justify-content: center;
   }
 }
-

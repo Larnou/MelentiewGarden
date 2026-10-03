@@ -1,7 +1,7 @@
 //- Статьи: листинг, фильтры на странице «Все статьи», карточки в слайдере на главной.
 -
   const ARTICLES_PAGE = {
-    title: 'Все статьи',
+    title: 'Статьи',
     subtitle: 'Собрали материалы о посадке, уходе и подготовке сада к нашим сибирским условиям.',
     filterLabel: 'Фильтровать по темам',
   }
@@ -11,6 +11,11 @@
     { tag: 'apple', label: 'Яблони' },
     { tag: 'care', label: 'Уход за садом' },
   ]
+
+  const ARTICLE_TOPIC_LABELS = ARTICLES_FILTER_CHIPS.reduce((map, chip) => {
+    if (chip.tag !== 'all') map[chip.tag] = chip.label
+    return map
+  }, {})
 
   const ARTICLES_ITEMS = [
     {

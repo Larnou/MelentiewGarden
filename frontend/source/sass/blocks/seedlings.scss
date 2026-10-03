@@ -4,19 +4,18 @@
 
 .seedlings {
   width: 100%;
-  background: #f5f5f5;
+  background: #F5F5F5;
   box-shadow: $shadow;
 }
 
 .seedlings__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 64px 32px;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
+  padding: 32px 32px;
   gap: 32px;
 
   @include laptop {
@@ -37,37 +36,35 @@
 
 .seedlings__title {
   @extend %h1-promo;
+
   margin: 0;
   text-align: center;
 }
 
 .seedlings__slider {
-  width: 100%;
   overflow: hidden;
+  width: 100%;
   padding-bottom: 24px;
 }
 
 .seedlings__arrow {
   @include button-reset;
 
-  width: 48px;
-  height: 48px;
-
-  border-radius: 50%;
-  background: $color-white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  width: 48px;
+  height: 48px;
   font-size: 20px;
+  background: $color-white;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .15);
 
   @include transition(background-color, box-shadow, transform);
 
   &:hover {
-    background: $color-dark-green;
     color: $color-white;
+    background: $color-dark-green;
     transform: translateY(-1px);
   }
 
@@ -77,8 +74,8 @@
 }
 
 .seedlings__arrow.swiper-button-disabled {
-  opacity: 0.5;
   box-shadow: none;
+  opacity: .5;
   cursor: default;
   transform: none;
 }
@@ -91,9 +88,9 @@
 
 .seedlings__list--grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
   align-items: stretch;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
 
   @include tablet {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -120,22 +117,27 @@
 }
 
 .seedlings-card {
-  border-radius: 16px;
   overflow: hidden;
-  background: $color-white;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-
-  color: $color-black;
-  text-decoration: none;
-
-  cursor: pointer;
-  @include transition(box-shadow);
-
   display: flex;
   flex-direction: column;
+  color: $color-black;
+  text-decoration: none;
+  background: $color-white;
+  border: 1px solid rgba($color-black, .12);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba($color-black, .08);
+  cursor: pointer;
+
+  @include transition(box-shadow);
 
   &:hover {
-    box-shadow: 0 10px 16px rgba($color-dark-green, 0.35);
+    box-shadow: 0 10px 16px rgba($color-dark-green, .35);
+  }
+
+  &:focus-visible,
+  &.focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px $color-dark-green, 0 10px 16px rgba($color-dark-green, .35);
   }
 
   &:visited {
@@ -144,27 +146,80 @@
 }
 
 .seedlings-card__image {
+  display: block;
   width: 100%;
   height: 200px;
   object-fit: cover;
-  display: block;
 }
 
-.seedlings-card__title {
-  @extend %header;
+.seedlings-card__variety {
+  overflow: hidden;
+  display: -webkit-box;
   margin: 16px 16px 4px;
+  font-family: $font-montserrat;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
-.seedlings-card__subtitle {
-  @extend %p1;
-  margin: 0 16px 8px;
-}
-
-.seedlings-card__price {
-  @extend %p1-bold;
+.seedlings-card__meta {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
   margin: 0 16px 16px;
-  color: $color-dark-green;
-  display: none;
+  font-family: $font-montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgba($color-black, .55);
+  gap: 8px;
+}
+
+.seedlings-card__kind {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: rgba($color-black, .72);
+}
+
+.seedlings-card__season {
+  flex-shrink: 0;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  border-radius: 999px;
+
+  &--summer {
+    color: #5C4306;
+    background: #F6E7B2;
+  }
+
+  &--late-summer {
+    color: #5E3A06;
+    background: #F0D08A;
+  }
+
+  &--early-autumn {
+    color: #6E3810;
+    background: #F6D0A8;
+  }
+
+  &--autumn {
+    color: #6A3010;
+    background: #E8B48C;
+  }
+
+  &--winter {
+    color: #243E5C;
+    background: #D4E3F2;
+  }
+
+  &--decor {
+    color: $color-dark-green-hover;
+    background: rgba($color-dark-green, .16);
+  }
 }
 
 .seedlings__controls {
@@ -176,20 +231,20 @@
 
 .seedlings__more-button {
   @extend %header;
+
   @include button-reset;
 
   padding: 12px 32px;
-  border-radius: 999px;
-
-  background: $color-white;
   color: $color-dark-green;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  background: $color-white;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .12);
 
   @include transition(background-color, color, box-shadow);
 
   &:hover {
-    background: $color-dark-green;
     color: $color-white;
+    background: $color-dark-green;
   }
 
   @include mobile {
@@ -197,4 +252,3 @@
     line-height: 1.4;
   }
 }
-

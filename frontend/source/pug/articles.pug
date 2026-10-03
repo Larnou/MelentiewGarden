@@ -8,22 +8,20 @@ append variables
 
 prepend mainContent
 
-  section.articles.articles--page
-    .articles__container
-      .articles__header
-        h1.articles__title= ARTICLES_PAGE.title
-        p.articles__subtitle= ARTICLES_PAGE.subtitle
+  section.articles-hero
+    .articles-hero__container
+      h1.articles-hero__title= ARTICLES_PAGE.title
+      p.articles-hero__lead= ARTICLES_PAGE.subtitle
 
-      .tag-filter.js-tag-filter(data-target=".article-card")
+      .tag-filter.tag-filter--hero.js-tag-filter(data-target=".articles--page .article-card")
         span.tag-filter__label= ARTICLES_PAGE.filterLabel
         .tag-filter__chips
           each chip, i in ARTICLES_FILTER_CHIPS
             button.tag-filter__chip(type="button" data-tag=chip.tag aria-pressed=i === 0 ? 'true' : 'false' class=(i === 0 ? 'tag-filter__chip--active' : ''))= chip.label
 
+  section.articles.articles--page
+    .articles__container
       .articles__list.articles__list--grid
         each item in ARTICLES_ITEMS
-          a.article-card(href=item.href data-tags=item.dataTags)
-            img.article-card__image(src=item.imageSrc alt=item.imageAlt)
-            h2.article-card__title= item.title
-            p.article-card__meta= item.meta
+          +articleCard(item, 'h2')
 

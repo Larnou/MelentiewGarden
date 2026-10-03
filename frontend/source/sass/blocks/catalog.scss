@@ -1,0 +1,313 @@
+// =====================
+// CATALOG HERO
+// Заголовок каталога на фото сада, текст читается на светлом поле слева.
+// =====================
+
+.catalog-hero {
+  width: 100%;
+  background-color: #F3F1EA;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, .96) 0%, rgba(255, 255, 255, .88) 34%, rgba(255, 255, 255, .35) 62%, rgba(255, 255, 255, .08) 100%),
+    url("../img/background.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include mobile {
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, .92) 0%, rgba(255, 255, 255, .78) 100%),
+      url("../img/background.webp");
+  }
+}
+
+.catalog-hero__container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 72px 32px;
+
+  @include laptop {
+    max-width: 1140px;
+    padding: 56px 24px;
+  }
+
+  @include tablet {
+    max-width: 960px;
+    padding: 48px 16px;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 36px 16px;
+  }
+}
+
+.catalog-hero__title {
+  max-width: 640px;
+  margin: 0;
+  font-family: $font-montserrat;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: $color-black;
+
+  @include tablet {
+    font-size: 36px;
+  }
+
+  @include mobile {
+    font-size: 30px;
+  }
+}
+
+.catalog-hero__lead {
+  max-width: 520px;
+  margin: 16px 0 0;
+  font-family: $font-montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba($color-black, .72);
+}
+
+.catalog-hero .tag-filter {
+  max-width: 760px;
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+.catalog-hero .tag-filter__chip {
+  background: $color-white;
+
+  &.tag-filter__chip--active,
+  &.tag-filter__chip--active:hover {
+    color: $color-white;
+    background: $color-dark-green;
+    border-color: transparent;
+  }
+}
+
+.catalog-filters {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.catalog-select {
+  position: relative;
+
+  &--open {
+    z-index: 6;
+  }
+}
+
+.catalog-select__button {
+  @include button-reset;
+
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-family: $font-montserrat;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: $color-black;
+  white-space: nowrap;
+  background: $color-white;
+  border: 1px solid rgba($color-black, .14);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba($color-black, .06);
+
+  @include transition(border-color, box-shadow, color);
+
+  &:hover {
+    border-color: rgba($color-dark-green, .45);
+  }
+
+  &:focus-visible,
+  &.focus-visible {
+    outline: 2px solid $color-dark-green;
+    outline-offset: 2px;
+  }
+}
+
+.catalog-select--active .catalog-select__button {
+  font-weight: 700;
+  color: $color-dark-green-hover;
+  border-color: $color-dark-green;
+  box-shadow: 0 0 0 3px rgba($color-dark-green, .12);
+}
+
+.catalog-select__chevron {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-left: 12px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+
+  @include transition(transform);
+}
+
+.catalog-select--open .catalog-select__chevron {
+  transform: translateY(2px) rotate(225deg);
+}
+
+.catalog-select__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 20;
+  overflow: auto;
+  box-sizing: border-box;
+  min-width: 100%;
+  max-height: 320px;
+  margin: 0;
+  padding: 6px;
+  background: $color-white;
+  border: 1px solid rgba($color-black, .1);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba($color-black, .12);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.catalog-select__option {
+  @include button-reset;
+
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  font-family: $font-montserrat;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: $color-black;
+  text-align: left;
+  white-space: nowrap;
+  border-radius: 8px;
+
+  @include transition(background-color, color);
+
+  &:hover {
+    background: #F3F5EE;
+  }
+
+  &:focus-visible,
+  &.focus-visible {
+    outline: 2px solid $color-dark-green;
+    outline-offset: -2px;
+  }
+
+  &--active {
+    font-weight: 700;
+    color: $color-dark-green-hover;
+    background: rgba($color-dark-green, .14);
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.catalog-empty {
+  margin: 8px 0 0;
+  font-family: $font-montserrat;
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgba($color-black, .62);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+// =====================
+// CATALOG PERKS
+// Краткая полоса преимуществ под баннером.
+// =====================
+
+.catalog-perks {
+  width: 100%;
+  background: $color-white;
+  border-bottom: 1px solid rgba($color-black, .08);
+}
+
+.catalog-perks__list {
+  @include list-reset;
+
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  gap: 24px;
+
+  @include laptop {
+    max-width: 1140px;
+    padding: 24px;
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    max-width: 960px;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+}
+
+.catalog-perks__item {
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 14px;
+}
+
+.catalog-perks__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-family: $font-montserrat;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: $color-dark-green;
+  background: rgba($color-dark-green, .12);
+  border-radius: 50%;
+}
+
+.catalog-perks__content {
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.catalog-perks__title {
+  margin: 0;
+  font-family: $font-montserrat;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: $color-black;
+}
+
+.catalog-perks__text {
+  margin: 4px 0 0;
+  font-family: $font-montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgba($color-black, .62);
+}

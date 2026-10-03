@@ -1,3 +1,16 @@
+// Карточка статьи: страница статей (h2) и слайдер на главной (h3).
+mixin articleCard(item, heading)
+  - const Tag = heading || 'h2'
+  - const topicTags = (item.dataTags || '').split(/\s+/).filter((tag) => ARTICLE_TOPIC_LABELS[tag])
+  a.article-card(href=item.href data-tags=item.dataTags)&attributes(attributes)
+    img.article-card__image(src=item.imageSrc alt=item.imageAlt)
+    #{Tag}.article-card__title= item.title
+    if topicTags.length
+      p.article-card__topics
+        each tag in topicTags
+          span.article-card__topic= ARTICLE_TOPIC_LABELS[tag]
+    p.article-card__meta= item.meta
+
 // Блок "Статьи" с карточками и стрелками
 mixin articles()
   section.articles(id="articles")
@@ -8,10 +21,7 @@ mixin articles()
       .articles__slider.swiper.js-articles-slider
         .articles__list.swiper-wrapper
           each item in ARTICLES_ITEMS
-            a.article-card.swiper-slide(href=item.href data-tags=item.dataTags)
-              img.article-card__image(src=item.imageSrc alt=item.imageAlt)
-              h3.article-card__title= item.title
-              p.article-card__meta= item.meta
+            +articleCard(item, 'h3').swiper-slide
 
       .articles__controls
         button.articles__arrow.articles__arrow--prev(type="button" aria-label="Предыдущие статьи")

@@ -1,12 +1,5 @@
 extends components/template_layout
 
-mixin seedlingsCard(href, dataTags, imageSrc, imageAlt, title, subtitle, price)
-  a.seedlings-card(href=href data-tags=dataTags)
-    img.seedlings-card__image(src=imageSrc alt=imageAlt)
-    h2.seedlings-card__title= title
-    p.seedlings-card__subtitle= subtitle
-    p.seedlings-card__price= price
-
 append variables
   -
     pageTitle = 'Каталог саженцев'
@@ -15,18 +8,48 @@ append variables
 
 prepend mainContent
 
-  section.seedlings.seedlings--page
-    .seedlings__container
-      .seedlings__header
-        h1.seedlings__title= CATALOG_PAGE.title
+  section.catalog-hero
+    .catalog-hero__container
+      h1.catalog-hero__title= CATALOG_PAGE.title
+      p.catalog-hero__lead= CATALOG_PAGE.lead
 
-      .tag-filter.js-tag-filter(data-target=".seedlings-card")
+      .tag-filter.tag-filter--hero.js-catalog-filter(data-catalog-filter="type" data-target=".seedlings-card")
         span.tag-filter__label= CATALOG_PAGE.filterLabel
         .tag-filter__chips
           each chip, i in CATALOG_FILTER_CHIPS
-            button.tag-filter__chip(type="button" data-tag=chip.tag aria-pressed=i === 0 ? 'true' : 'false' class=(i === 0 ? 'tag-filter__chip--active' : ''))= chip.label
+            button.tag-filter__chip(type="button" data-value=chip.tag aria-pressed=i === 0 ? 'true' : 'false' class=(i === 0 ? 'tag-filter__chip--active' : ''))= chip.label
+
+  section.catalog-perks
+    ul.catalog-perks__list
+      each perk, i in CATALOG_PAGE.perks
+        li.catalog-perks__item
+          span.catalog-perks__icon= i + 1
+          .catalog-perks__content
+            h2.catalog-perks__title= perk.title
+            p.catalog-perks__text= perk.text
+
+  section.seedlings.seedlings--page
+    .seedlings__container
+      .catalog-filters
+        .catalog-select.js-catalog-filter(data-catalog-filter="kind" data-placeholder="Культура")
+          button.catalog-select__button(type="button" aria-expanded="false" aria-haspopup="listbox" aria-controls="catalog-kind-menu" aria-label="Культура")
+            span.catalog-select__value Культура
+            span.catalog-select__chevron(aria-hidden="true")
+          .catalog-select__menu#catalog-kind-menu(role="listbox" hidden)
+            each chip, i in CATALOG_KIND_CHIPS
+              button.catalog-select__option(type="button" role="option" data-value=chip.value data-types=chip.types aria-selected=(i === 0 ? 'true' : 'false'))= chip.label
+
+        .catalog-select.js-catalog-filter(data-catalog-filter="season" data-placeholder="Срок созревания")
+          button.catalog-select__button(type="button" aria-expanded="false" aria-haspopup="listbox" aria-controls="catalog-season-menu" aria-label="Срок созревания")
+            span.catalog-select__value Срок созревания
+            span.catalog-select__chevron(aria-hidden="true")
+          .catalog-select__menu#catalog-season-menu(role="listbox" hidden)
+            each chip, i in CATALOG_SEASON_CHIPS
+              button.catalog-select__option(type="button" role="option" data-value=chip.value aria-selected=(i === 0 ? 'true' : 'false'))= chip.label
+
+      p.catalog-empty.js-catalog-empty(hidden) Таких саженцев пока нет
 
       .seedlings__list.seedlings__list--grid
         each item in CATALOG_ITEMS
-          +seedlingsCard(item.href, item.dataTags, item.imageSrc, item.imageAlt, item.title, item.subtitle, item.price)
+          +seedlingsCard(item, 'h2')
 

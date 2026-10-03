@@ -15,13 +15,11 @@ body.no-scroll {
   position: fixed;
   top: 0;
   left: 0;
-
-  width: 100%;
   z-index: 1000;
-
+  width: 100%;
   background-color: $color-white;
-  opacity: 0.95;
   box-shadow: $shadow;
+  opacity: .95;
   backdrop-filter: blur(6px);
 }
 
@@ -31,17 +29,14 @@ body.no-scroll {
 
 .header__container {
   position: relative; // якорь для мобильного nav (absolute)
-
-  width: 100%;
-  margin: 0 auto;
-
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  width: 100%;
   height: 80px;
+  margin: 0 auto;
   padding: 12px 24px;
-  box-sizing: border-box;
 
   @include transition(height);
 
@@ -56,14 +51,12 @@ body.no-scroll {
 
 .header__logo {
   display: flex;
-  align-items: center;
-  gap: 16px;
-
-  text-decoration: none;
-  color: inherit;
-
   flex-shrink: 0;
+  align-items: center;
   margin-right: 24px;
+  color: inherit;
+  text-decoration: none;
+  gap: 16px;
 
   svg {
     fill: $color-dark-green;
@@ -103,31 +96,27 @@ body.no-scroll {
 
   @include tablet {
     position: absolute;
-    left: 0;
-    right: 0;
     top: 100%;
-
-    background: $color-white;
-
-    max-height: 0;
+    right: 0;
+    left: 0;
     overflow: hidden;
-    transition: max-height 0.25s ease;
+    max-height: 0;
+    background: $color-white;
+    transition: max-height .25s ease;
   }
 }
 
 .header__menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   gap: 24px;
 
   @include tablet {
     flex-direction: column;
     align-items: stretch;
-
     padding: 16px 24px;
     gap: 0;
   }
@@ -163,51 +152,45 @@ body.no-scroll {
 
 .header__burger {
   display: none;
-  border: 0;
   background: transparent;
+  border: 0;
   cursor: pointer;
 
   @include transition(width, height);
 
   @include tablet {
     display: inline-flex;
-
+    align-items: center;
+    justify-content: center;
     width: 48px;
     height: 48px;
     border-radius: 12px;
 
-    align-items: center;
-    justify-content: center;
-
     &:hover {
-      background: rgba(0, 0, 0, 0.06);
+      background: rgba(0, 0, 0, .06);
     }
 
     span {
       position: relative;
       display: block;
-
       width: 26px;
       height: 2px;
       background: #333;
-
-      transition: background 0.2s ease;
+      transition: background .2s ease;
 
       &::before,
       &::after {
         content: "";
         position: absolute;
         left: 0;
-
         width: 26px;
         height: 2px;
         background: #333;
-
-        transition: transform 0.2s ease, top 0.2s ease;
+        transition: transform .2s ease, top .2s ease;
       }
 
       &::before { top: -8px; }
-      &::after  { top:  8px; }
+      &::after { top: 8px; }
     }
   }
 

@@ -33,7 +33,7 @@ export default () => {
       // spaceBetween: 12,
       resistanceRatio: 0,
       ...swiperOptions,
-      ...(navigation ? {navigation} : {}),
+      ...(navigation ? { navigation } : {}),
     });
 
     return sliderInstance;
@@ -92,8 +92,98 @@ export default () => {
     },
   });
 
+  const initProductGallery = (container) => {
+    const block = container.closest('.article-block');
+    if (!block || block.dataset.galleryReady === 'true') return;
+
+    const controls = block.querySelector('.article-block__slider-controls');
+    const prev = controls && controls.querySelector('.article-block__arrow--prev');
+    const next = controls && controls.querySelector('.article-block__arrow--next');
+    const slides = Array.from(container.querySelectorAll('.swiper-slide'));
+    if (!slides.length || !prev || !next) return;
+
+    block.dataset.galleryReady = 'true';
+    block.classList.add('product-gallery');
+
+    const stage = document.createElement('div');
+    stage.className = 'product-gallery__stage';
+    const stageImg = document.createElement('img');
+    stage.appendChild(stageImg);
+
+    const caption = document.createElement('p');
+    caption.className = 'product-gallery__caption';
+
+    const nav = document.createElement('div');
+    nav.className = 'product-gallery__nav';
+
+    block.insertBefore(stage, container);
+    nav.appendChild(prev);
+    nav.appendChild(container);
+    nav.appendChild(next);
+    controls.remove();
+    block.appendChild(nav);
+    block.appendChild(caption);
+
+    const thumbs = new Swiper(container, {
+      slidesPerView: 4,
+      spaceBetween: 4,
+      watchOverflow: true,
+      breakpoints: {
+        0: {
+          slidesPerView: 3,
+          spaceBetween: 0,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 4,
+        },
+      },
+    });
+
+    let index = 0;
+
+    const show = (nextIndex) => {
+      const total = slides.length;
+      index = (nextIndex + total) % total;
+      const img = slides[index].querySelector('img');
+      const slideCaption = slides[index].querySelector('.article-block__slide-caption');
+      if (img) {
+        stageImg.src = img.getAttribute('src') || '';
+        stageImg.alt = img.getAttribute('alt') || '';
+      }
+      const text = slideCaption ? slideCaption.textContent.trim() : '';
+      caption.textContent = text;
+      caption.hidden = text.length === 0;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('is-active', slideIndex === index);
+      });
+      thumbs.slideTo(index);
+    };
+
+    if (slides.length < 2) {
+      prev.hidden = true;
+      next.hidden = true;
+    }
+
+    prev.addEventListener('click', () => show(index - 1));
+    next.addEventListener('click', () => show(index + 1));
+    container.addEventListener('click', (event) => {
+      const slide = event.target.closest('.swiper-slide');
+      if (!slide) return;
+      const nextIndex = slides.indexOf(slide);
+      if (nextIndex >= 0) show(nextIndex);
+    });
+
+    show(0);
+  };
+
   // Слайдеры в статьях: галерея и галерея с подписями
   document.querySelectorAll('.js-article-gallery, .js-article-gallery-captions').forEach((container) => {
+    if (container.closest('.article--product') && container.classList.contains('js-article-gallery-captions')) {
+      initProductGallery(container);
+      return;
+    }
+
     const block = container.closest('.article-block');
     if (!block) return;
 

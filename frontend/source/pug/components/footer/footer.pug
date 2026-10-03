@@ -6,50 +6,69 @@ include ../../data/site
 mixin footer()
   footer(class='footer' + (footer.class === null ? '' : ' ' + footer.class))
     .footer__container
-      //- Ссылка и адрес
-      .footer__brand
-        a.footer__logo.footer__logo--address(href=SITE.homeHref)
-          .footer__logo-icon
-            +svg('apple', 40, 40)
-          .footer__title= SITE.brandName
+      .footer__main
+        .footer__brand
+          a.footer__logo(href=SITE.homeHref)
+            .footer__logo-icon
+              +svg('apple', 44, 44)
+            span.footer__brand-name= SITE.brandName
 
-        p.footer__address= SITE.address
+          p.footer__tagline Проверенные сорта для сибирского климата
+          p.footer__text Выращиваем сами и помогаем подобрать дерево под ваш участок.
 
-      //- Контакты
-      .footer__contacts
-        .footer__section-title НАШИ КОНТАКТЫ
+        .footer__contacts
+          h2.footer__section-title Наши контакты
 
-        a.footer__logo.footer__logo--contacts(href=SITE.phone.href title=SITE.phone.title)
-          .footer__logo-icon
-            +svg('telephone', 40, 40)
-          span.footer__title= SITE.phone.label
+          ul.footer__contact-list
+            li.footer__contact
+              span.footer__contact-icon(aria-hidden="true")
+                svg(width="20" height="20" viewBox="0 0 24 24" fill="none")
+                  path(d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z" stroke="currentColor" stroke-width="1.6")
+                  circle(cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.6")
+              span.footer__contact-text= SITE.address
 
-        a.footer__logo.footer__logo--contacts(href=SITE.email.href title=SITE.email.title)
-          .footer__logo-icon
-            +svg('email', 40, 40)
-          span.footer__title= SITE.email.label
+            li.footer__contact
+              a.footer__contact-link(href=SITE.phone.href title=SITE.phone.title)
+                span.footer__contact-icon
+                  svg(width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true")
+                    path(d="M8.4 4.6h2l1 2.4-1.5 1a11.5 11.5 0 0 0 5.1 5.1l1-1.5 2.4 1v2c0 .7-.5 1.3-1.2 1.4A13.2 13.2 0 0 1 7 5.8c.1-.7.7-1.2 1.4-1.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round")
+                span.footer__contact-text
+                  span.footer__contact-value= SITE.phone.label
 
-      //- Сообщество
-      .footer__community
-        .footer__section-title НАШЕ СООБЩЕСТВО
+            li.footer__contact
+              a.footer__contact-link(href=SITE.email.href title=SITE.email.title)
+                span.footer__contact-icon
+                  svg(width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true")
+                    path(d="M4.5 7.5h15v10h-15v-10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round")
+                    path(d="M5 8.2 12 13l7-4.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round")
+                span.footer__contact-text
+                  span.footer__contact-value= SITE.email.label
 
-        a.footer__logo.footer__logo--group(href=SITE.telegram_channel.href target="_blank" rel="noopener")
-          .footer__logo-icon
-            +svg('telegram', 40, 40)
-          span.footer__title= SITE.telegram_channel.label
+        .footer__community
+          h2.footer__section-title Мы в социальных сетях
+          p.footer__community-lead Следите за новинками и жизнью сада.
 
-        a.footer__logo.footer__logo--group(href=SITE.max_channel.href target="_blank" rel="noopener")
-          .footer__logo-icon
-            +svg('max', 40, 40)
-          span.footer__title= SITE.max_channel.label
+          .footer__socials
+            a.footer__social(href=SITE.telegram_channel.href target="_blank" rel="noopener")
+              span.footer__social-icon.footer__social-icon--telegram
+                +svg('telegram', 20, 20)
+              span.footer__social-label= SITE.telegram_channel.label
+              span.footer__social-arrow(aria-hidden="true")
 
-        a.footer__logo.footer__logo--group(href=SITE.ok_channel.href target="_blank" rel="noopener")
-          .footer__logo-icon
-            +svg('ok', 40, 40)
-          span.footer__title= SITE.ok_channel.label
+            a.footer__social(href=SITE.max_channel.href target="_blank" rel="noopener")
+              span.footer__social-icon.footer__social-icon--max
+                +svg('max', 20, 20)
+              span.footer__social-label= SITE.max_channel.label
+              span.footer__social-arrow(aria-hidden="true")
 
-    .footer__bottom
-      .footer__bottom-container
+            a.footer__social(href=SITE.ok_channel.href target="_blank" rel="noopener")
+              span.footer__social-icon.footer__social-icon--ok
+                +svg('ok', 28, 28)
+              span.footer__social-label= SITE.ok_channel.label
+              span.footer__social-arrow(aria-hidden="true")
+
+      .footer__bottom
+        p.footer__copy © 2026 Саженцы-Иркутск. Все права защищены.
         .footer__legal-links
           a.footer__link(href=SITE.legal.ofertaHref) Пользовательское соглашение
           span.footer__divider

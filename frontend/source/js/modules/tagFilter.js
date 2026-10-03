@@ -33,7 +33,7 @@ export default () => {
 
     const updateChipsView = (activeTags) => {
       chips.forEach((chip) => {
-        const tag = chip.dataset.tag;
+        const { tag } = chip.dataset;
         if (!tag) return;
         const isActive = activeTags.has(tag);
         chip.classList.toggle('tag-filter__chip--active', isActive);
@@ -64,7 +64,7 @@ export default () => {
       const chip = event.target.closest('.tag-filter__chip');
       if (!chip || !group.contains(chip)) return;
 
-      const tag = chip.dataset.tag;
+      const { tag } = chip.dataset;
       if (!tag) return;
 
       // Обработка мультивыбора
@@ -95,5 +95,4 @@ export default () => {
       applyFilter(activeTags);
     });
   });
-}
-
+};

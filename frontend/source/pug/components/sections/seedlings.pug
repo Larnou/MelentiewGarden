@@ -1,3 +1,25 @@
+// Карточка саженца: каталог (h2) и слайдер на главной (h3).
+mixin seedlingsCard(item, heading)
+  - const Tag = heading || 'h2'
+  -
+    const kindSlug = {
+      'Яблоня': 'apple',
+      'Груша': 'pear',
+      'Вишня': 'cherry',
+      'Слива': 'plum',
+      'Земляника': 'strawberry',
+      'Жимолость': 'honeysuckle',
+      'Малина': 'raspberry',
+      'Крыжовник': 'gooseberry',
+      'Смородина': 'currant',
+    }[item.kind] || ''
+  a.seedlings-card(href=item.href data-tags=item.dataTags data-kind=kindSlug data-season=item.season)&attributes(attributes)
+    img.seedlings-card__image(src=item.imageSrc alt=item.imageAlt)
+    #{Tag}.seedlings-card__variety= item.variety
+    p.seedlings-card__meta
+      span.seedlings-card__kind= item.kind
+      span.seedlings-card__season(class='seedlings-card__season--' + item.season)= item.seasonLabel
+
 // Блок "Саженцы" с карточками и стрелками
 mixin seedlings()
   section.seedlings(id="catalog")
@@ -8,11 +30,7 @@ mixin seedlings()
       .seedlings__slider.swiper.js-seedlings-slider
         .seedlings__list.swiper-wrapper
           each item in MAIN_PAGE_CATALOG_ITEMS
-            a.seedlings-card.swiper-slide(href=item.href)
-              img.seedlings-card__image(src=item.imageSrc alt=item.imageAlt)
-              h3.seedlings-card__title= item.homeTitle
-              p.seedlings-card__subtitle= item.homeSubtitle
-              p.seedlings-card__price= item.price
+            +seedlingsCard(item, 'h3').swiper-slide
 
       .seedlings__controls
         button.seedlings__arrow.seedlings__arrow--prev(type="button" aria-label="Предыдущие саженцы")

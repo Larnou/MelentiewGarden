@@ -110,17 +110,8 @@ export class YandexMap {
 
     for (let i = 0; i < this.data.length; i += 1) {
       const currentMark = this.data[i];
-      const { type } = currentMark;
 
       // Добавление кастомного Balloon на маркер при клике
-
-      console.log(currentMark)
-      const dataForBallon = {
-        name: currentMark.properties.balloonContent,
-        description: '',
-      }
-
-      // currentMark.options.balloonContentLayout = this.setCustomBalloonTemplate(type);
 
       const { coordinates } = currentMark.geometry;
       const { properties } = currentMark;

@@ -504,10 +504,10 @@ FodyWeavers.xsd
 
 .idea/
 .cursor/
-backend/
 
-# Laravel: секреты и файлы заглушки на сервере, в репозиторий не входят
-laravel/.env
-laravel/vendor/
-laravel/storage/app/private/maintenance.on
-laravel/storage/app/private/maintenance-allowlist.txt
+# Laravel внутри backend: секреты и файлы заглушки на сервере, в репозиторий не входят
+backend/laravel/.env
+backend/laravel/vendor/
+backend/laravel/storage/app/private/maintenance.on
+backend/laravel/storage/app/private/maintenance-allowlist.txt
+/backend/assets/img/
