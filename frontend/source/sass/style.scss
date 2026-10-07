@@ -11,6 +11,7 @@
 @import "general/custom-reset";
 @import "general/visually-hidden";
 @import "general/typography";
+@import "general/buttons";
 
 // Components styles
 // @import "components/example";
@@ -29,6 +30,7 @@
 @import "blocks/article";
 @import "blocks/page-legal";
 @import "blocks/filter";
+@import "blocks/ui-kit";
 
 // Якорные цели: прокрутка не прячет контент под фиксированным хедером
 section[id] {

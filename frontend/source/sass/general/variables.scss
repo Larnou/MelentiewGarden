@@ -9,19 +9,46 @@ $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 
 // Colors
-// Colors main
 $color-white: #FFF;
 $color-black: #1D2126;
 
 $color-border: #333;
 $color-gray-hover: #B1B1B1;
+$color-text-muted: rgba($color-black, .62);
+$color-text-soft: rgba($color-black, .55);
+
+// Brand greens
 $color-dark-green: #688129;
 $color-light-green: #A7D914;
 $color-dark-green-hover: #405013;
-$color-background-green: #F5F5F5;
+
+// Surfaces — тёплый крем с фото героя (дорожка / солнечная дымка), без оливковых полос
+$color-surface: $color-white;
+$color-surface-alt: #F5F2EA;
+$color-surface-muted: #EFEBE2;
+$color-background-green: $color-surface-alt;
+
+// Season badges
+$color-season-summer-bg: #D7E8B8;
+$color-season-summer-text: #405013;
+$color-season-late-summer-bg: #C9DEA0;
+$color-season-late-summer-text: #364410;
+$color-season-early-autumn-bg: #F6D0A8;
+$color-season-early-autumn-text: #6E3810;
+$color-season-autumn-bg: #E8B48C;
+$color-season-autumn-text: #6A3010;
+$color-season-winter-bg: #D4E3F2;
+$color-season-winter-text: #243E5C;
+
+// Buttons
+$btn-radius: 999px;
+$btn-padding-y: 12px;
+$btn-padding-x: 24px;
+$btn-font-size: 16px;
 
 // Box-shadows
 $shadow: 0 4px 8px 0 rgba($color-black, .1);
+$shadow-card: 0 8px 24px rgba($color-black, .08);
 
 // Fonts
 $font: "Font", "Arial", -apple-system, sans-serif;

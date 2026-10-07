@@ -1,8 +1,9 @@
-<!-- Блок "Ближайшая ярмарка"-->
-<!-- Карточка саженца: каталог (h2) и слайдер на главной (h3).-->
-<!-- Блок "Саженцы" с карточками и стрелками-->
-<!-- Карточка статьи: страница статей (h2) и слайдер на главной (h3).-->
-<!-- Блок "Статьи" с карточками и стрелками-->
+<!-- Общие outline-иконки преимуществ (главная и каталог).-->
+<!-- Блок "Ближайшая ярмарка": одно фото и слайдер объявлений-->
+<!-- Карточка саженца: каталог (h2) и сетка на главной (h3).-->
+<!-- Блок "Саженцы" на главной: заголовок слева, CTA справа, сетка карточек.-->
+<!-- Карточка статьи: страница статей (h2).-->
+<!-- Баннер статей на главной: текст слева, фото справа, ссылка на все статьи.-->
 <!-- Блок "Наши преимущества"-->
 <!-- Блок "История нашего сада"-->
 <!DOCTYPE html>
@@ -28,6 +29,10 @@
 
 <body class="body">
     <div style="display:none"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <symbol id="advice" viewBox="0 0 24 24">
+                <path d="M7 18.5 4.8 20.2V8.5A3.5 3.5 0 0 1 8.3 5h7.4A3.5 3.5 0 0 1 19.2 8.5v5A3.5 3.5 0 0 1 15.7 17H9.1L7 18.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                <path d="M9 10.2h6M9 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </symbol>
             <symbol id="apple" viewBox="0 0 40 40">
                 <path d="M17.3078 4.62531C17.4602 0.145313 12.3935 -0.554531 10.5859 0.33625C11.057 5.50281 14.9989 5.61656 17.3078 4.62531Z"></path>
                 <path d="M37.1055 15.1228C37.194 15.3479 37.2395 15.4642 37.2546 15.5022C37.2338 15.4497 37.1737 15.2954 37.1055 15.1228Z"></path>
@@ -123,105 +128,8 @@
             <div class="hero__container">
                 <div class="hero__content">
                     <h1 class="hero__title">Сад Мелентьевых</h1>
-                    <p class="hero__subtitle">Мы выращиваем только проверенные урожайные сорта<br>адаптированные к сибирским морозам</p>
-                    <div class="hero__slider swiper js-hero-categories">
-                        <div class="hero__slider-container swiper-wrapper"><a class="hero__slider-slide swiper-slide" href="catalog.html?tag=seedling-seed">Семечковые</a><a class="hero__slider-slide swiper-slide" href="catalog.html?tag=seedling-stone">Косточковые</a><a class="hero__slider-slide swiper-slide" href="catalog.html?tag=seedling-berry">Ягодные</a><a class="hero__slider-slide swiper-slide" href="catalog.html?tag=seedling-decor">Декоративные</a><a class="hero__slider-slide swiper-slide" href="catalog.html?tag=seedling-indoor">Комнатные</a></div>
-                    </div>
+                    <p class="hero__subtitle">Мы выращиваем только проверенные урожайные сорта<br>адаптированные к сибирским морозам</p><a class="btn btn--secondary hero__catalog" href="catalog.html">Весь каталог</a>
                 </div>
-            </div>
-        </section>
-        <section class="fair" id="news">
-            <div class="fair__container">
-                <div class="fair__label">Ярмарки саженцев</div>
-                <div class="fair__card">
-                    <div class="fair__image-wrapper"><img class="fair__image" src="img/pages/exposition_banner.jpg" alt="Фотографии ярмарок"></div>
-                    <div class="fair__slider swiper js-fair-slider">
-                        <div class="fair__list swiper-wrapper">
-                            <div class="fair__content swiper-slide">
-                                <h3 class="fair__title">Музей-усадьба В.П. Сукачева</h3>
-                                <p class="fair__date">Май, сентябрь</p>
-                                <p class="fair__description">ул. Декабрьских Событий 112, около танка</p>
-                            </div>
-                            <div class="fair__content swiper-slide">
-                                <h3 class="fair__title">Остановка Волжская</h3>
-                                <p class="fair__date">Май, август, сентябрь</p>
-                                <p class="fair__description">ул. Волжская 14Б, рядом с рынком "Волжский"</p>
-                            </div>
-                            <div class="fair__content swiper-slide">
-                                <h3 class="fair__title">СибЭкспоЦентр</h3>
-                                <p class="fair__date">20 - 22 августа, с 10:00 до 17:00</p>
-                                <p class="fair__description">ул. Байкальская 253А, около 3-го павильона</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="seedlings" id="catalog">
-            <div class="seedlings__container">
-                <div class="seedlings__header">
-                    <h2 class="seedlings__title">Саженцы</h2>
-                </div>
-                <div class="seedlings__slider swiper js-seedlings-slider">
-                    <div class="seedlings__list swiper-wrapper"><a class="seedlings-card swiper-slide" href="flamingo.html" data-tags="seed" data-kind="apple" data-season="autumn"><img class="seedlings-card__image" src="img/pages/catalog/flamingo/fl-1.jpg" alt="Яблоня сорт Фламинго">
-                            <h3 class="seedlings-card__variety">Фламинго</h3>
-                            <p class="seedlings-card__meta"><span class="seedlings-card__kind">Яблоня</span><span class="seedlings-card__season seedlings-card__season--autumn">Осенний</span></p>
-                        </a><a class="seedlings-card swiper-slide" href="podarok-sadovodam.html" data-tags="seed" data-kind="apple" data-season="autumn"><img class="seedlings-card__image" src="img/pages/catalog/podarok-sadovodam/ps-1.jpg" alt="Яблоня сорт Подарок садоводам">
-                            <h3 class="seedlings-card__variety">Подарок садоводам</h3>
-                            <p class="seedlings-card__meta"><span class="seedlings-card__kind">Яблоня</span><span class="seedlings-card__season seedlings-card__season--autumn">Осенний</span></p>
-                        </a><a class="seedlings-card swiper-slide" href="altayskoye-nalivnoye.html" data-tags="seed" data-kind="apple" data-season="summer"><img class="seedlings-card__image" src="img/pages/catalog/altayskoye-nalivnoye/an-2.jpg" alt="Яблоня сорт Алтайское наливное">
-                            <h3 class="seedlings-card__variety">Алтайское наливное</h3>
-                            <p class="seedlings-card__meta"><span class="seedlings-card__kind">Яблоня</span><span class="seedlings-card__season seedlings-card__season--summer">Летний</span></p>
-                        </a></div>
-                </div>
-                <div class="seedlings__controls"><button class="seedlings__arrow seedlings__arrow--prev" type="button" aria-label="Предыдущие саженцы"><span>◀</span></button><a class="seedlings__more-button" href="catalog.html">Посмотреть больше</a><button class="seedlings__arrow seedlings__arrow--next" type="button" aria-label="Следующие саженцы"><span>▶</span></button></div>
-            </div>
-        </section>
-        <section class="articles" id="articles">
-            <div class="articles__container">
-                <div class="articles__header">
-                    <h2 class="articles__title">Статьи</h2>
-                </div>
-                <div class="articles__slider swiper js-articles-slider">
-                    <div class="articles__list swiper-wrapper"><a class="article-card swiper-slide" href="example.html" data-tags="apple care"><img class="article-card__image" src="img/background.webp" alt="Как сажать яблоню?">
-                            <h3 class="article-card__title">Образец шаблонов</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Яблони</span><span class="article-card__topic">Уход за садом</span></p>
-                            <p class="article-card__meta">Примеры того как выглядят блоки на сайте</p>
-                        </a><a class="article-card swiper-slide" href="pravila-posadki-sadovoy-zemlyaniki.html" data-tags="care"><img class="article-card__image" src="img/pages/articles/pravila-posadki-sadovoy-zemlyaniki/sajenci.png" alt="Правила посадки садовой земляники">
-                            <h3 class="article-card__title">Правила посадки садовой земляники</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Уход за садом</span></p>
-                            <p class="article-card__meta">Грядка, схема посадки, мульча и укрытие на зиму</p>
-                        </a><a class="article-card swiper-slide" href="zonirovanie.html" data-tags="care"><img class="article-card__image" src="img/pages/articles/zonirovanie/zones.png" alt="Микроклиматическое зонирование сада">
-                            <h3 class="article-card__title">Зонирование</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Уход за садом</span></p>
-                            <p class="article-card__meta">Пять микроклиматических зон по Еремеевой Т.В. для выбора сортов и агротехники</p>
-                        </a><a class="article-card swiper-slide" href="opylenie.html" data-tags="apple"><img class="article-card__image" src="img/pages/articles/opylenie/opilenie.png" alt="Опыление яблони и груши">
-                            <h3 class="article-card__title">Опыление</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Яблони</span></p>
-                            <p class="article-card__meta">Два сорта рядом, перекрёстное опыление и роль ветра с насекомыми</p>
-                        </a><a class="article-card swiper-slide" href="sakura.html" data-tags="care"><img class="article-card__image" src="img/pages/articles/sakura/sakura.jpg" alt="Розовое весеннее цветение в саду">
-                            <h3 class="article-card__title">Сакура</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Уход за садом</span></p>
-                            <p class="article-card__meta">Махровый миндаль трёхлопастный вместо вишни и сливы, зимовка и обрезка</p>
-                        </a><a class="article-card swiper-slide" href="belit-stvoly-derevev.html" data-tags="apple care"><img class="article-card__image" src="img/pages/articles/belit-stvoly-derevev/stvol.png" alt="Стволы яблонь: побелка и уход">
-                            <h3 class="article-card__title">Белить стволы деревьев</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Яблони</span><span class="article-card__topic">Уход за садом</span></p>
-                            <p class="article-card__meta">Почему нельзя белить молодые яблони осенью и как осматривать стволы весной</p>
-                        </a><a class="article-card swiper-slide" href="posadka-sazhencev.html" data-tags="apple care"><img class="article-card__image" src="img/pages/articles/posadka-sazhencev/posadka.jpg" alt="Посадка саженца плодового дерева">
-                            <h3 class="article-card__title">Посадка саженцев</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Яблони</span><span class="article-card__topic">Уход за садом</span></p>
-                            <p class="article-card__meta">Закрытая корневая система, яма, холмик в Сибири, колышки и мульча</p>
-                        </a><a class="article-card swiper-slide" href="podgotovka-maliny-k-zime.html" data-tags="care"><img class="article-card__image" src="img/pages/articles/podgotovka-maliny-k-zime/podgotovka.jpg" alt="Малина: подготовка к зиме">
-                            <h3 class="article-card__title">Подготовка малины к зиме</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Уход за садом</span></p>
-                            <p class="article-card__meta">Пригибание крупноплодных сортов, укрытие без картона и сорт «Жёлтый гигант»</p>
-                        </a><a class="article-card swiper-slide" href="sosedi.html" data-tags="care"><img class="article-card__image" src="img/pages/articles/sosedi/sosedi.jpg" alt="Совместимые кустарники в саду">
-                            <h3 class="article-card__title">Соседи</h3>
-                            <p class="article-card__topics"><span class="article-card__topic">Уход за садом</span></p>
-                            <p class="article-card__meta">Жимолость, крыжовник и смородина рядом; яблоня, груша и малина — плохие соседи</p>
-                        </a></div>
-                </div>
-                <div class="articles__controls"><button class="articles__arrow articles__arrow--prev" type="button" aria-label="Предыдущие статьи"><span>◀</span></button><a class="articles__more-button" href="articles.html">Посмотреть больше</a><button class="articles__arrow articles__arrow--next" type="button" aria-label="Следующие статьи"><span>▶</span></button></div>
             </div>
         </section>
         <section class="advantages">
@@ -232,7 +140,11 @@
                 </div>
                 <div class="advantages__list">
                     <div class="advantages__item">
-                        <div class="advantages__icon"><span>1</span></div>
+                        <div class="advantages__icon"><svg class="perk-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 20.6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                <path d="M9.2 20.6h5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                <path d="M12 15.2c-3.4 0-5.7-2.1-5.7-4.8 0-2.8 2.5-5 5.7-5s5.7 2.2 5.7 5c0 2.7-2.3 4.8-5.7 4.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                            </svg></div>
                         <div class="advantages__content">
                             <h3 class="advantages__item-title">Выращиваем в своём саду</h3>
                             <p class="advantages__item-text">Саженцы растут в тех же условиях, в которых будут жить у вас:
@@ -240,7 +152,10 @@
                         </div>
                     </div>
                     <div class="advantages__item">
-                        <div class="advantages__icon"><span>2</span></div>
+                        <div class="advantages__icon"><svg class="perk-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 3.5 18.5 6v5.2c0 4.3-2.8 7.6-6.5 9-3.7-1.4-6.5-4.7-6.5-9V6L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                                <path d="m9.2 12 1.8 1.8 3.8-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg></div>
                         <div class="advantages__content">
                             <h3 class="advantages__item-title">Проверенные зимостойкие сорта</h3>
                             <p class="advantages__item-text">Оставляем только сорта, которые пережили не одну зиму и
@@ -248,12 +163,104 @@
                         </div>
                     </div>
                     <div class="advantages__item">
-                        <div class="advantages__icon"><span>3</span></div>
+                        <div class="advantages__icon"><svg class="perk-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M7 18.5 4.8 20.2V8.5A3.5 3.5 0 0 1 8.3 5h7.4A3.5 3.5 0 0 1 19.2 8.5v5A3.5 3.5 0 0 1 15.7 17H9.1L7 18.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                                <path d="M9 10.2h6M9 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                            </svg></div>
                         <div class="advantages__content">
                             <h3 class="advantages__item-title">Помогаем подобрать саженцы под участок</h3>
                             <p class="advantages__item-text">Подскажем, какие яблони, груши и другие культуры лучше подойдут
                                 под ваши условия и опыт.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="fair" id="news">
+            <div class="fair__container">
+                <h2 class="fair__label">Ярмарки саженцев</h2>
+                <div class="fair__card">
+                    <div class="fair__image-wrapper"><img class="fair__image" src="img/pages/exposition_banner.jpg" alt="Фотографии ярмарок"></div>
+                    <div class="fair__slider swiper js-fair-slider">
+                        <div class="fair__list swiper-wrapper">
+                            <div class="fair__content swiper-slide">
+                                <div class="fair__head">
+                                    <p class="fair__eyebrow">Ближайшая ярмарка</p>
+                                    <p class="fair__date">Май, сентябрь</p>
+                                </div>
+                                <h3 class="fair__title">Музей-усадьба В.П. Сукачева</h3>
+                                <p class="fair__place"><svg class="fair__pin" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z" stroke="currentColor" stroke-width="1.6"></path>
+                                        <circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.6"></circle>
+                                    </svg><span>г. Иркутск, ул. Декабрьских Событий, 112, около танка</span></p><a class="link link--arrow fair__route" href="https://yandex.ru/maps/?text=Иркутск%2C%20улица%20Декабрьских%20Событий%20112" target="_blank" rel="noopener noreferrer">Как пройти<svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></a>
+                            </div>
+                            <div class="fair__content swiper-slide">
+                                <div class="fair__head">
+                                    <p class="fair__eyebrow">Ближайшая ярмарка</p>
+                                    <p class="fair__date">Май, август, сентябрь</p>
+                                </div>
+                                <h3 class="fair__title">Остановка Волжская</h3>
+                                <p class="fair__place"><svg class="fair__pin" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z" stroke="currentColor" stroke-width="1.6"></path>
+                                        <circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.6"></circle>
+                                    </svg><span>г. Иркутск, ул. Волжская, 14Б, рядом с рынком «Волжский»</span></p><a class="link link--arrow fair__route" href="https://yandex.ru/maps/?text=Иркутск%2C%20улица%20Волжская%2014Б" target="_blank" rel="noopener noreferrer">Как пройти<svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></a>
+                            </div>
+                            <div class="fair__content swiper-slide">
+                                <div class="fair__head">
+                                    <p class="fair__eyebrow">Ближайшая ярмарка</p>
+                                    <p class="fair__date">20–22 августа, 10:00–17:00</p>
+                                </div>
+                                <h3 class="fair__title">СибЭкспоЦентр</h3>
+                                <p class="fair__place"><svg class="fair__pin" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z" stroke="currentColor" stroke-width="1.6"></path>
+                                        <circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.6"></circle>
+                                    </svg><span>г. Иркутск, ул. Байкальская, 253А, около 3-го павильона</span></p><a class="link link--arrow fair__route" href="https://yandex.ru/maps/?text=Иркутск%2C%20улица%20Байкальская%20253А" target="_blank" rel="noopener noreferrer">Как пройти<svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></a>
+                            </div>
+                        </div>
+                        <div class="fair__dots"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="seedlings" id="catalog">
+            <div class="seedlings__container">
+                <div class="seedlings__header">
+                    <div class="seedlings__intro">
+                        <h2 class="seedlings__title">Саженцы</h2>
+                        <p class="seedlings__subtitle">Выбирайте из проверенных сортов</p>
+                    </div><a class="btn btn--outline seedlings__all" href="catalog.html">Все сорта<svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg></a>
+                </div>
+                <div class="seedlings__list seedlings__list--grid"><a class="seedlings-card" href="flamingo.html" data-tags="seed" data-kind="apple" data-season="autumn"><img class="seedlings-card__image" src="img/pages/catalog/flamingo/fl-1.jpg" alt="Яблоня сорт Фламинго">
+                        <h3 class="seedlings-card__variety">Фламинго</h3>
+                        <p class="seedlings-card__meta"><span class="seedlings-card__kind">Яблоня</span><span class="seedlings-card__season seedlings-card__season--autumn">Осенний</span></p>
+                    </a><a class="seedlings-card" href="podarok-sadovodam.html" data-tags="seed" data-kind="apple" data-season="autumn"><img class="seedlings-card__image" src="img/pages/catalog/podarok-sadovodam/ps-1.jpg" alt="Яблоня сорт Подарок садоводам">
+                        <h3 class="seedlings-card__variety">Подарок садоводам</h3>
+                        <p class="seedlings-card__meta"><span class="seedlings-card__kind">Яблоня</span><span class="seedlings-card__season seedlings-card__season--autumn">Осенний</span></p>
+                    </a><a class="seedlings-card" href="altayskoye-nalivnoye.html" data-tags="seed" data-kind="apple" data-season="summer"><img class="seedlings-card__image" src="img/pages/catalog/altayskoye-nalivnoye/an-2.jpg" alt="Яблоня сорт Алтайское наливное">
+                        <h3 class="seedlings-card__variety">Алтайское наливное</h3>
+                        <p class="seedlings-card__meta"><span class="seedlings-card__kind">Яблоня</span><span class="seedlings-card__season seedlings-card__season--summer">Летний</span></p>
+                    </a><a class="seedlings-card" href="manaraga.html" data-tags="seed" data-kind="apple" data-season="winter"><img class="seedlings-card__image" src="img/pages/catalog/manaraga/mg2.jpg" alt="Яблоня сорт Манарага">
+                        <h3 class="seedlings-card__variety">Манарага</h3>
+                        <p class="seedlings-card__meta"><span class="seedlings-card__kind">Яблоня</span><span class="seedlings-card__season seedlings-card__season--winter">Зимний</span></p>
+                    </a></div>
+            </div>
+        </section>
+        <section class="articles" id="articles">
+            <div class="articles__container">
+                <div class="articles__promo">
+                    <div class="articles__promo-content">
+                        <h2 class="articles__promo-title">Полезные статьи о саде и растениях</h2>
+                        <p class="articles__promo-lead">Советы по посадке, уходу, защите растений и выбору сортов от наших специалистов.</p><a class="btn btn--primary articles__promo-button" href="articles.html">Читать статьи<svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg></a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,221 @@
+// =====================
+// UI KIT
+// Тестовая страница дизайн-системы (вне меню сайта).
+// =====================
+
+.body--ui-kit {
+  background: $color-surface-muted;
+}
+
+.ui-kit-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  color: $color-white;
+  background: $color-black;
+}
+
+.ui-kit-bar__inner {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 12px 32px;
+  gap: 16px;
+
+  @include mobile {
+    padding: 12px 16px;
+  }
+}
+
+.ui-kit-bar__label {
+  margin: 0;
+  font-family: $font-montserrat;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ui-kit-bar__back {
+  font-family: $font-montserrat;
+  font-size: 14px;
+  font-weight: 700;
+  color: $color-light-green;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.ui-kit {
+  width: 100%;
+}
+
+.ui-kit__container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+
+  @include mobile {
+    padding: 28px 16px 56px;
+  }
+}
+
+.ui-kit__intro {
+  margin-bottom: 40px;
+}
+
+.ui-kit__title {
+  @extend %h1-promo;
+
+  margin: 0;
+}
+
+.ui-kit__lead {
+  max-width: 640px;
+  margin: 12px 0 0;
+  font-family: $font-montserrat;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $color-text-muted;
+}
+
+.ui-kit__section {
+  margin-top: 40px;
+  padding: 28px;
+  background: $color-white;
+  border: 1px solid rgba($color-black, .08);
+  border-radius: 20px;
+  box-shadow: $shadow-card;
+}
+
+.ui-kit__section-title {
+  margin: 0 0 20px;
+  font-family: $font-montserrat;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.ui-kit__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.ui-kit__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ui-kit__swatches {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ui-kit__swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ui-kit__swatch-chip {
+  display: block;
+  width: 100%;
+  height: 56px;
+  border: 1px solid rgba($color-black, .12);
+  border-radius: 12px;
+
+  &--brand {
+    background: $color-dark-green;
+  }
+
+  &--brand-hover {
+    background: $color-dark-green-hover;
+  }
+
+  &--surface {
+    background: $color-surface;
+  }
+
+  &--alt {
+    background: $color-surface-alt;
+  }
+
+  &--muted {
+    background: $color-surface-muted;
+  }
+
+  &--summer {
+    background: $color-season-summer-bg;
+  }
+
+  &--autumn {
+    background: $color-season-autumn-bg;
+  }
+
+  &--winter {
+    background: $color-season-winter-bg;
+  }
+}
+
+.ui-kit__swatch code {
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+.ui-kit__demo-h1 {
+  @extend %h1-promo;
+
+  margin: 0;
+}
+
+.ui-kit__demo-h2 {
+  @extend %header;
+
+  margin: 0;
+}
+
+.ui-kit__demo-h3 {
+  margin: 0;
+  font-family: $font-montserrat;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.ui-kit__demo-p {
+  @extend %p1;
+
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.ui-kit__demo-muted {
+  margin: 0;
+  font-family: $font-montserrat;
+  font-size: 14px;
+  color: $color-text-muted;
+}
+
+.ui-kit__cards {
+  display: grid;
+  grid-template-columns: minmax(0, 280px);
+  gap: 20px;
+}

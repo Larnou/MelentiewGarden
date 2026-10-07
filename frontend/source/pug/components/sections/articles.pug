@@ -1,4 +1,4 @@
-// Карточка статьи: страница статей (h2) и слайдер на главной (h3).
+// Карточка статьи: страница статей (h2).
 mixin articleCard(item, heading)
   - const Tag = heading || 'h2'
   - const topicTags = (item.dataTags || '').split(/\s+/).filter((tag) => ARTICLE_TOPIC_LABELS[tag])
@@ -11,24 +11,15 @@ mixin articleCard(item, heading)
           span.article-card__topic= ARTICLE_TOPIC_LABELS[tag]
     p.article-card__meta= item.meta
 
-// Блок "Статьи" с карточками и стрелками
+// Баннер статей на главной: текст слева, фото справа, ссылка на все статьи.
 mixin articles()
   section.articles(id="articles")
     .articles__container
-      .articles__header
-        h2.articles__title Статьи
-
-      .articles__slider.swiper.js-articles-slider
-        .articles__list.swiper-wrapper
-          each item in ARTICLES_ITEMS
-            +articleCard(item, 'h3').swiper-slide
-
-      .articles__controls
-        button.articles__arrow.articles__arrow--prev(type="button" aria-label="Предыдущие статьи")
-          span ◀
-
-        a.articles__more-button(href="articles.html") Посмотреть больше
-
-        button.articles__arrow.articles__arrow--next(type="button" aria-label="Следующие статьи")
-          span ▶
-
+      .articles__promo
+        .articles__promo-content
+          h2.articles__promo-title Полезные статьи о саде и растениях
+          p.articles__promo-lead Советы по посадке, уходу, защите растений и выбору сортов от наших специалистов.
+          a.btn.btn--primary.articles__promo-button(href="articles.html")
+            | Читать статьи
+            svg.btn__icon(width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true")
+              path(d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round")

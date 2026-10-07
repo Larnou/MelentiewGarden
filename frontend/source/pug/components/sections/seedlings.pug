@@ -1,4 +1,4 @@
-// Карточка саженца: каталог (h2) и слайдер на главной (h3).
+// Карточка саженца: каталог (h2) и сетка на главной (h3).
 mixin seedlingsCard(item, heading)
   - const Tag = heading || 'h2'
   -
@@ -20,23 +20,19 @@ mixin seedlingsCard(item, heading)
       span.seedlings-card__kind= item.kind
       span.seedlings-card__season(class='seedlings-card__season--' + item.season)= item.seasonLabel
 
-// Блок "Саженцы" с карточками и стрелками
+// Блок "Саженцы" на главной: заголовок слева, CTA справа, сетка карточек.
 mixin seedlings()
   section.seedlings(id="catalog")
     .seedlings__container
       .seedlings__header
-        h2.seedlings__title Саженцы
+        .seedlings__intro
+          h2.seedlings__title Саженцы
+          p.seedlings__subtitle Выбирайте из проверенных сортов
+        a.btn.btn--outline.seedlings__all(href="catalog.html")
+          | Все сорта
+          svg.btn__icon(width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true")
+            path(d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round")
 
-      .seedlings__slider.swiper.js-seedlings-slider
-        .seedlings__list.swiper-wrapper
-          each item in MAIN_PAGE_CATALOG_ITEMS
-            +seedlingsCard(item, 'h3').swiper-slide
-
-      .seedlings__controls
-        button.seedlings__arrow.seedlings__arrow--prev(type="button" aria-label="Предыдущие саженцы")
-          span ◀
-
-        a.seedlings__more-button(href="catalog.html") Посмотреть больше
-
-        button.seedlings__arrow.seedlings__arrow--next(type="button" aria-label="Следующие саженцы")
-          span ▶
+      .seedlings__list.seedlings__list--grid
+        each item in MAIN_PAGE_CATALOG_ITEMS
+          +seedlingsCard(item, 'h3')

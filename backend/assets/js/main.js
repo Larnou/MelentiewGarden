@@ -498,57 +498,52 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
       navigation: navigation
     } : {}));
     return sliderInstance;
-  } // Хиро-категории
+  } // Ярмарка: фото статичное, объявления сменяются
 
 
-  var heroSlider = document.querySelector('.js-hero-categories');
-  initSlider(heroSlider); // Саженцы
-
-  var seedlingsSlider = document.querySelector('.js-seedlings-slider');
-  initSlider(seedlingsSlider, {
-    slidesPerView: 3,
-    spaceBetween: 24,
-    prevSelector: '.seedlings__arrow--prev',
-    nextSelector: '.seedlings__arrow--next',
-    breakpoints: {
-      0: {
-        slidesPerView: 1
-      },
-      768: {
-        slidesPerView: 2
-      },
-      1080: {
-        slidesPerView: 3
-      }
-    }
-  }); // Ярмарка
-
-  var fairSlider = document.querySelector('.js-fair-slider');
-  initSlider(fairSlider, {
+  var fairSliderEl = document.querySelector('.js-fair-slider');
+  var fairSlider = initSlider(fairSliderEl, {
     slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    }
-  }); // Статьи
-
-  var articlesSlider = document.querySelector('.js-articles-slider');
-  initSlider(articlesSlider, {
-    slidesPerView: 2,
-    spaceBetween: 24,
-    prevSelector: '.articles__arrow--prev',
-    nextSelector: '.articles__arrow--next',
-    breakpoints: {
-      0: {
-        slidesPerView: 1
-      },
-      768: {
-        slidesPerView: 2
-      }
+    spaceBetween: 0,
+    speed: 500,
+    pagination: {
+      el: '.fair__dots',
+      clickable: true
+    },
+    a11y: {
+      paginationBulletMessage: 'Ярмарка {{index}}'
     }
   });
+
+  if (fairSlider) {
+    var fairTimer;
+
+    var playFair = function playFair() {
+      window.clearInterval(fairTimer);
+      fairTimer = window.setInterval(function () {
+        if (fairSlider.isEnd) fairSlider.slideTo(0);else fairSlider.slideNext();
+      }, 5000);
+    };
+
+    var stopFair = function stopFair() {
+      return window.clearInterval(fairTimer);
+    };
+
+    playFair();
+    fairSlider.el.addEventListener('mouseenter', stopFair);
+    fairSlider.el.addEventListener('mouseleave', playFair);
+    fairSlider.el.addEventListener('focusin', stopFair);
+    fairSlider.el.addEventListener('focusout', playFair);
+    var fairWidth = 0;
+    var fairObserver = new ResizeObserver(function () {
+      var nextWidth = fairSlider.el.clientWidth;
+      if (nextWidth === fairWidth) return;
+      fairWidth = nextWidth;
+      fairSlider.update();
+    });
+    fairObserver.observe(fairSlider.el);
+  } // Статьи: слайдер на главной больше не используется
+
 
   var initProductGallery = function initProductGallery(container) {
     var block = container.closest('.article-block');

@@ -1,0 +1,128 @@
+// =====================
+// BUTTONS & LINKS
+// Единые CTA и текстовые ссылки. Используйте классы .btn / .link.
+// =====================
+
+.btn {
+  @include button-reset;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: $btn-padding-y $btn-padding-x;
+  font-family: $font-montserrat;
+  font-size: $btn-font-size;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: $btn-radius;
+  cursor: pointer;
+  gap: 8px;
+
+  @include transition(background-color, color, border-color, box-shadow);
+
+  &:focus-visible,
+  &.focus-visible {
+    outline: 2px solid $color-dark-green;
+    outline-offset: 3px;
+  }
+
+  @include mobile {
+    min-height: 44px;
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+.btn--primary {
+  color: $color-white;
+  background: $color-dark-green;
+
+  &:hover {
+    color: $color-white;
+    background: $color-dark-green-hover;
+  }
+}
+
+.btn--secondary {
+  color: $color-dark-green;
+  background: $color-white;
+  box-shadow: 0 4px 16px rgba($color-black, .16);
+
+  &:hover {
+    color: $color-white;
+    background: $color-dark-green;
+  }
+}
+
+.btn--outline {
+  color: $color-dark-green;
+  background: transparent;
+  border-color: $color-dark-green;
+
+  &:hover {
+    color: $color-white;
+    background: $color-dark-green;
+  }
+}
+
+.btn--ghost {
+  color: $color-dark-green;
+  background: rgba($color-dark-green, .08);
+
+  &:hover {
+    color: $color-white;
+    background: $color-dark-green;
+  }
+}
+
+.btn__icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: none;
+}
+
+.link {
+  font-family: $font-montserrat;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: $color-dark-green;
+  text-decoration: none;
+
+  @include transition(color);
+
+  &:hover {
+    color: $color-dark-green-hover;
+  }
+
+  &:focus-visible,
+  &.focus-visible {
+    border-radius: 4px;
+    outline: 2px solid $color-dark-green;
+    outline-offset: 3px;
+  }
+}
+
+.link--arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link--muted {
+  font-weight: 400;
+  color: $color-text-muted;
+
+  &:hover {
+    color: $color-dark-green;
+  }
+}
+
+.link--underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

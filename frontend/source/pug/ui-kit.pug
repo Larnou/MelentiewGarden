@@ -1,0 +1,127 @@
+extends components/template_layout
+
+append variables
+  -
+    pageTitle = 'UI Kit — Сад Мелентьевых'
+    pageDescription = 'Тестовая страница дизайн-системы: кнопки, ссылки, типографика и блоки'
+    body = { class: 'body--ui-kit' }
+    main = { class: 'main--ui-kit' }
+
+block header
+  .ui-kit-bar
+    .ui-kit-bar__inner
+      p.ui-kit-bar__label UI Kit · вне навигации сайта
+      a.ui-kit-bar__back(href="index.html") ← На главную
+
+block footer
+  //- без футера сайта
+
+prepend mainContent
+  section.ui-kit
+    .ui-kit__container
+      header.ui-kit__intro
+        h1.ui-kit__title Дизайн-система
+        p.ui-kit__lead Все базовые элементы интерфейса. Страница не входит в меню сайта и нужна для согласования стилей.
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Цвета
+        .ui-kit__swatches
+          .ui-kit__swatch
+            span.ui-kit__swatch-chip.ui-kit__swatch-chip--brand
+            code $color-dark-green
+          .ui-kit__swatch
+            span.ui-kit__swatch-chip.ui-kit__swatch-chip--brand-hover
+            code $color-dark-green-hover
+          .ui-kit__swatch
+            span.ui-kit__swatch-chip.ui-kit__swatch-chip--surface
+            code $color-surface
+          .ui-kit__swatch
+            span.ui-kit__swatch-chip.ui-kit__swatch-chip--alt
+            code $color-surface-alt
+          .ui-kit__swatch
+            span.ui-kit__swatch-chip.ui-kit__swatch-chip--muted
+            code $color-surface-muted
+          .ui-kit__swatch
+            span.ui-kit__swatch-chip.ui-kit__swatch-chip--summer
+            code summer badge
+          .ui-kit__swatch
+            span.ui-kit__swatch-chip.ui-kit__swatch-chip--autumn
+            code autumn badge
+          .ui-kit__swatch
+            span.ui-kit__swatch-chip.ui-kit__swatch-chip--winter
+            code winter badge
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Типографика
+        .ui-kit__stack
+          h1.ui-kit__demo-h1 Заголовок h1-promo / секции
+          h2.ui-kit__demo-h2 Заголовок секции (пример)
+          h3.ui-kit__demo-h3 Подзаголовок карточки
+          p.ui-kit__demo-p Основной текст абзаца. Используется в описаниях преимуществ, статей и карточек.
+          p.ui-kit__demo-muted Приглушённый текст для подписей и метаданных.
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Кнопки
+        .ui-kit__row
+          a.btn.btn--primary(href="#") Primary
+          a.btn.btn--secondary(href="#") Secondary
+          a.btn.btn--outline(href="#")
+            | Outline
+            svg.btn__icon(width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true")
+              path(d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round")
+          a.btn.btn--ghost(href="#") Ghost
+          button.btn.btn--primary(type="button") Button primary
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Ссылки
+        .ui-kit__stack
+          p
+            a.link(href="#") Обычная ссылка
+          p
+            a.link.link--arrow(href="#")
+              | Ссылка со стрелкой
+              svg.btn__icon(width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true")
+                path(d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round")
+          p
+            a.link.link--muted(href="#") Приглушённая ссылка
+          p
+            a.link.link--underline(href="#") Ссылка с подчёркиванием
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Бейджи сезона
+        .ui-kit__row
+          span.seedlings-card__season.seedlings-card__season--summer Летний
+          span.seedlings-card__season.seedlings-card__season--late-summer Поздне-летний
+          span.seedlings-card__season.seedlings-card__season--early-autumn Ранне-осенний
+          span.seedlings-card__season.seedlings-card__season--autumn Осенний
+          span.seedlings-card__season.seedlings-card__season--winter Зимний
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Иконки преимуществ
+        .ui-kit__row
+          .advantages__icon
+            +perkIcon('garden')
+          .advantages__icon
+            +perkIcon('hardy')
+          .advantages__icon
+            +perkIcon('advice')
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Карточка саженца
+        .ui-kit__cards
+          +seedlingsCard(MAIN_PAGE_CATALOG_ITEMS[0], 'h3')
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Карточка статьи
+        .ui-kit__cards
+          +articleCard(ARTICLES_ITEMS[0], 'h3')
+
+      section.ui-kit__section
+        h2.ui-kit__section-title Преимущества (фрагмент)
+        .advantages__list
+          .advantages__item
+            .advantages__icon
+              +perkIcon('garden')
+            .advantages__content
+              h3.advantages__item-title Выращиваем в своём саду
+              p.advantages__item-text Пример текста преимущества для проверки карточки.

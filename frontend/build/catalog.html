@@ -1,8 +1,9 @@
-<!-- Блок "Ближайшая ярмарка"-->
-<!-- Карточка саженца: каталог (h2) и слайдер на главной (h3).-->
-<!-- Блок "Саженцы" с карточками и стрелками-->
-<!-- Карточка статьи: страница статей (h2) и слайдер на главной (h3).-->
-<!-- Блок "Статьи" с карточками и стрелками-->
+<!-- Общие outline-иконки преимуществ (главная и каталог).-->
+<!-- Блок "Ближайшая ярмарка": одно фото и слайдер объявлений-->
+<!-- Карточка саженца: каталог (h2) и сетка на главной (h3).-->
+<!-- Блок "Саженцы" на главной: заголовок слева, CTA справа, сетка карточек.-->
+<!-- Карточка статьи: страница статей (h2).-->
+<!-- Баннер статей на главной: текст слева, фото справа, ссылка на все статьи.-->
 <!-- Блок "Наши преимущества"-->
 <!-- Блок "История нашего сада"-->
 <!DOCTYPE html>
@@ -28,6 +29,10 @@
 
 <body class="body">
     <div style="display:none"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <symbol id="advice" viewBox="0 0 24 24">
+                <path d="M7 18.5 4.8 20.2V8.5A3.5 3.5 0 0 1 8.3 5h7.4A3.5 3.5 0 0 1 19.2 8.5v5A3.5 3.5 0 0 1 15.7 17H9.1L7 18.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                <path d="M9 10.2h6M9 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </symbol>
             <symbol id="apple" viewBox="0 0 40 40">
                 <path d="M17.3078 4.62531C17.4602 0.145313 12.3935 -0.554531 10.5859 0.33625C11.057 5.50281 14.9989 5.61656 17.3078 4.62531Z"></path>
                 <path d="M37.1055 15.1228C37.194 15.3479 37.2395 15.4642 37.2546 15.5022C37.2338 15.4497 37.1737 15.2954 37.1055 15.1228Z"></path>
@@ -129,19 +134,32 @@
         </section>
         <section class="catalog-perks">
             <ul class="catalog-perks__list">
-                <li class="catalog-perks__item"><span class="catalog-perks__icon">1</span>
+                <li class="catalog-perks__item">
+                    <div class="catalog-perks__icon"><svg class="perk-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 20.6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                            <path d="M9.2 20.6h5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                            <path d="M12 15.2c-3.4 0-5.7-2.1-5.7-4.8 0-2.8 2.5-5 5.7-5s5.7 2.2 5.7 5c0 2.7-2.3 4.8-5.7 4.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                        </svg></div>
                     <div class="catalog-perks__content">
                         <h2 class="catalog-perks__title">Выращиваем в своём саду</h2>
                         <p class="catalog-perks__text">Саженцы растут в том же климате, в тех же ветрах и зимах.</p>
                     </div>
                 </li>
-                <li class="catalog-perks__item"><span class="catalog-perks__icon">2</span>
+                <li class="catalog-perks__item">
+                    <div class="catalog-perks__icon"><svg class="perk-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 3.5 18.5 6v5.2c0 4.3-2.8 7.6-6.5 9-3.7-1.4-6.5-4.7-6.5-9V6L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                            <path d="m9.2 12 1.8 1.8 3.8-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg></div>
                     <div class="catalog-perks__content">
                         <h2 class="catalog-perks__title">Проверенные зимостойкие сорта</h2>
                         <p class="catalog-perks__text">Оставляем только то, что пережило не одну зиму и даёт урожай.</p>
                     </div>
                 </li>
-                <li class="catalog-perks__item"><span class="catalog-perks__icon">3</span>
+                <li class="catalog-perks__item">
+                    <div class="catalog-perks__icon"><svg class="perk-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M7 18.5 4.8 20.2V8.5A3.5 3.5 0 0 1 8.3 5h7.4A3.5 3.5 0 0 1 19.2 8.5v5A3.5 3.5 0 0 1 15.7 17H9.1L7 18.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                            <path d="M9 10.2h6M9 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                        </svg></div>
                     <div class="catalog-perks__content">
                         <h2 class="catalog-perks__title">Подбор под участок</h2>
                         <p class="catalog-perks__text">Подскажем, какие культуры подойдут вашим условиям и опыту.</p>

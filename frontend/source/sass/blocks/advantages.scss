@@ -4,7 +4,7 @@
 
 .advantages {
   width: 100%;
-  background: #F5F5F5;
+  background: $color-surface-alt;
 }
 
 .advantages__container {
@@ -50,7 +50,7 @@
   @extend %p1;
 
   margin: 12px 0 0;
-  color: $color-gray-hover;
+  color: $color-text-muted;
   text-align: center;
 }
 
@@ -73,16 +73,17 @@
   flex: 1 1 0;
   align-items: flex-start;
   min-width: 240px;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   background: $color-white;
+  border: 1px solid rgba($color-black, .08);
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+  box-shadow: $shadow-card;
   gap: 16px;
 
   @include transition(box-shadow, transform);
 
   &:hover {
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .12);
+    box-shadow: 0 8px 22px rgba($color-black, .12);
     transform: translateY(-2px);
   }
 
@@ -96,14 +97,19 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  font-family: $font-montserrat;
-  font-size: 18px;
-  font-weight: 700;
+  width: 44px;
+  height: 44px;
   color: $color-dark-green;
-  background: rgba($color-dark-green, .08);
+  background: rgba($color-dark-green, .12);
   border-radius: 999px;
+}
+
+.perk-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  color: inherit;
+  fill: none;
 }
 
 .advantages__content {
@@ -130,4 +136,5 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
+  color: $color-text-muted;
 }

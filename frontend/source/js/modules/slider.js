@@ -39,58 +39,49 @@ export default () => {
     return sliderInstance;
   }
 
-  // Хиро-категории
-  const heroSlider = document.querySelector('.js-hero-categories');
-  initSlider(heroSlider);
-
-  // Саженцы
-  const seedlingsSlider = document.querySelector('.js-seedlings-slider');
-  initSlider(seedlingsSlider, {
-    slidesPerView: 3,
-    spaceBetween: 24,
-    prevSelector: '.seedlings__arrow--prev',
-    nextSelector: '.seedlings__arrow--next',
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1080: {
-        slidesPerView: 3,
-      },
-    },
-  });
-
-  // Ярмарка
-  const fairSlider = document.querySelector('.js-fair-slider');
-  initSlider(fairSlider, {
+  // Ярмарка: фото статичное, объявления сменяются
+  const fairSliderEl = document.querySelector('.js-fair-slider');
+  const fairSlider = initSlider(fairSliderEl, {
     slidesPerView: 1,
-    spaceBetween: 24,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
+    spaceBetween: 0,
+    speed: 500,
+    pagination: {
+      el: '.fair__dots',
+      clickable: true,
+    },
+    a11y: {
+      paginationBulletMessage: 'Ярмарка {{index}}',
     },
   });
 
-  // Статьи
-  const articlesSlider = document.querySelector('.js-articles-slider');
-  initSlider(articlesSlider, {
-    slidesPerView: 2,
-    spaceBetween: 24,
-    prevSelector: '.articles__arrow--prev',
-    nextSelector: '.articles__arrow--next',
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-    },
-  });
+  if (fairSlider) {
+    let fairTimer;
+    const playFair = () => {
+      window.clearInterval(fairTimer);
+      fairTimer = window.setInterval(() => {
+        if (fairSlider.isEnd) fairSlider.slideTo(0);
+        else fairSlider.slideNext();
+      }, 5000);
+    };
+    const stopFair = () => window.clearInterval(fairTimer);
+
+    playFair();
+    fairSlider.el.addEventListener('mouseenter', stopFair);
+    fairSlider.el.addEventListener('mouseleave', playFair);
+    fairSlider.el.addEventListener('focusin', stopFair);
+    fairSlider.el.addEventListener('focusout', playFair);
+
+    let fairWidth = 0;
+    const fairObserver = new ResizeObserver(() => {
+      const nextWidth = fairSlider.el.clientWidth;
+      if (nextWidth === fairWidth) return;
+      fairWidth = nextWidth;
+      fairSlider.update();
+    });
+    fairObserver.observe(fairSlider.el);
+  }
+
+  // Статьи: слайдер на главной больше не используется
 
   const initProductGallery = (container) => {
     const block = container.closest('.article-block');

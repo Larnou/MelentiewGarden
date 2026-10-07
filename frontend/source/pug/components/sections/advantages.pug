@@ -10,7 +10,7 @@ mixin advantages()
       .advantages__list
         .advantages__item
           .advantages__icon
-            span 1
+            +perkIcon('garden')
           .advantages__content
             h3.advantages__item-title Выращиваем в своём саду
             p.advantages__item-text
@@ -19,7 +19,7 @@ mixin advantages()
 
         .advantages__item
           .advantages__icon
-            span 2
+            +perkIcon('hardy')
           .advantages__content
             h3.advantages__item-title Проверенные зимостойкие сорта
             p.advantages__item-text
@@ -28,10 +28,9 @@ mixin advantages()
 
         .advantages__item
           .advantages__icon
-            span 3
+            +perkIcon('advice')
           .advantages__content
             h3.advantages__item-title Помогаем подобрать саженцы под участок
             p.advantages__item-text
               | Подскажем, какие яблони, груши и другие культуры лучше подойдут
               |  под ваши условия и опыт.
-

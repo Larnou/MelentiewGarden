@@ -21,9 +21,10 @@ prepend mainContent
 
   section.catalog-perks
     ul.catalog-perks__list
-      each perk, i in CATALOG_PAGE.perks
+      each perk in CATALOG_PAGE.perks
         li.catalog-perks__item
-          span.catalog-perks__icon= i + 1
+          .catalog-perks__icon
+            +perkIcon(perk.icon)
           .catalog-perks__content
             h2.catalog-perks__title= perk.title
             p.catalog-perks__text= perk.text

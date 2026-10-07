@@ -1,0 +1,17 @@
+// Общие outline-иконки преимуществ (главная и каталог).
+mixin perkIcon(name)
+  if name === 'garden'
+    svg.perk-icon(width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true")
+      path(d="M12 20.6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round")
+      path(d="M9.2 20.6h5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round")
+      path(d="M12 15.2c-3.4 0-5.7-2.1-5.7-4.8 0-2.8 2.5-5 5.7-5s5.7 2.2 5.7 5c0 2.7-2.3 4.8-5.7 4.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round")
+  else if name === 'hardy'
+    svg.perk-icon(width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true")
+      path(d="M12 3.5 18.5 6v5.2c0 4.3-2.8 7.6-6.5 9-3.7-1.4-6.5-4.7-6.5-9V6L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round")
+      path(d="m9.2 12 1.8 1.8 3.8-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round")
+  else if name === 'advice'
+    svg.perk-icon(width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true")
+      path(d="M7 18.5 4.8 20.2V8.5A3.5 3.5 0 0 1 8.3 5h7.4A3.5 3.5 0 0 1 19.2 8.5v5A3.5 3.5 0 0 1 15.7 17H9.1L7 18.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round")
+      path(d="M9 10.2h6M9 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round")
+  else
+    +svg(name, 22, 22, 'perk-icon')
