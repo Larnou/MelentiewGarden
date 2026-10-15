@@ -2,35 +2,55 @@ extends ../components/template_layout
 
 append variables
   -
-    pageTitle = 'Яблоня · Жебровское'
-    pageDescription = 'Ранне-осенний сорт яблони Жебровское: плоды 35–45 г, медовый вкус, урожайность и зимостойкость.'
+    const seedling = {
+      "href": "zhebrovskoe.html",
+      "title": "Жебровское",
+      "lead": "Ранне-осенний сорт яблони Жебровское: плоды 35–45 г, медовый вкус, урожайность и зимостойкость.",
+      "badges": [
+        "Ранне-осенний сорт",
+        "Зимостойкий"
+      ],
+      "specs": [
+        {
+          "icon": "fruit",
+          "title": "Плоды",
+          "text": "Массой 35–45 г, жёлтые с ярким румянцем, сладкого, медового вкуса. Мякоть сочная, не крахмалится."
+        },
+        {
+          "icon": "calendar",
+          "title": "Созревание",
+          "text": "Созревают в конце августа — начале сентября."
+        },
+        {
+          "icon": "tree",
+          "title": "Дерево",
+          "text": "Среднерослое."
+        },
+        {
+          "icon": "shield",
+          "title": "Устойчивость",
+          "text": "Сорт зимостойкий, урожайный, плодоносит ежегодно."
+        }
+      ],
+      "about": [
+        "Жебровское — ранне-осенний сорт. Плоды массой 35–45 г, жёлтые с ярким румянцем, сладкого, медового вкуса. Мякоть сочная, не крахмалится.",
+        "Дерево среднерослое. Созревают в конце августа — начале сентября.",
+        "Сорт зимостойкий, урожайный, плодоносит ежегодно."
+      ],
+      "slides": [
+        {
+          "src": "img/pages/catalog/zhebrovskoe/zh1.jpg",
+          "alt": "Жебровское"
+        },
+        {
+          "src": "img/pages/catalog/zhebrovskoe/zh2.jpg",
+          "alt": "Жебровское"
+        }
+      ]
+    }
+    pageTitle = "Яблоня · Жебровское"
+    pageDescription = "Ранне-осенний сорт яблони Жебровское: плоды 35–45 г, медовый вкус, урожайность и зимостойкость."
     main = { class: 'main--article' }
 
 prepend mainContent
-
-  section.article.article--product
-    .article__container
-      a.article__back(href="../catalog.html") ← Назад к каталогу
-
-      h1.article__title Яблоня · Жебровское
-
-      +articleBlockHeadingText('Характеристики')
-      +productSpecs()
-        +productSpec('season', 'Сезон')
-          | Ранне-осенний сорт.
-        +productSpec('fruit', 'Плоды')
-          | Массой 35–45 г, жёлтые с ярким румянцем, сладкого, медового вкуса. Мякоть сочная, не крахмалится.
-        +productSpec('calendar', 'Созревание')
-          | Созревают в конце августа — начале сентября.
-        +productSpec('tree', 'Дерево')
-          | Среднерослое.
-        +productSpec('shield', 'Устойчивость')
-          | Сорт зимостойкий, урожайный, плодоносит ежегодно.
-
-      +articleBlockSliderCaptions()
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/zhebrovskoe/zh1.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/zhebrovskoe/zh2.jpg' alt="")
-          p.article-block__slide-caption
+  +seedlingPage(seedling)

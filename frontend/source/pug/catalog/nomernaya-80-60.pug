@@ -2,42 +2,60 @@ extends ../components/template_layout
 
 append variables
   -
-    pageTitle = 'Яблоня · Номерная 80-60'
-    pageDescription = 'Зимний сорт яблони Номерная 80-60: плоды 60–90 г, хранение до марта, урожайность и зимостойкость. Селекция Т.Ф. Корниенко (Барнаул).'
+    const seedling = {
+      "href": "nomernaya-80-60.html",
+      "title": "Номерная 80-60",
+      "lead": "Зимний сорт яблони Номерная 80-60: плоды 60–90 г, хранение до марта, урожайность и зимостойкость. Селекция Т.Ф. Корниенко (Барнаул).",
+      "badges": [
+        "Зимний сорт",
+        "Зимостойкий"
+      ],
+      "specs": [
+        {
+          "icon": "fruit",
+          "title": "Плоды",
+          "text": "Массой 60–90 г, округлые, зелёно-жёлтые с размытым малиново-красным румянцем, хорошего кисло-сладкого вкуса. Мякоть белая, сочная, крупнозернистая."
+        },
+        {
+          "icon": "calendar",
+          "title": "Созревание",
+          "text": "Созревают в сентябре, в лежке плоды набирают вкус. Хранятся до марта."
+        },
+        {
+          "icon": "tree",
+          "title": "Дерево",
+          "text": "Среднерослое, с округлой кроной."
+        },
+        {
+          "icon": "shield",
+          "title": "Устойчивость",
+          "text": "Сорт урожайный, зимостойкий, рано вступает в плодоношение."
+        }
+      ],
+      "note": "Селекция Т.Ф. Корниенко (Барнаул).",
+      "about": [
+        "Номерная 80-60 — зимний сорт. Плоды массой 60–90 г, округлые, зелёно-жёлтые с размытым малиново-красным румянцем, хорошего кисло-сладкого вкуса. Мякоть белая, сочная, крупнозернистая.",
+        "Дерево среднерослое, с округлой кроной. Созревают в сентябре, в лежке плоды набирают вкус. Хранятся до марта.",
+        "Сорт урожайный, зимостойкий, рано вступает в плодоношение."
+      ],
+      "slides": [
+        {
+          "src": "img/pages/catalog/nomernaya-80-60/n81.jpg",
+          "alt": "Номерная 80-60"
+        },
+        {
+          "src": "img/pages/catalog/nomernaya-80-60/n82.jpg",
+          "alt": "Номерная 80-60"
+        },
+        {
+          "src": "img/pages/catalog/nomernaya-80-60/n83.jpg",
+          "alt": "Номерная 80-60"
+        }
+      ]
+    }
+    pageTitle = "Яблоня · Номерная 80-60"
+    pageDescription = "Зимний сорт яблони Номерная 80-60: плоды 60–90 г, хранение до марта, урожайность и зимостойкость. Селекция Т.Ф. Корниенко (Барнаул)."
     main = { class: 'main--article' }
 
 prepend mainContent
-
-  section.article.article--product
-    .article__container
-      a.article__back(href="../catalog.html") ← Назад к каталогу
-
-      h1.article__title Яблоня · Номерная 80-60
-
-      +articleBlockHeadingText('Характеристики')
-      +productSpecs()
-        +productSpec('season', 'Сезон')
-          | Зимний сорт.
-        +productSpec('fruit', 'Плоды')
-          | Массой 60–90 г, округлые, зелёно-жёлтые с размытым малиново-красным румянцем, хорошего кисло-сладкого вкуса. Мякоть белая, сочная, крупнозернистая.
-        +productSpec('calendar', 'Созревание')
-          | Созревают в сентябре, в лежке плоды набирают вкус. Хранятся до марта.
-        +productSpec('tree', 'Дерево')
-          | Среднерослое, с округлой кроной.
-        +productSpec('shield', 'Устойчивость')
-          | Сорт урожайный, зимостойкий, рано вступает в плодоношение.
-
-      +articleBlockText()
-        p
-          | Селекция Т.Ф. Корниенко (Барнаул).
-
-      +articleBlockSliderCaptions()
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/nomernaya-80-60/n81.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/nomernaya-80-60/n82.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/nomernaya-80-60/n83.jpg' alt="")
-          p.article-block__slide-caption
+  +seedlingPage(seedling)

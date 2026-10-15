@@ -114,7 +114,7 @@
             </a><button class="header__burger" type="button" aria-label="Меню" aria-controls="site-nav" aria-expanded="false"><span></span></button>
             <nav class="header__nav" id="site-nav" aria-label="Главное меню">
                 <ul class="header__menu">
-                    <li class="header__item"><a class="header__link" href="index.html#news">Новости</a></li>
+                    <li class="header__item"><a class="header__link" href="index.html#news">Ярмарки</a></li>
                     <li class="header__item"><a class="header__link" href="catalog.html">Каталог</a></li>
                     <li class="header__item"><a class="header__link" href="articles.html">Статьи</a></li>
                     <li class="header__item"><a class="header__link" href="history.html">О нас</a></li>
@@ -123,42 +123,67 @@
         </div>
     </header>
     <main class="main main--article">
-        <section class="article article--product">
-            <div class="article__container"><a class="article__back" href="../catalog.html">← Назад к каталогу</a>
-                <h1 class="article__title">Яблоня · Барнаульское румяное</h1>
-                <div class="article-block article-block--heading-text">
-                    <h2 class="article-block__heading">Характеристики</h2>
+        <section class="product">
+            <div class="product__container">
+                <nav class="product__crumbs" aria-label="Навигация по каталогу"><a class="product__crumb" href="catalog.html">← Назад к каталогу</a><span class="product__crumb-sep" aria-hidden="true">/</span><a class="product__crumb" href="catalog.html?kind=apple">Яблони</a></nav>
+                <div class="product__hero">
+                    <div class="product__gallery js-product-gallery">
+                        <div class="product__stage"><img class="product__stage-image" src="img/pages/catalog/barnaulskoe-rumyanoe/br1.jpg" alt="Барнаульское румяное"><button class="product__zoom" type="button" aria-label="Открыть фото в полном размере"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M9 4H4v5M15 4h5v5M20 15v5h-5M4 15v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg></button><button class="product__nav product__nav--prev" type="button" aria-label="Предыдущее фото"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                    <path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg></button><button class="product__nav product__nav--next" type="button" aria-label="Следующее фото"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                    <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg></button></div>
+                        <ul class="product__thumbs">
+                            <li class="product__thumbs-item"><button class="product__thumb is-active" type="button" data-src="img/pages/catalog/barnaulskoe-rumyanoe/br1.jpg" data-alt="Барнаульское румяное" aria-label="Фото 1" aria-pressed="true"><img src="img/pages/catalog/barnaulskoe-rumyanoe/br1.jpg" alt=""></button></li>
+                            <li class="product__thumbs-item"><button class="product__thumb" type="button" data-src="img/pages/catalog/barnaulskoe-rumyanoe/br2.jpg" data-alt="Барнаульское румяное" aria-label="Фото 2" aria-pressed="false"><img src="img/pages/catalog/barnaulskoe-rumyanoe/br2.jpg" alt=""></button></li>
+                            <li class="product__thumbs-item"><button class="product__thumb" type="button" data-src="img/pages/catalog/barnaulskoe-rumyanoe/br3.jpg" data-alt="Барнаульское румяное" aria-label="Фото 3" aria-pressed="false"><img src="img/pages/catalog/barnaulskoe-rumyanoe/br3.jpg" alt=""></button></li>
+                        </ul>
+                    </div>
+                    <div class="product__summary">
+                        <h1 class="product__title">Барнаульское румяное</h1>
+                        <ul class="product__badges">
+                            <li class="product__badge">Яблоня</li>
+                            <li class="product__badge">Поздне-летний сорт</li>
+                            <li class="product__badge">Зимостойкий</li>
+                        </ul>
+                        <h2 class="product__specs-title">Основные характеристики</h2>
+                        <ul class="product__specs">
+                            <li class="product__spec"><span class="product__spec-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7.2c-2.8.2-5.5 2.4-5.5 6.3 0 3.6 2.3 6 5.5 6s5.5-2.4 5.5-6c0-3.9-2.7-6.1-5.5-6.3Z" stroke="currentColor" stroke-width="1.6"></path><path d="M12 7.2c.2-1.8 1.3-3.2 3-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M12 7.5c-.5-1.3-1.7-2.2-3-2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span><span class="product__spec-body"><span class="product__spec-title">Плоды</span><span class="product__spec-text">Массой 60–80 г, красивые, с ярким румянцем, хорошего вкуса. Мякоть сочная.</span></span></li>
+                            <li class="product__spec"><span class="product__spec-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" stroke="currentColor" stroke-width="1.6"></rect><path d="M3.5 9.5h17M8 3.2v3.2M16 3.2v3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span><span class="product__spec-body"><span class="product__spec-title">Созревание</span><span class="product__spec-text">Созревают в конце августа — начале сентября.</span></span></li>
+                            <li class="product__spec"><span class="product__spec-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M9.2 20.6h5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M12 15.2c-3.4 0-5.7-2.1-5.7-4.8 0-2.8 2.5-5 5.7-5s5.7 2.2 5.7 5c0 2.7-2.3 4.8-5.7 4.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg></span><span class="product__spec-body"><span class="product__spec-title">Дерево</span><span class="product__spec-text">Компактное.</span></span></li>
+                            <li class="product__spec"><span class="product__spec-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 5.5 6.2v5.4c0 4.1 2.7 7.2 6.5 8.9 3.8-1.7 6.5-4.8 6.5-8.9V6.2L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8.8 12.1 11 14.2l4.2-4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="product__spec-body"><span class="product__spec-title">Устойчивость</span><span class="product__spec-text">Сорт очень урожайный, требует нормировки завязей. Зимостойкий.</span></span></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="article-block article-block--specs">
-                    <ul class="product-specs">
-                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Сезон</span><span class="product-specs__text">Поздне-летний сорт.</span></span></li>
-                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7.2c-2.8.2-5.5 2.4-5.5 6.3 0 3.6 2.3 6 5.5 6s5.5-2.4 5.5-6c0-3.9-2.7-6.1-5.5-6.3Z" stroke="currentColor" stroke-width="1.6"></path><path d="M12 7.2c.2-1.8 1.3-3.2 3-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M12 7.5c-.5-1.3-1.7-2.2-3-2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Плоды</span><span class="product-specs__text">Массой 60–80 г, красивые, с ярким румянцем, хорошего вкуса. Мякоть сочная.</span></span></li>
-                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" stroke="currentColor" stroke-width="1.6"></rect><path d="M3.5 9.5h17M8 3.2v3.2M16 3.2v3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Созревание</span><span class="product-specs__text">Созревают в конце августа — начале сентября.</span></span></li>
-                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.6V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M9.2 20.6h5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M12 15.2c-3.4 0-5.7-2.1-5.7-4.8 0-2.8 2.5-5 5.7-5s5.7 2.2 5.7 5c0 2.7-2.3 4.8-5.7 4.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Дерево</span><span class="product-specs__text">Компактное.</span></span></li>
-                        <li class="product-specs__item"><span class="product-specs__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 5.5 6.2v5.4c0 4.1 2.7 7.2 6.5 8.9 3.8-1.7 6.5-4.8 6.5-8.9V6.2L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8.8 12.1 11 14.2l4.2-4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="product-specs__body"><span class="product-specs__title">Устойчивость</span><span class="product-specs__text">Сорт очень урожайный, требует нормировки завязей. Зимостойкий.</span></span></li>
-                    </ul>
-                </div>
-                <div class="article-block article-block--text">
-                    <div class="article-block__content">
+                <div class="product__about">
+                    <div class="product__about-copy">
+                        <h2 class="product__about-title">О сорте «Барнаульское румяное»</h2>
+                        <p>Барнаульское румяное — поздне-летний сорт. Плоды массой 60–80 г, красивые, с ярким румянцем, хорошего вкуса. Мякоть сочная.</p>
+                        <p>Дерево компактное. Созревают в конце августа — начале сентября.</p>
+                        <p>Сорт очень урожайный, требует нормировки завязей. Зимостойкий.</p>
                         <p>Алтайская селекция (НИИ садоводства Сибири им. М.А. Лисавенко, Барнаул).</p>
                     </div>
+                    <div class="product__about-photo"><img src="img/pages/catalog/barnaulskoe-rumyanoe/br3.jpg" alt="Барнаульское румяное"></div>
                 </div>
-                <div class="article-block article-block--slider-captions">
-                    <div class="article-block__slider swiper js-article-gallery-captions">
-                        <div class="article-block__slider-wrapper swiper-wrapper">
-                            <div class="article-block__slide swiper-slide"><img src="img/pages/catalog/barnaulskoe-rumyanoe/br1.jpg" alt="">
-                                <p class="article-block__slide-caption"></p>
+                <section class="product__advice" aria-labelledby="product-advice-title">
+                    <div class="product__advice-head">
+                        <div class="product__advice-intro"><span class="product__advice-mark" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5.5 18.5c7.2-.8 11-6.2 12-13-6.4.8-11.6 4.6-12 13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8.2 15.2c1.8-1.8 4-3.1 7.2-3.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span>
+                            <div>
+                                <h2 class="product__advice-title" id="product-advice-title">Полезно знать</h2>
+                                <p class="product__advice-lead">Подобрали материалы по посадке, уходу и подготовке яблони к зиме. Эти статьи помогут получить урожай и сохранить дерево.</p>
                             </div>
-                            <div class="article-block__slide swiper-slide"><img src="img/pages/catalog/barnaulskoe-rumyanoe/br2.jpg" alt="Вид на сад">
-                                <p class="article-block__slide-caption"></p>
-                            </div>
-                            <div class="article-block__slide swiper-slide"><img src="img/pages/catalog/barnaulskoe-rumyanoe/br3.jpg" alt="Плоды">
-                                <p class="article-block__slide-caption"></p>
-                            </div>
-                        </div>
+                        </div><a class="btn btn--outline product__advice-all" href="articles.html">Все статьи<svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg></a>
                     </div>
-                    <div class="article-block__slider-controls"><button class="article-block__arrow article-block__arrow--prev" type="button" aria-label="Назад"><span>◀</span></button><button class="article-block__arrow article-block__arrow--next" type="button" aria-label="Вперёд"><span>▶</span></button></div>
-                </div>
+                    <ul class="product__advice-list">
+                        <li><a class="advice-card" href="posadka-sazhencev.html"><span class="advice-card__media"><img class="advice-card__image" src="img/pages/articles/posadka-sazhencev/posadka.jpg" alt=""><span class="advice-card__topic">Посадка</span></span><span class="advice-card__body"><span class="advice-card__title">Посадка саженцев</span><span class="advice-card__meta">Закрытая корневая система, яма, холмик в Сибири, колышки и мульча</span><span class="advice-card__more">Читать статью<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></a></li>
+                        <li><a class="advice-card" href="opylenie.html"><span class="advice-card__media"><img class="advice-card__image" src="img/pages/articles/opylenie/opilenie.png" alt=""><span class="advice-card__topic">Уход</span></span><span class="advice-card__body"><span class="advice-card__title">Опыление</span><span class="advice-card__meta">Два сорта рядом, перекрёстное опыление и роль ветра с насекомыми</span><span class="advice-card__more">Читать статью<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></a></li>
+                        <li><a class="advice-card" href="belit-stvoly-derevev.html"><span class="advice-card__media"><img class="advice-card__image" src="img/pages/articles/belit-stvoly-derevev/stvol.png" alt=""><span class="advice-card__topic">Зимовка</span></span><span class="advice-card__body"><span class="advice-card__title">Белить стволы деревьев</span><span class="advice-card__meta">Почему нельзя белить молодые яблони осенью и как осматривать стволы весной</span><span class="advice-card__more">Читать статью<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></a></li>
+                    </ul>
+                </section>
             </div>
         </section>
     </main>

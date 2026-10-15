@@ -2,44 +2,67 @@ extends ../components/template_layout
 
 append variables
   -
-    pageTitle = 'Яблоня · Осенняя радость Алтая'
-    pageDescription = 'Ранне-осенний сорт яблони Осенняя радость Алтая: плоды 40–60 г, ярко-багряные, низкорослое дерево, обильное плодоношение, зимостойкость.'
+    const seedling = {
+      "href": "osennaya-radost-altaya.html",
+      "title": "Осенняя радость Алтая",
+      "lead": "Ранне-осенний сорт яблони Осенняя радость Алтая: плоды 40–60 г, ярко-багряные, низкорослое дерево, обильное плодоношение, зимостойкость.",
+      "badges": [
+        "Ранне-осенний сорт",
+        "Зимостойкий"
+      ],
+      "specs": [
+        {
+          "icon": "fruit",
+          "title": "Плоды",
+          "text": "Массой 40–60 г, ярко-багряные, хорошего вкуса. Мякоть сочная."
+        },
+        {
+          "icon": "calendar",
+          "title": "Созревание",
+          "text": "Созревают в конце августа — начале сентября. При лежке вкус улучшается; к октябрю плоды становятся очень вкусными, сладкими и сочными."
+        },
+        {
+          "icon": "tree",
+          "title": "Дерево",
+          "text": "Низкорослое."
+        },
+        {
+          "icon": "shield",
+          "title": "Устойчивость",
+          "text": "Сорт урожайный, плодоносит обильно. Зимостойкий."
+        }
+      ],
+      "about": [
+        "Осенняя радость Алтая — ранне-осенний сорт. Плоды массой 40–60 г, ярко-багряные, хорошего вкуса. Мякоть сочная.",
+        "Дерево низкорослое. Созревают в конце августа — начале сентября. При лежке вкус улучшается; к октябрю плоды становятся очень вкусными, сладкими и сочными.",
+        "Сорт урожайный, плодоносит обильно. Зимостойкий."
+      ],
+      "slides": [
+        {
+          "src": "img/pages/catalog/osennaya-radost-altaya/aro1.jpg",
+          "alt": "Осенняя радость Алтая"
+        },
+        {
+          "src": "img/pages/catalog/osennaya-radost-altaya/aro2.jpg",
+          "alt": "Осенняя радость Алтая"
+        },
+        {
+          "src": "img/pages/catalog/osennaya-radost-altaya/aro3.jpg",
+          "alt": "Осенняя радость Алтая"
+        },
+        {
+          "src": "img/pages/catalog/osennaya-radost-altaya/aro4.jpg",
+          "alt": "Осенняя радость Алтая"
+        },
+        {
+          "src": "img/pages/catalog/osennaya-radost-altaya/aro5.jpg",
+          "alt": "Осенняя радость Алтая"
+        }
+      ]
+    }
+    pageTitle = "Яблоня · Осенняя радость Алтая"
+    pageDescription = "Ранне-осенний сорт яблони Осенняя радость Алтая: плоды 40–60 г, ярко-багряные, низкорослое дерево, обильное плодоношение, зимостойкость."
     main = { class: 'main--article' }
 
 prepend mainContent
-
-  section.article.article--product
-    .article__container
-      a.article__back(href="../catalog.html") ← Назад к каталогу
-
-      h1.article__title Яблоня · Осенняя радость Алтая
-
-      +articleBlockHeadingText('Характеристики')
-      +productSpecs()
-        +productSpec('season', 'Сезон')
-          | Ранне-осенний сорт.
-        +productSpec('fruit', 'Плоды')
-          | Массой 40–60 г, ярко-багряные, хорошего вкуса. Мякоть сочная.
-        +productSpec('calendar', 'Созревание')
-          | Созревают в конце августа — начале сентября. При лежке вкус улучшается; к октябрю плоды становятся очень вкусными, сладкими и сочными.
-        +productSpec('tree', 'Дерево')
-          | Низкорослое.
-        +productSpec('shield', 'Устойчивость')
-          | Сорт урожайный, плодоносит обильно. Зимостойкий.
-
-      +articleBlockSliderCaptions()
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/osennaya-radost-altaya/aro1.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/osennaya-radost-altaya/aro2.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/osennaya-radost-altaya/aro3.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/osennaya-radost-altaya/aro4.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/osennaya-radost-altaya/aro5.jpg' alt="")
-          p.article-block__slide-caption
+  +seedlingPage(seedling)

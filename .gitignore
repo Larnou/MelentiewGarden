@@ -511,3 +511,4 @@ backend/laravel/vendor/
 backend/laravel/storage/app/private/maintenance.on
 backend/laravel/storage/app/private/maintenance-allowlist.txt
 /backend/assets/img/
+/frontend/build/

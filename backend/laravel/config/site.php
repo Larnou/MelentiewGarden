@@ -26,7 +26,7 @@ return [
         'label' => 'Канал в ОК',
     ],
     'nav' => [
-        ['label' => 'Новости', 'main' => '#news', 'other' => '/#news'],
+        ['label' => 'Ярмарки', 'main' => '#news', 'other' => '/#news'],
         ['label' => 'Каталог', 'main' => '#catalog', 'other' => '/catalog'],
         ['label' => 'Статьи', 'main' => '#articles', 'other' => '/articles'],
         ['label' => 'О нас', 'main' => '#history', 'other' => '/#history'],

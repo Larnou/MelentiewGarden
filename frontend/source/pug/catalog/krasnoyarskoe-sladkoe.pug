@@ -2,33 +2,51 @@ extends ../components/template_layout
 
 append variables
   -
-    pageTitle = 'Яблоня · Красноярское сладкое'
-    pageDescription = 'Осенний сорт яблони Красноярское сладкое: плоды 30–40 г, сладкий вкус без кислоты, хранение до 2 месяцев, зимостойкость и урожайность.'
+    const seedling = {
+      "href": "krasnoyarskoe-sladkoe.html",
+      "title": "Красноярское сладкое",
+      "lead": "Осенний сорт яблони Красноярское сладкое: плоды 30–40 г, сладкий вкус без кислоты, хранение до 2 месяцев, зимостойкость и урожайность.",
+      "badges": [
+        "Осенний сорт",
+        "Зимостойкий"
+      ],
+      "specs": [
+        {
+          "icon": "fruit",
+          "title": "Плоды",
+          "text": "Массой 30–40 г (отдельные до 60 г), жёлтые с лёгким румянцем, сладкого вкуса без кислоты. Мякоть сочная."
+        },
+        {
+          "icon": "calendar",
+          "title": "Созревание",
+          "text": "Созревают в конце августа — начале сентября. Хранятся до 2 месяцев."
+        },
+        {
+          "icon": "tree",
+          "title": "Дерево",
+          "text": "Среднерослое."
+        },
+        {
+          "icon": "shield",
+          "title": "Устойчивость",
+          "text": "Сорт зимостойкий, урожайный."
+        }
+      ],
+      "about": [
+        "Красноярское сладкое — осенний сорт. Плоды массой 30–40 г (отдельные до 60 г), жёлтые с лёгким румянцем, сладкого вкуса без кислоты. Мякоть сочная.",
+        "Дерево среднерослое. Созревают в конце августа — начале сентября. Хранятся до 2 месяцев.",
+        "Сорт зимостойкий, урожайный."
+      ],
+      "slides": [
+        {
+          "src": "img/pages/catalog/krasnoyarskoe-sladkoe/ks1.jpg",
+          "alt": "Красноярское сладкое"
+        }
+      ]
+    }
+    pageTitle = "Яблоня · Красноярское сладкое"
+    pageDescription = "Осенний сорт яблони Красноярское сладкое: плоды 30–40 г, сладкий вкус без кислоты, хранение до 2 месяцев, зимостойкость и урожайность."
     main = { class: 'main--article' }
 
 prepend mainContent
-
-  section.article.article--product
-    .article__container
-      a.article__back(href="../catalog.html") ← Назад к каталогу
-
-      h1.article__title Яблоня · Красноярское сладкое
-
-      +articleBlockHeadingText('Характеристики')
-      +productSpecs()
-        +productSpec('season', 'Сезон')
-          | Осенний сорт.
-        +productSpec('fruit', 'Плоды')
-          | Массой 30–40 г (отдельные до 60 г), жёлтые с лёгким румянцем, сладкого вкуса без кислоты. Мякоть сочная.
-        +productSpec('calendar', 'Созревание')
-          | Созревают в конце августа — начале сентября. Хранятся до 2 месяцев.
-        +productSpec('tree', 'Дерево')
-          | Среднерослое.
-        +productSpec('shield', 'Устойчивость')
-          | Сорт зимостойкий, урожайный.
-
-      +articleBlockSliderCaptions()
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/krasnoyarskoe-sladkoe/ks1.jpg' alt="")
-          p.article-block__slide-caption
-
+  +seedlingPage(seedling)

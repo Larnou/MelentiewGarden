@@ -48,6 +48,8 @@ prepend mainContent
             each chip, i in CATALOG_SEASON_CHIPS
               button.catalog-select__option(type="button" role="option" data-value=chip.value aria-selected=(i === 0 ? 'true' : 'false'))= chip.label
 
+        button.catalog-filters__reset.js-catalog-reset(type="button" hidden) Сбросить фильтры
+
       p.catalog-empty.js-catalog-empty(hidden) Таких саженцев пока нет
 
       .seedlings__list.seedlings__list--grid

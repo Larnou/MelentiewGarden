@@ -2,35 +2,55 @@ extends ../components/template_layout
 
 append variables
   -
-    pageTitle = 'Яблоня · Подарок БАМу'
-    pageDescription = 'Летний сорт яблони Подарок БАМу: плоды до 25 г, тёмно-бордовые, сладкий вкус, невысокое дерево, высокая урожайность и зимостойкость.'
+    const seedling = {
+      "href": "podarok-bamu.html",
+      "title": "Подарок БАМу",
+      "lead": "Летний сорт яблони Подарок БАМу: плоды до 25 г, тёмно-бордовые, сладкий вкус, невысокое дерево, высокая урожайность и зимостойкость.",
+      "badges": [
+        "Летний сорт",
+        "Зимостойкий"
+      ],
+      "specs": [
+        {
+          "icon": "fruit",
+          "title": "Плоды",
+          "text": "Массой до 25 г, тёмно-бордовые, сладкого вкуса, почти без кислоты. Мякоть сочная."
+        },
+        {
+          "icon": "calendar",
+          "title": "Созревание",
+          "text": "Созревают во второй половине августа."
+        },
+        {
+          "icon": "tree",
+          "title": "Дерево",
+          "text": "Невысокое."
+        },
+        {
+          "icon": "shield",
+          "title": "Устойчивость",
+          "text": "Сорт зимостойкий, очень урожайный."
+        }
+      ],
+      "about": [
+        "Подарок БАМу — летний сорт. Плоды массой до 25 г, тёмно-бордовые, сладкого вкуса, почти без кислоты. Мякоть сочная.",
+        "Дерево невысокое. Созревают во второй половине августа.",
+        "Сорт зимостойкий, очень урожайный."
+      ],
+      "slides": [
+        {
+          "src": "img/pages/catalog/podarok-bamu/pb1.jpg",
+          "alt": "Подарок БАМу"
+        },
+        {
+          "src": "img/pages/catalog/podarok-bamu/pb2.jpg",
+          "alt": "Подарок БАМу"
+        }
+      ]
+    }
+    pageTitle = "Яблоня · Подарок БАМу"
+    pageDescription = "Летний сорт яблони Подарок БАМу: плоды до 25 г, тёмно-бордовые, сладкий вкус, невысокое дерево, высокая урожайность и зимостойкость."
     main = { class: 'main--article' }
 
 prepend mainContent
-
-  section.article.article--product
-    .article__container
-      a.article__back(href="../catalog.html") ← Назад к каталогу
-
-      h1.article__title Яблоня · Подарок БАМу
-
-      +articleBlockHeadingText('Характеристики')
-      +productSpecs()
-        +productSpec('season', 'Сезон')
-          | Летний сорт.
-        +productSpec('fruit', 'Плоды')
-          | Массой до 25 г, тёмно-бордовые, сладкого вкуса, почти без кислоты. Мякоть сочная.
-        +productSpec('calendar', 'Созревание')
-          | Созревают во второй половине августа.
-        +productSpec('tree', 'Дерево')
-          | Невысокое.
-        +productSpec('shield', 'Устойчивость')
-          | Сорт зимостойкий, очень урожайный.
-
-      +articleBlockSliderCaptions()
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/podarok-bamu/pb1.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/podarok-bamu/pb2.jpg' alt="")
-          p.article-block__slide-caption
+  +seedlingPage(seedling)

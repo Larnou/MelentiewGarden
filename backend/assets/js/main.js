@@ -254,8 +254,11 @@ var openMenu = function openMenu(filter, filters) {
   if (!groups.length) return;
   var items = Array.from(document.querySelectorAll('.seedlings-card'));
   var empty = document.querySelector('.js-catalog-empty');
+  var reset = document.querySelector('.js-catalog-reset');
   if (!items.length) return;
-  var urlType = TYPE_FROM_URL[new URLSearchParams(window.location.search).get('tag') || ''];
+  var params = new URLSearchParams(window.location.search);
+  var urlType = TYPE_FROM_URL[params.get('tag') || ''];
+  var urlKind = params.get('kind') || '';
   var filters = new Map();
   groups.forEach(function (group) {
     var name = group.dataset.catalogFilter;
@@ -270,6 +273,12 @@ var openMenu = function openMenu(filter, filters) {
       return choice.dataset.value === urlType;
     })) {
       active.add(urlType);
+    }
+
+    if (name === 'kind' && urlKind && choices.some(function (choice) {
+      return choice.dataset.value === urlKind;
+    })) {
+      active.add(urlKind);
     }
 
     if (!active.size) active.add('all');
@@ -355,6 +364,24 @@ var openMenu = function openMenu(filter, filters) {
       paintSelect(filter);
     });
     if (empty) empty.hidden = shown > 0;
+
+    if (reset) {
+      reset.hidden = !Array.from(filters.values()).some(function (filter) {
+        return Array.from(filter.active).some(function (value) {
+          return value !== 'all';
+        });
+      });
+    }
+  };
+
+  var clearFilterUrl = function clearFilterUrl() {
+    var url = new URL(window.location.href);
+    ['tag', 'kind', 'season'].forEach(function (key) {
+      return url.searchParams.delete(key);
+    });
+    var next = "".concat(url.pathname).concat(url.search).concat(url.hash);
+    var current = "".concat(window.location.pathname).concat(window.location.search).concat(window.location.hash);
+    if (next !== current) window.history.replaceState(null, '', next);
   };
 
   filters.forEach(function (filter) {
@@ -437,6 +464,18 @@ var openMenu = function openMenu(filter, filters) {
       return closeMenu(filter);
     });
   });
+
+  if (reset) {
+    reset.addEventListener('click', function () {
+      filters.forEach(function (filter) {
+        choose(filter, 'all');
+        closeMenu(filter);
+      });
+      clearFilterUrl();
+      paint();
+    });
+  }
+
   paint();
 });
 
@@ -625,8 +664,155 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
       if (nextIndex >= 0) show(nextIndex);
     });
     show(0);
-  }; // Слайдеры в статьях: галерея и галерея с подписями
+  };
 
+  var chevron = function chevron(direction) {
+    var path = direction === 'prev' ? 'M10 3 5 8l5 5' : 'M6 3l5 5-5 5';
+    return "\n      <svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\">\n        <path d=\"".concat(path, "\" stroke=\"currentColor\" stroke-width=\"1.8\"\n          stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n      </svg>\n    ");
+  };
+
+  var ensureLightbox = function ensureLightbox() {
+    var lightbox = document.querySelector('.product-lightbox');
+    if (lightbox) return lightbox;
+    lightbox = document.createElement('div');
+    lightbox.className = 'product-lightbox';
+    lightbox.hidden = true;
+    lightbox.innerHTML = "\n      <div class=\"product-lightbox__dialog\" role=\"dialog\" aria-modal=\"true\" aria-label=\"\u0424\u043E\u0442\u043E \u0441\u043E\u0440\u0442\u0430\">\n        <button class=\"product-lightbox__close\" type=\"button\" aria-label=\"\u0417\u0430\u043A\u0440\u044B\u0442\u044C\">\n          <svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\">\n            <path d=\"M3.5 3.5 12.5 12.5M12.5 3.5 3.5 12.5\"\n              stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"></path>\n          </svg>\n        </button>\n        <button class=\"product-lightbox__nav product-lightbox__nav--prev\" type=\"button\"\n          aria-label=\"\u041F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0435\u0435 \u0444\u043E\u0442\u043E\">".concat(chevron('prev'), "</button>\n        <img class=\"product-lightbox__image\" alt=\"\">\n        <button class=\"product-lightbox__nav product-lightbox__nav--next\" type=\"button\"\n          aria-label=\"\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0435 \u0444\u043E\u0442\u043E\">").concat(chevron('next'), "</button>\n      </div>\n    ");
+    document.body.appendChild(lightbox);
+    return lightbox;
+  };
+
+  var initSeedlingGallery = function initSeedlingGallery(root) {
+    var stageImg = root.querySelector('.product__stage-image');
+    var thumbs = Array.from(root.querySelectorAll('.product__thumb'));
+    var prev = root.querySelector('.product__nav--prev');
+    var next = root.querySelector('.product__nav--next');
+    var zoom = root.querySelector('.product__zoom');
+    if (!stageImg) return;
+    var slides = thumbs.length ? thumbs.map(function (thumb) {
+      return {
+        src: thumb.dataset.src || '',
+        alt: thumb.dataset.alt || ''
+      };
+    }) : [{
+      src: stageImg.getAttribute('src') || '',
+      alt: stageImg.getAttribute('alt') || ''
+    }];
+    var index = 0;
+    var opener = null;
+    var lightbox = ensureLightbox();
+    var lightboxImg = lightbox.querySelector('.product-lightbox__image');
+    var lightboxPrev = lightbox.querySelector('.product-lightbox__nav--prev');
+    var lightboxNext = lightbox.querySelector('.product-lightbox__nav--next');
+    var lightboxClose = lightbox.querySelector('.product-lightbox__close');
+    var several = slides.length > 1;
+    lightboxPrev.hidden = !several;
+    lightboxNext.hidden = !several;
+
+    var paint = function paint() {
+      var slide = slides[index];
+      stageImg.src = slide.src;
+      stageImg.alt = slide.alt;
+      thumbs.forEach(function (thumb, thumbIndex) {
+        var active = thumbIndex === index;
+        thumb.classList.toggle('is-active', active);
+        thumb.setAttribute('aria-pressed', active ? 'true' : 'false');
+        if (active) thumb.scrollIntoView({
+          block: 'nearest',
+          inline: 'nearest'
+        });
+      });
+      if (lightbox.hidden) return;
+      lightboxImg.src = slide.src;
+      lightboxImg.alt = slide.alt;
+    };
+
+    var show = function show(nextIndex) {
+      var total = slides.length;
+      index = (nextIndex + total) % total;
+      paint();
+    };
+
+    var closeLightbox = function closeLightbox() {
+      lightbox.hidden = true;
+      document.body.classList.remove('product-lightbox-open');
+      if (opener) opener.focus();
+    };
+
+    var openLightbox = function openLightbox(trigger) {
+      opener = trigger || zoom;
+      lightbox.hidden = false;
+      document.body.classList.add('product-lightbox-open');
+      paint();
+      lightboxClose.focus();
+    };
+
+    if (prev) prev.addEventListener('click', function () {
+      return show(index - 1);
+    });
+    if (next) next.addEventListener('click', function () {
+      return show(index + 1);
+    });
+    thumbs.forEach(function (thumb, thumbIndex) {
+      thumb.addEventListener('click', function () {
+        return show(thumbIndex);
+      });
+    });
+    if (zoom) zoom.addEventListener('click', function () {
+      return openLightbox(zoom);
+    });
+    stageImg.addEventListener('click', function () {
+      return openLightbox(zoom || stageImg);
+    });
+    root.addEventListener('keydown', function (event) {
+      if (lightbox.hidden === false) return;
+
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        show(index - 1);
+      }
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(index + 1);
+      }
+    });
+
+    if (!lightbox.dataset.bound) {
+      lightbox.dataset.bound = 'true';
+      lightbox.addEventListener('click', function (event) {
+        if (event.target.closest('button, img')) return;
+        closeLightbox();
+      });
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxPrev.addEventListener('click', function () {
+        return show(index - 1);
+      });
+      lightboxNext.addEventListener('click', function () {
+        return show(index + 1);
+      });
+      document.addEventListener('keydown', function (event) {
+        if (lightbox.hidden) return;
+
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeLightbox();
+        }
+
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          show(index - 1);
+        }
+
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          show(index + 1);
+        }
+      });
+    }
+  };
+
+  document.querySelectorAll('.js-product-gallery').forEach(initSeedlingGallery); // Слайдеры в статьях: галерея и галерея с подписями
 
   document.querySelectorAll('.js-article-gallery, .js-article-gallery-captions').forEach(function (container) {
     if (container.closest('.article--product') && container.classList.contains('js-article-gallery-captions')) {

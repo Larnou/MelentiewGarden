@@ -34,17 +34,29 @@
   ]
 
   const CATALOG_KIND_CHIPS = [
-    { value: 'all', label: 'Все', types: '' },
-    { value: 'apple', label: 'Яблоня', types: 'seed decor' },
-    { value: 'pear', label: 'Груша', types: 'seed' },
-    { value: 'cherry', label: 'Вишня', types: 'stone' },
-    { value: 'plum', label: 'Слива', types: 'stone' },
-    { value: 'strawberry', label: 'Земляника', types: 'berry' },
-    { value: 'honeysuckle', label: 'Жимолость', types: 'berry' },
-    { value: 'raspberry', label: 'Малина', types: 'berry' },
-    { value: 'gooseberry', label: 'Крыжовник', types: 'berry' },
-    { value: 'currant', label: 'Смородина', types: 'berry' },
+    { value: 'all', label: 'Все', crumb: '', types: '' },
+    { value: 'apple', label: 'Яблоня', crumb: 'Яблони', types: 'seed decor' },
+    { value: 'pear', label: 'Груша', crumb: 'Груши', types: 'seed' },
+    { value: 'cherry', label: 'Вишня', crumb: 'Вишни', types: 'stone' },
+    { value: 'plum', label: 'Слива', crumb: 'Сливы', types: 'stone' },
+    { value: 'strawberry', label: 'Земляника', crumb: 'Земляника', types: 'berry' },
+    { value: 'honeysuckle', label: 'Жимолость', crumb: 'Жимолость', types: 'berry' },
+    { value: 'raspberry', label: 'Малина', crumb: 'Малина', types: 'berry' },
+    { value: 'gooseberry', label: 'Крыжовник', crumb: 'Крыжовник', types: 'berry' },
+    { value: 'currant', label: 'Смородина', crumb: 'Смородина', types: 'berry' },
   ]
+
+  const CATALOG_KIND_SLUGS = {
+    'Яблоня': 'apple',
+    'Груша': 'pear',
+    'Вишня': 'cherry',
+    'Слива': 'plum',
+    'Земляника': 'strawberry',
+    'Жимолость': 'honeysuckle',
+    'Малина': 'raspberry',
+    'Крыжовник': 'gooseberry',
+    'Смородина': 'currant',
+  }
 
   const CATALOG_SEASON_CHIPS = [
     { value: 'all', label: 'Все' },

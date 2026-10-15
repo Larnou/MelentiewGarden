@@ -1,18 +1,7 @@
 // Карточка саженца: каталог (h2) и сетка на главной (h3).
 mixin seedlingsCard(item, heading)
   - const Tag = heading || 'h2'
-  -
-    const kindSlug = {
-      'Яблоня': 'apple',
-      'Груша': 'pear',
-      'Вишня': 'cherry',
-      'Слива': 'plum',
-      'Земляника': 'strawberry',
-      'Жимолость': 'honeysuckle',
-      'Малина': 'raspberry',
-      'Крыжовник': 'gooseberry',
-      'Смородина': 'currant',
-    }[item.kind] || ''
+  - const kindSlug = CATALOG_KIND_SLUGS[item.kind] || ''
   a.seedlings-card(href=item.href data-tags=item.dataTags data-kind=kindSlug data-season=item.season)&attributes(attributes)
     img.seedlings-card__image(src=item.imageSrc alt=item.imageAlt)
     #{Tag}.seedlings-card__variety= item.variety

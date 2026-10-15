@@ -2,40 +2,60 @@ extends ../components/template_layout
 
 append variables
   -
-    pageTitle = 'Яблоня · Доместик Альба'
-    pageDescription = 'Осенний сорт яблони Доместик Альба: плоды до 45 г, зонтичная крона, зимостойкость и урожайность. Полукультурка.'
+    const seedling = {
+      "href": "domestik-alba.html",
+      "title": "Доместик Альба",
+      "lead": "Осенний сорт яблони Доместик Альба: плоды до 45 г, зонтичная крона, зимостойкость и урожайность. Полукультурка.",
+      "badges": [
+        "Осенний сорт",
+        "Зимостойкий"
+      ],
+      "specs": [
+        {
+          "icon": "fruit",
+          "title": "Плоды",
+          "text": "Массой до 45 г, хорошего вкуса. Мякоть плотная, сочная."
+        },
+        {
+          "icon": "calendar",
+          "title": "Созревание",
+          "text": "Созревают в конце августа — начале сентября."
+        },
+        {
+          "icon": "tree",
+          "title": "Дерево",
+          "text": "Среднерослое, с необычной зонтичной формой — ветви изгибаются и растут вниз."
+        },
+        {
+          "icon": "shield",
+          "title": "Устойчивость",
+          "text": "Сорт зимостойкий, урожайный."
+        }
+      ],
+      "meta": "Полукультурка",
+      "about": [
+        "Доместик Альба — осенний сорт. Плоды массой до 45 г, хорошего вкуса. Мякоть плотная, сочная.",
+        "Дерево среднерослое, с необычной зонтичной формой — ветви изгибаются и растут вниз. Созревают в конце августа — начале сентября.",
+        "Сорт зимостойкий, урожайный."
+      ],
+      "slides": [
+        {
+          "src": "img/pages/catalog/domestik-alba/da1.jpg",
+          "alt": "Доместик Альба"
+        },
+        {
+          "src": "img/pages/catalog/domestik-alba/da2.jpg",
+          "alt": "Доместик Альба"
+        },
+        {
+          "src": "img/pages/catalog/domestik-alba/da3.jpg",
+          "alt": "Доместик Альба"
+        }
+      ]
+    }
+    pageTitle = "Яблоня · Доместик Альба"
+    pageDescription = "Осенний сорт яблони Доместик Альба: плоды до 45 г, зонтичная крона, зимостойкость и урожайность. Полукультурка."
     main = { class: 'main--article' }
 
 prepend mainContent
-
-  section.article.article--product
-    .article__container
-      a.article__back(href="../catalog.html") ← Назад к каталогу
-
-      h1.article__title Яблоня · Доместик Альба
-
-      p.article__meta Полукультурка
-
-      +articleBlockHeadingText('Характеристики')
-      +productSpecs()
-        +productSpec('season', 'Сезон')
-          | Осенний сорт.
-        +productSpec('fruit', 'Плоды')
-          | Массой до 45 г, хорошего вкуса. Мякоть плотная, сочная.
-        +productSpec('calendar', 'Созревание')
-          | Созревают в конце августа — начале сентября.
-        +productSpec('tree', 'Дерево')
-          | Среднерослое, с необычной зонтичной формой — ветви изгибаются и растут вниз.
-        +productSpec('shield', 'Устойчивость')
-          | Сорт зимостойкий, урожайный.
-
-      +articleBlockSliderCaptions()
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/domestik-alba/da1.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/domestik-alba/da2.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/domestik-alba/da3.jpg' alt="")
-          p.article-block__slide-caption
+  +seedlingPage(seedling)

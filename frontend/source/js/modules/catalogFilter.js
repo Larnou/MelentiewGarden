@@ -45,9 +45,12 @@ export default () => {
 
   const items = Array.from(document.querySelectorAll('.seedlings-card'));
   const empty = document.querySelector('.js-catalog-empty');
+  const reset = document.querySelector('.js-catalog-reset');
   if (!items.length) return;
 
-  const urlType = TYPE_FROM_URL[new URLSearchParams(window.location.search).get('tag') || ''];
+  const params = new URLSearchParams(window.location.search);
+  const urlType = TYPE_FROM_URL[params.get('tag') || ''];
+  const urlKind = params.get('kind') || '';
   const filters = new Map();
 
   groups.forEach((group) => {
@@ -62,6 +65,9 @@ export default () => {
     const active = new Set();
     if (name === 'type' && urlType && choices.some((choice) => choice.dataset.value === urlType)) {
       active.add(urlType);
+    }
+    if (name === 'kind' && urlKind && choices.some((choice) => choice.dataset.value === urlKind)) {
+      active.add(urlKind);
     }
     if (!active.size) active.add('all');
 
@@ -154,6 +160,19 @@ export default () => {
     });
 
     if (empty) empty.hidden = shown > 0;
+    if (reset) {
+      reset.hidden = !Array.from(filters.values()).some(
+        (filter) => Array.from(filter.active).some((value) => value !== 'all'),
+      );
+    }
+  };
+
+  const clearFilterUrl = () => {
+    const url = new URL(window.location.href);
+    ['tag', 'kind', 'season'].forEach((key) => url.searchParams.delete(key));
+    const next = `${url.pathname}${url.search}${url.hash}`;
+    const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (next !== current) window.history.replaceState(null, '', next);
   };
 
   filters.forEach((filter) => {
@@ -242,6 +261,17 @@ export default () => {
     if (event.key !== 'Escape') return;
     filters.forEach((filter) => closeMenu(filter));
   });
+
+  if (reset) {
+    reset.addEventListener('click', () => {
+      filters.forEach((filter) => {
+        choose(filter, 'all');
+        closeMenu(filter);
+      });
+      clearFilterUrl();
+      paint();
+    });
+  }
 
   paint();
 };

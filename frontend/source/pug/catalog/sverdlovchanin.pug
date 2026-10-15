@@ -2,35 +2,55 @@ extends ../components/template_layout
 
 append variables
   -
-    pageTitle = 'Яблоня · Свердловчанин'
-    pageDescription = 'Зимний сорт яблони Свердловчанин: плоды 100–130 г, хранение до марта, стланцевая форма, укрытие на зиму.'
+    const seedling = {
+      "href": "sverdlovchanin.html",
+      "title": "Свердловчанин",
+      "lead": "Зимний сорт яблони Свердловчанин: плоды 100–130 г, хранение до марта, стланцевая форма, укрытие на зиму.",
+      "badges": [
+        "Зимний сорт",
+        "Стланец"
+      ],
+      "specs": [
+        {
+          "icon": "fruit",
+          "title": "Плоды",
+          "text": "Массой 100–130 г, зеленовато-жёлтые, хорошего вкуса. Мякоть плотная, мелкозернистая, сочная."
+        },
+        {
+          "icon": "calendar",
+          "title": "Созревание",
+          "text": "Созревают в начале сентября, пригодны для длительного хранения — до марта."
+        },
+        {
+          "icon": "tree",
+          "title": "Дерево",
+          "text": "Невысокое, так как необходимо формировать его в стланцевой форме."
+        },
+        {
+          "icon": "shield",
+          "title": "Устойчивость",
+          "text": "Сорт урожайный, зимует под укрытием."
+        }
+      ],
+      "about": [
+        "Свердловчанин — зимний сорт. Плоды массой 100–130 г, зеленовато-жёлтые, хорошего вкуса. Мякоть плотная, мелкозернистая, сочная.",
+        "Дерево невысокое, так как необходимо формировать его в стланцевой форме. Созревают в начале сентября, пригодны для длительного хранения — до марта.",
+        "Сорт урожайный, зимует под укрытием."
+      ],
+      "slides": [
+        {
+          "src": "img/pages/catalog/sverdlovchanin/sv1.jpg",
+          "alt": "Свердловчанин"
+        },
+        {
+          "src": "img/pages/catalog/sverdlovchanin/sv2.jpg",
+          "alt": "Свердловчанин"
+        }
+      ]
+    }
+    pageTitle = "Яблоня · Свердловчанин"
+    pageDescription = "Зимний сорт яблони Свердловчанин: плоды 100–130 г, хранение до марта, стланцевая форма, укрытие на зиму."
     main = { class: 'main--article' }
 
 prepend mainContent
-
-  section.article.article--product
-    .article__container
-      a.article__back(href="../catalog.html") ← Назад к каталогу
-
-      h1.article__title Яблоня · Свердловчанин
-
-      +articleBlockHeadingText('Характеристики')
-      +productSpecs()
-        +productSpec('season', 'Сезон')
-          | Зимний сорт.
-        +productSpec('fruit', 'Плоды')
-          | Массой 100–130 г, зеленовато-жёлтые, хорошего вкуса. Мякоть плотная, мелкозернистая, сочная.
-        +productSpec('calendar', 'Созревание')
-          | Созревают в начале сентября, пригодны для длительного хранения — до марта.
-        +productSpec('tree', 'Дерево')
-          | Невысокое, так как необходимо формировать его в стланцевой форме.
-        +productSpec('shield', 'Устойчивость')
-          | Сорт урожайный, зимует под укрытием.
-
-      +articleBlockSliderCaptions()
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/sverdlovchanin/sv1.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/sverdlovchanin/sv2.jpg' alt="")
-          p.article-block__slide-caption
+  +seedlingPage(seedling)

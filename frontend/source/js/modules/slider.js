@@ -168,6 +168,156 @@ export default () => {
     show(0);
   };
 
+  const chevron = (direction) => {
+    const path = direction === 'prev' ? 'M10 3 5 8l5 5' : 'M6 3l5 5-5 5';
+    return `
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="${path}" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    `;
+  };
+
+  const ensureLightbox = () => {
+    let lightbox = document.querySelector('.product-lightbox');
+    if (lightbox) return lightbox;
+
+    lightbox = document.createElement('div');
+    lightbox.className = 'product-lightbox';
+    lightbox.hidden = true;
+    lightbox.innerHTML = `
+      <div class="product-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Фото сорта">
+        <button class="product-lightbox__close" type="button" aria-label="Закрыть">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3.5 3.5 12.5 12.5M12.5 3.5 3.5 12.5"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+        </button>
+        <button class="product-lightbox__nav product-lightbox__nav--prev" type="button"
+          aria-label="Предыдущее фото">${chevron('prev')}</button>
+        <img class="product-lightbox__image" alt="">
+        <button class="product-lightbox__nav product-lightbox__nav--next" type="button"
+          aria-label="Следующее фото">${chevron('next')}</button>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+    return lightbox;
+  };
+
+  const initSeedlingGallery = (root) => {
+    const stageImg = root.querySelector('.product__stage-image');
+    const thumbs = Array.from(root.querySelectorAll('.product__thumb'));
+    const prev = root.querySelector('.product__nav--prev');
+    const next = root.querySelector('.product__nav--next');
+    const zoom = root.querySelector('.product__zoom');
+    if (!stageImg) return;
+
+    const slides = thumbs.length
+      ? thumbs.map((thumb) => ({
+        src: thumb.dataset.src || '',
+        alt: thumb.dataset.alt || '',
+      }))
+      : [{
+        src: stageImg.getAttribute('src') || '',
+        alt: stageImg.getAttribute('alt') || '',
+      }];
+
+    let index = 0;
+    let opener = null;
+    const lightbox = ensureLightbox();
+    const lightboxImg = lightbox.querySelector('.product-lightbox__image');
+    const lightboxPrev = lightbox.querySelector('.product-lightbox__nav--prev');
+    const lightboxNext = lightbox.querySelector('.product-lightbox__nav--next');
+    const lightboxClose = lightbox.querySelector('.product-lightbox__close');
+    const several = slides.length > 1;
+
+    lightboxPrev.hidden = !several;
+    lightboxNext.hidden = !several;
+
+    const paint = () => {
+      const slide = slides[index];
+      stageImg.src = slide.src;
+      stageImg.alt = slide.alt;
+      thumbs.forEach((thumb, thumbIndex) => {
+        const active = thumbIndex === index;
+        thumb.classList.toggle('is-active', active);
+        thumb.setAttribute('aria-pressed', active ? 'true' : 'false');
+        if (active) thumb.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      });
+      if (lightbox.hidden) return;
+      lightboxImg.src = slide.src;
+      lightboxImg.alt = slide.alt;
+    };
+
+    const show = (nextIndex) => {
+      const total = slides.length;
+      index = (nextIndex + total) % total;
+      paint();
+    };
+
+    const closeLightbox = () => {
+      lightbox.hidden = true;
+      document.body.classList.remove('product-lightbox-open');
+      if (opener) opener.focus();
+    };
+
+    const openLightbox = (trigger) => {
+      opener = trigger || zoom;
+      lightbox.hidden = false;
+      document.body.classList.add('product-lightbox-open');
+      paint();
+      lightboxClose.focus();
+    };
+
+    if (prev) prev.addEventListener('click', () => show(index - 1));
+    if (next) next.addEventListener('click', () => show(index + 1));
+    thumbs.forEach((thumb, thumbIndex) => {
+      thumb.addEventListener('click', () => show(thumbIndex));
+    });
+    if (zoom) zoom.addEventListener('click', () => openLightbox(zoom));
+    stageImg.addEventListener('click', () => openLightbox(zoom || stageImg));
+
+    root.addEventListener('keydown', (event) => {
+      if (lightbox.hidden === false) return;
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        show(index - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(index + 1);
+      }
+    });
+
+    if (!lightbox.dataset.bound) {
+      lightbox.dataset.bound = 'true';
+      lightbox.addEventListener('click', (event) => {
+        if (event.target.closest('button, img')) return;
+        closeLightbox();
+      });
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxPrev.addEventListener('click', () => show(index - 1));
+      lightboxNext.addEventListener('click', () => show(index + 1));
+      document.addEventListener('keydown', (event) => {
+        if (lightbox.hidden) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeLightbox();
+        }
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          show(index - 1);
+        }
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          show(index + 1);
+        }
+      });
+    }
+  };
+
+  document.querySelectorAll('.js-product-gallery').forEach(initSeedlingGallery);
+
   // Слайдеры в статьях: галерея и галерея с подписями
   document.querySelectorAll('.js-article-gallery, .js-article-gallery-captions').forEach((container) => {
     if (container.closest('.article--product') && container.classList.contains('js-article-gallery-captions')) {

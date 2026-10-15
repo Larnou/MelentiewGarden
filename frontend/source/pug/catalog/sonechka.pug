@@ -2,44 +2,61 @@ extends ../components/template_layout
 
 append variables
   -
-    pageTitle = 'Яблоня · Сонечка (155-7-6)'
-    pageDescription = 'Летний сорт яблони Сонечка, 155-7-6: плоды 40–45 г, сладкий вкус, урожайность и зимостойкость. Селекция Т.Ф. Корниенко (Барнаул).'
+    const seedling = {
+      "href": "sonechka.html",
+      "title": "Сонечка",
+      "lead": "Летний сорт яблони Сонечка, 155-7-6: плоды 40–45 г, сладкий вкус, урожайность и зимостойкость. Селекция Т.Ф. Корниенко (Барнаул).",
+      "badges": [
+        "Летний сорт",
+        "Зимостойкий"
+      ],
+      "specs": [
+        {
+          "icon": "fruit",
+          "title": "Плоды",
+          "text": "Массой 40–45 г, красивые, румяные, сладкого вкуса. Мякоть сочная, не крахмалится."
+        },
+        {
+          "icon": "calendar",
+          "title": "Созревание",
+          "text": "Созревают в августе."
+        },
+        {
+          "icon": "tree",
+          "title": "Дерево",
+          "text": "Среднерослое."
+        },
+        {
+          "icon": "shield",
+          "title": "Устойчивость",
+          "text": "Сорт зимостойкий, урожайный."
+        }
+      ],
+      "meta": "155-7-6",
+      "note": "Селекция Т.Ф. Корниенко (Барнаул).",
+      "about": [
+        "Сонечка — летний сорт. Плоды массой 40–45 г, красивые, румяные, сладкого вкуса. Мякоть сочная, не крахмалится.",
+        "Дерево среднерослое. Созревают в августе.",
+        "Сорт зимостойкий, урожайный."
+      ],
+      "slides": [
+        {
+          "src": "img/pages/catalog/sonechka/s1.jpg",
+          "alt": "Сонечка"
+        },
+        {
+          "src": "img/pages/catalog/sonechka/s2.jpg",
+          "alt": "Сонечка"
+        },
+        {
+          "src": "img/pages/catalog/sonechka/s3.jpg",
+          "alt": "Сонечка"
+        }
+      ]
+    }
+    pageTitle = "Яблоня · Сонечка (155-7-6)"
+    pageDescription = "Летний сорт яблони Сонечка, 155-7-6: плоды 40–45 г, сладкий вкус, урожайность и зимостойкость. Селекция Т.Ф. Корниенко (Барнаул)."
     main = { class: 'main--article' }
 
 prepend mainContent
-
-  section.article.article--product
-    .article__container
-      a.article__back(href="../catalog.html") ← Назад к каталогу
-
-      h1.article__title Яблоня · Сонечка
-
-      p.article__meta 155-7-6
-
-      +articleBlockHeadingText('Характеристики')
-      +productSpecs()
-        +productSpec('season', 'Сезон')
-          | Летний сорт.
-        +productSpec('fruit', 'Плоды')
-          | Массой 40–45 г, красивые, румяные, сладкого вкуса. Мякоть сочная, не крахмалится.
-        +productSpec('calendar', 'Созревание')
-          | Созревают в августе.
-        +productSpec('tree', 'Дерево')
-          | Среднерослое.
-        +productSpec('shield', 'Устойчивость')
-          | Сорт зимостойкий, урожайный.
-
-      +articleBlockText()
-        p
-          | Селекция Т.Ф. Корниенко (Барнаул).
-
-      +articleBlockSliderCaptions()
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/sonechka/s1.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/sonechka/s2.jpg' alt="")
-          p.article-block__slide-caption
-        .article-block__slide.swiper-slide
-          img(src='img/pages/catalog/sonechka/s3.jpg' alt="")
-          p.article-block__slide-caption
+  +seedlingPage(seedling)
